@@ -31,7 +31,6 @@ async function getData(subcategory){
     return data
 
   } catch (error) {
-     console.error("Error while fetching the data", error);
     return {
       props: {
         error: true,

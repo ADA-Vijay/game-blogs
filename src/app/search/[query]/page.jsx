@@ -4,7 +4,6 @@ import ListingPage from "@/components/listing/listing";
 
 
 async function getData(query) {
-  console.log(query);
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
 
   try {
@@ -12,12 +11,10 @@ async function getData(query) {
       const response = await fetch(`${ApiUrl}posts?search=${query}&per_page=10&_embed`);
       const initialData = await response.json();
       
-      console.log("initial data", initialData);
 
       return initialData;
     }
   } catch (err) {
-    console.error('Something went wrong while fetching the data', err);
   }
 }
 
