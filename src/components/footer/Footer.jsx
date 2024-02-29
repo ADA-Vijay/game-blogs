@@ -25,7 +25,7 @@ function Footer() {
             </div>
             <div className={styles.footerContentItem}>
               <div></div>
-              <div className={styles.footerInstagram}>
+              {/* <div className={styles.footerInstagram}>
                 <div className={styles.footerLinkTitle}>Instagram</div>
                 <div className={styles.footerMediaImg}>
                   <ul>
@@ -49,7 +49,8 @@ function Footer() {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
+              <div></div>
               <div className={styles.footerNewsletter}>
                 <div className={styles.footerLinkTitle}>Newsletter</div>
                 <div className={styles.footerContent}>

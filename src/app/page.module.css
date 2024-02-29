@@ -106,6 +106,14 @@
   font-weight: 600;
 }
 
+@media screen and (max-width: 768px) {
+  .heroCardBox{
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 1.5rem;
+  }
+}
+
 /* promo */
 .promoWrap{
 
@@ -389,4 +397,22 @@
 
 .author-section{
  flex-direction: row !important;
+}
+@media screen and (max-width: 768px) {
+  .latestBody{
+    grid-template-columns: 100%;
+  }
+  .promoBox{
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.6rem;
+  }
+  .latestContent{
+    margin: 0;
+  }
+  /* .latestInfo p{
+    font-size: 1.7rem;
+  } */
+  .listingDetailsBody{
+    width: 100%;
+  }
 }

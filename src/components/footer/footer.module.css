@@ -104,3 +104,14 @@
   width: 100%;
   height: 100%;
 }
+@media screen and (max-width: 768px) {
+  .footerBody{
+    grid-template-columns: 100%;
+  }
+  .footerContentItem{
+    grid-template-columns: 100%;
+  }
+  .footerNewsletter{
+    margin-top: 2rem;
+  }
+}
