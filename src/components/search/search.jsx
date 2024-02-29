@@ -4,7 +4,9 @@ import React from "react";
 import styles from "@/components/navbar/navbar.module.css";
 import Form from "react-bootstrap/Form";
 import { useState,useEffect } from "react";
+import { useRouter } from "next/navigation";
 const search =  () => {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
@@ -15,6 +17,11 @@ const search =  () => {
             type="text"
             placeholder=""
             value={searchQuery}
+            onKeyDown={(e) => {
+              if(e.key == 'Enter' && e.target.value!=""){
+                  router.push("/search/" + searchQuery)
+                }
+            }}
             onChange={(e) => setSearchQuery(e.target.value)}
             aria-label="search"
           />
@@ -24,7 +31,9 @@ const search =  () => {
               searchQuery && searchQuery !== ""
                 ? "/search/" + searchQuery
                 : ""
+
             }
+            prefetch={true}
             aria-label="search"
           >
             <span className={styles.searchIcon}>

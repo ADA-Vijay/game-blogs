@@ -26,7 +26,6 @@ async function getData() {
       };
     }
   } catch (error) {
-    console.error("Error While Fetching the Data :", error);
     throw new Error("Failed to fetch data");
   }
 }

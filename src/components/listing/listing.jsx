@@ -30,12 +30,12 @@ const lisitng = ({ newdata }) => {
                       alt="img"
                     />
                     <div className={styles.latestInfo} key={index}>
-                      <Link href={`${card._embedded["wp:term"][0][0].slug}`} prefetch={true}>
+                      <Link href={`/${card._embedded["wp:term"][0][0].slug}`} prefetch={true}>
                         <h6>{card._embedded["wp:term"][0][0].name}</h6>
                       </Link>
                       <Link
                         href={
-                          card._embedded["wp:term"][0][0].slug + "/" + card.slug
+                          "/"+card._embedded["wp:term"][0][0].slug + "/" + card.slug
                         }
                         key={index}
                         prefetch={true}
