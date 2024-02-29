@@ -28,7 +28,6 @@ async function getData(subcategory){
       ApiUrl + `posts?slug=${subcategory}&_embed`
     );
     const data = response.json();
-
     return data
 
   } catch (error) {
