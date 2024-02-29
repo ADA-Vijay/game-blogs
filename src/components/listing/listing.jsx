@@ -5,7 +5,6 @@ import Link from "next/link";
 
 const lisitng = ({ newdata }) => {
 
-console.log("Listing category",newdata)
   const formatDate = (isoDate) => {
     const options = { day: "2-digit", month: "long", year: "numeric" };
     const date = new Date(isoDate);

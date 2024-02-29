@@ -12,7 +12,6 @@ try {
 
       const initialData = response.json();
       if (initialData.length > 0) {
-        console.log(initialData)
         return initialData;
       }
     }

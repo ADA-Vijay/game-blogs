@@ -14,10 +14,7 @@ async function getData(category) {
       );
 
       const catgoryData = await categoryResponse.json();
-      console.log("categories",catgoryData)
       const categoryId = catgoryData[0].id;
-  
-  
        let initialData = [];
        if (categoryId) {
          const response = await fetch(
