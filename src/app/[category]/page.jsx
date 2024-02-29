@@ -1,13 +1,9 @@
 import React from "react";
 import styles from "@/app/page.module.css";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import HeroBanner from "@/components/heroBanner/heroBanner";
 import { Container } from "react-bootstrap";
- import { NextSeo } from "next-seo";
 import ListingPage from "@/components/listing/listing"
-import { Elsie_Swash_Caps } from "next/font/google";
 async function getData(category) {
     const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
     const categoryResponse = await fetch(
