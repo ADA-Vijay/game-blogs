@@ -1,5 +1,4 @@
 import HeroBanner from "@/components/heroBanner/heroBanner";
-import Container from "react-bootstrap/Container";
 import styles from "@/app/page.module.css";
 import ListingPage from "@/components/listing/listing";
 import Link from "next/link";
@@ -70,7 +69,7 @@ const Home = async () => {
       <main className="">
         <HeroBanner></HeroBanner>
         <div className={styles.promoWrap}>
-          <Container>
+          <div className={styles.container}>
             <div className={styles.promoBody}>
               <div className={styles.promoTitles}>
                 <h4>POPULAR CATEGORIES</h4>
@@ -104,15 +103,15 @@ const Home = async () => {
                   : ""}
               </div>
             </div>
-          </Container>
+          </div>
         </div>
 
-        <Container>
+        <div className={styles.container}>
           <div className={styles.promoTitles}>
             <h4>Latest</h4>
             <div className={styles.headingLine}></div>
           </div>
-        </Container>
+        </div>
         <ListingPage newdata={newdata} />
       </main>
     </>

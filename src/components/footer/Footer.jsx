@@ -1,16 +1,15 @@
-import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import styles from "@/components/footer/footer.module.css";
+import pageStyle from "../../app/page.module.css";
 
 function Footer() {
   return (
     <div className={styles.footerWrap}>
-        <Container>
+        <div className={pageStyle.container}>
           <div className={styles.footerBody}>
             <div className={styles.footerLogo}>
               <div className={styles.footerLogoImg}>
-                {/* <img src='' /> */}
-                <h4>your logo</h4>
+                <img src='https://fama.b-cdn.net/gw/gwlogo.png' />
               </div>
               <div className={styles.footerContent}>
                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
@@ -67,7 +66,7 @@ function Footer() {
               </div>
             </div>
           </div>
-        </Container>
+        </div>
     </div>
   );
 }
