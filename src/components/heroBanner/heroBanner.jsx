@@ -10,10 +10,6 @@ async function getData() {
   );
   const bannerData = await bannerResponse.json();
 
-  // if (!res.ok) {
-  //   throw new Error("Failed to fetch data");
-  // }
-
   return bannerData;
 }
 

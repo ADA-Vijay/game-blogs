@@ -32,7 +32,7 @@ async function getData(subcategory){
     return data
 
   } catch (error) {
-    // console.error("Error while fetching the data", error);
+     console.error("Error while fetching the data", error);
     return {
       props: {
         error: true,
@@ -79,9 +79,7 @@ const page = async({params}) => {
                     <div
                       id="overview%20of%20the%20hu-taos%20kit"
                       className={styles.subListingDetailsItem}
-                    //   ref={sectionRef}
                     >
-                      {/* Content with links goes here */}
                       <div
                         dangerouslySetInnerHTML={{
                           __html: data[0].content.rendered,
@@ -109,7 +107,6 @@ const page = async({params}) => {
             <div className={styles.trendingTopHead}>
               <div
                 className={styles.trendingTopTitle}
-                // onClick={scrollToSection}
               >
                 trending topics
               </div>

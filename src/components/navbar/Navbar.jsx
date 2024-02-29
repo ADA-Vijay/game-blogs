@@ -1,10 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import styles from "./navbar.module.css";
-
+import SearchComponent from "@/components/search/search"
 async function getData() {
   const res = await fetch("https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories", {
-    // cache: "no-store",
   });
 
   if (!res.ok) {
@@ -20,7 +19,6 @@ function organizeCategories(data) {
   const organizedList = [];
   const parentMap = {};
 
-  // Separate parents and children
   data.forEach(item => {
     if (item.parent === 0) {
       organizedList.push({
@@ -42,7 +40,6 @@ function organizeCategories(data) {
     }
   });
 
-  // Assign children to their respective parents
   organizedList.forEach(parent => {
     const children = parentMap[parent.id] || [];
     parent.children = children;
@@ -75,6 +72,7 @@ const Navbar =  async () => {
           </div>
         ))}
       </div>
+      <SearchComponent />
     </div>
   );
 };

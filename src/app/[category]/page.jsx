@@ -9,18 +9,6 @@ import { Container } from "react-bootstrap";
 import ListingPage from "@/components/listing/listing"
 async function getData(category) {
     const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
-
-    // const res = await fetch(`https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/posts?slug=${id}&_embed`, {
-    //   cache: "no-store",
-    // });
-  
-    // if (!res.ok) {
-    //   return notFound()
-    // }
-  
-    // return res.json();
-
-
     const categoryResponse = await fetch(
         `${ApiUrl}categories?slug=${category}`
       );
@@ -28,7 +16,6 @@ async function getData(category) {
       const catgoryData = await categoryResponse.json();
       console.log("categories",catgoryData)
       const categoryId = catgoryData[0].id;
-      // console.log("category id",categoryId)
   
   
        let initialData = [];
@@ -37,10 +24,8 @@ async function getData(category) {
            `${ApiUrl}posts?categories=${categoryId}&per_page=10&_embed`
          );
          const responseData = response.json()
-        //  console.log()
          initialData = responseData || [];
        }
-      //  console.log("initialData",initialData)
        return initialData
   
   }
