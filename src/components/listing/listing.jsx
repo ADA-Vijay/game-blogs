@@ -24,6 +24,7 @@ import Link from "next/link";
 const lisitng = ({ newdata }) => {
 //   const router = useRouter();
 //   const { category } = router.query;
+console.log("Listing category",newdata)
   const formatDate = (isoDate) => {
     const options = { day: "2-digit", month: "long", year: "numeric" };
     const date = new Date(isoDate);
@@ -55,7 +56,7 @@ const lisitng = ({ newdata }) => {
                       alt="img"
                     />
                     <div className={styles.latestInfo} key={index}>
-                      <Link href={`${card._embedded["wp:term"][0][0].slug}`}>
+                      <Link href={`${card._embedded["wp:term"][0][0].slug}`} prefetch={true}>
                         <h6>{card._embedded["wp:term"][0][0].name}</h6>
                       </Link>
                       <Link
@@ -63,6 +64,7 @@ const lisitng = ({ newdata }) => {
                           card._embedded["wp:term"][0][0].slug + "/" + card.slug
                         }
                         key={index}
+                        prefetch={true}
                       >
                         <p
                           dangerouslySetInnerHTML={{

@@ -36,12 +36,8 @@ import Link from "next/link";
 
 async function getData() {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
-
   const trendingId = 606508208;
-
   try {
- 
-
     const response = await fetch(
       ApiUrl + "posts?per_page=10&order=desc&orderby=date&_embed=1"
     );

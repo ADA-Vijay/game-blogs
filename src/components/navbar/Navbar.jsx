@@ -25,7 +25,7 @@ const Navbar =  async () => {
       </Link>
       <div className={styles.links}>
         {data.map((link) => (
-          <Link key={link.id} href={link.slug} className={styles.link}>
+          <Link key={link.id} href={`/${link.slug}`} className={styles.link} prefetch={true}>
             {link.name}
           </Link>
         ))}
