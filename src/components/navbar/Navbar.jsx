@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styles from "./navbar.module.css";
+import stylePage from "../../app/page.module.css";
 import SearchComponent from "@/components/search/search"
 async function getData() {
   const res = await fetch("https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories", {
@@ -52,27 +53,33 @@ const Navbar =  async () => {
   const data = await getData();
 
   return (
-    <div className={styles.container}>
-      <Link href="/" className={styles.logo}>
-        lamamia
-      </Link>
-      <div className={styles.links}>
-        {data.map((link) => (
-          <div>
-            <Link key={link.id} href={`/${link.slug}`} className={styles.link} prefetch={true}>
-            {link.name}
-          </Link>    
-          {link.children.map((child)=> (
-          <div>
-            <Link key={child.id} href={`/${child.slug}`} className={styles.link} prefetch={true}>
-            {child.name}
-          </Link>    
+    <div className={styles.headerWrap}>
+      <div className={stylePage.container}>
+        <div className={styles.navBody}>
+        <Link href="/" className={styles.logo}>
+          <img src="https://fama.b-cdn.net/gw/gwlogo.png"/>
+        </Link>
+        <div className={styles.navItems}>
+          <div className={styles.navLinks}>
+            {data.map((link) => (
+              <div className={styles.navItem}>
+                <Link key={link.id} href={`/${link.slug}`} className={styles.link} prefetch={true}>
+                  {link.name}
+                </Link>
+                <div className={styles.navItemList}>
+                  {link.children.map((child)=> (
+                    <Link key={child.id} href={`/${child.slug}`} className={styles.link} prefetch={true}>
+                    {child.name}
+                  </Link>
+                  ))}
+                </div>  
+              </div>
+            ))}
           </div>
-        ))}
-          </div>
-        ))}
+          <SearchComponent />
+        </div>
+        </div>
       </div>
-      <SearchComponent />
     </div>
   );
 };

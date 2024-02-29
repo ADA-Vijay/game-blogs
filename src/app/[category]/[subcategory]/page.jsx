@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from "@/app/page.module.css";
-import Container from "react-bootstrap/Container";
 
 
 const trendingTopData = [
@@ -48,7 +47,7 @@ const page = async({params}) => {
   };
   return (
     <div className={styles.latestWrap}>
-    <Container>
+    <div className={styles.container}>
       <div className={styles.listingDetailsWrap}>
         <div className={styles.latestBody}>
           <div className={styles.latestContent}>
@@ -122,7 +121,7 @@ const page = async({params}) => {
           </div>
         </div>
       </div>
-    </Container>
+    </div>
   </div>
   )
 }
