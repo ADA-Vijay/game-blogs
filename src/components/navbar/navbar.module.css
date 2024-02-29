@@ -153,7 +153,19 @@
 .mobSearchLink{
   display: none;
 }
+.DesktopLogo{
+  display: block;
+}
+.mobLogo{
+  display: none;
+}
 @media screen and (max-width: 768px) {
+  .DesktopLogo{
+    display: none;
+  }
+  .mobLogo{
+    display: block;
+  }
   .logo img{
     width: 155px;
     height: 85px;

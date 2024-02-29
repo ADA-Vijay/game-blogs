@@ -57,7 +57,8 @@ const Navbar =  async () => {
       <div className={stylePage.container}>
         <div className={styles.navBody}>
         <Link href="/" className={styles.logo}>
-          <img src="https://fama.b-cdn.net/gw/gwlogo.png"/>
+          <img className={styles.DesktopLogo} src="https://fama.b-cdn.net/gw/gwlogo.png"/>
+          <img className={styles.mobLogo} src="https://fama.b-cdn.net/gw/gwlogo.png"/>
         </Link>
         <div className={styles.navItems}>
           <div className={styles.navLinks}>
