@@ -13,7 +13,7 @@ const lisitng = ({ newdata }) => {
 
   return (
     <div className={styles.latestWrap}>
-      <Container>
+      <div className={styles.container}>
         <div className={styles.latestBody}>
           <div className={styles.latestContent}>
             <div className={styles.titleName}>{}</div>
@@ -66,7 +66,7 @@ const lisitng = ({ newdata }) => {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

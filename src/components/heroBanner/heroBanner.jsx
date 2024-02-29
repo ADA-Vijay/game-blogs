@@ -17,6 +17,8 @@ const HeroBanner = async () => {
   const bannerData = await getData()
   return (
     <div className={styles.heroCardWrap}>
+      <div className={styles.container}>
+
       <div className={styles.heroCardBody}>
         <div className={styles.heroCardBox}>
           {bannerData && bannerData.length > 0 ? (
@@ -41,6 +43,7 @@ const HeroBanner = async () => {
             <p>No data found</p>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

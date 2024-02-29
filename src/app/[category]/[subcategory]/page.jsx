@@ -80,74 +80,83 @@ const page = async ({ params }) => {
   }
   return (
     <div className={styles.latestWrap}>
-      <Container>
-        <div className={styles.listingDetailsWrap}>
-          <div className={styles.latestBody}>
-            <div className={styles.latestContent}>
-              <div className={styles.listingDetailsBody}>
-                <div className={styles.latestBox}>
-                  {data && data.length > 0 && (
-                    <>
+    <div className={styles.container}>
+      <div className={styles.listingDetailsWrap}>
+        <div className={styles.latestBody}>
+          <div className={styles.latestContent}>
+            <div className={styles.listingDetailsBody}>
+              <div className={styles.latestBox}>
+                {data && data.length > 0 ? (
+                  <>
+                    <div
+                      className={`${styles.listingDetailMainTitle} mb-4`}
+                      dangerouslySetInnerHTML={{
+                        __html: data[0].title.rendered,
+                      }}
+                    ></div>
+                    <div className={styles["author-section"]}>
+                      <h2 className="description">
+                        Author : {data[0]._embedded.author[0].name}
+                      </h2>
+                      <h2>Published On : {formatDate(data[0].date)}</h2>
+                    </div>
+                    <div className={styles.listingDetailMainImg}>
+                      <img
+                        src={data[0].jetpack_featured_media_url}
+                        alt="img"
+                      />
+                    </div>
+                    <div
+                      id="overview%20of%20the%20hu-taos%20kit"
+                      className={styles.subListingDetailsItem}
+                    >
                       <div
-                        className={`${styles.listingDetailMainTitle} mb-4`}
                         dangerouslySetInnerHTML={{
-                          __html: data[0].title.rendered,
+                          __html: data[0].content.rendered,
                         }}
                       ></div>
-                      <div className={styles["author-section"]}>
-                        <h2 className="description">
-                          Author : {data[0]._embedded.author[0].name}
-                        </h2>
-                        <h2>Published On : {formatDate(data[0].date)}</h2>
-                      </div>
-                      <div className={styles.listingDetailMainImg}>
-                        <img
-                          src={data[0].jetpack_featured_media_url}
-                          alt="img"
-                        />
-                      </div>
-                      <div
-                        id="overview%20of%20the%20hu-taos%20kit"
-                        className={styles.subListingDetailsItem}
-                      >
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: data[0].content.rendered,
-                          }}
-                        ></div>
-                      </div>
-                    </>
-                  )
-                  }
-                </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className={styles.heroCardBoxItem}>
+                    <h2 className="text-center">
+                      No Content found on {subcategory}
+                    </h2>
+                  </div>
+                )}
               </div>
             </div>
-            <div className={styles.trendingTopWrap}>
-              <div>
-                <img
-                  src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR4El1B5cOf9EjkuWgq4J_2RBIjo4jmzznJ8_3aMgezV3h3DJpE"
-                  alt="img"
-                />
+          </div>
+          <div className={styles.trendingTopWrap}>
+            <div>
+              <img
+                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR4El1B5cOf9EjkuWgq4J_2RBIjo4jmzznJ8_3aMgezV3h3DJpE"
+                alt="img"
+              />
+            </div>
+            <div className={styles.trendingTopHead}>
+              <div
+                className={styles.trendingTopTitle}
+              >
+                trending topics
               </div>
-              <div className={styles.trendingTopHead}>
-                <div className={styles.trendingTopTitle}>trending topics</div>
-                <div className={styles.trendingTopBody}>
-                  <ul>
-                    {trendingTopData.map((card, index) => (
-                      <li key={index}>
-                        <h4>{card.name}</h4>
-                        <p>{card.activeDate}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className={styles.trendingTopBody}>
+                <ul>
+                  {trendingTopData.map((card, index) => (
+                    <li key={index}>
+                      <h4>{card.name}</h4>
+                      <p>{card.activeDate}</p>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
-  );
-};
+  </div>
+  )
+}
 
 export default page;
