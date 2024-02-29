@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import HeroBanner from "@/components/heroBanner/heroBanner";
 import { Container } from "react-bootstrap";
- import { NextSeo } from "next-seo";
+//  import { NextSeo } from "next-seo";
 import ListingPage from "@/components/listing/listing"
 import { Elsie_Swash_Caps } from "next/font/google";
 async function getData(category) {
