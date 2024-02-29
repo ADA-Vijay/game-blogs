@@ -1,40 +1,45 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* @import '~bootstrap/dist/css/bootstrap.min.css'; */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+:root {
+  --headerBg: #000000;
+  --headerColor: #ffffff;
+  --headerSearchBg: #000000;
+  --headerSearchColor: #ffffff;
+  
+  --bodyBg: #ffffff;
+  --bodyColor: #212121;
+  --border-radius: 0px;
+  --font-family: "Archivo Black", sans-serif;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+html{
+  font-size: 62.5%;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+body{
+  font-size: 1.6rem;
+  color: var(--bodyColor);
+  background-color: var(--bodyBg);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-style: normal;
 }
 
-.theme{
-  transition: 1s all ease;
+.wp-block-image img{
+  height : 100% !important;
+  width: 100% !important;
+  overflow:hidden
 }
 
-.light {
-  background-color: white;
-  color: #111;
+
+.wp-block-uagb-image img{
+  height : 100% !important;
+  width: 100% !important;
+  overflow:hidden
 }
 
-.dark {
-  background-color: #111;
-  color: #bbb;
-}
 
-.container {
-  max-width: 1366px;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 0 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.description p{
+  font-size: 18px !important;
 }

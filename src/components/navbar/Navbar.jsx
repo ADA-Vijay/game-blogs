@@ -3,35 +3,20 @@ import Link from "next/link";
 import React from "react";
 import styles from "./navbar.module.css";
 
-const links = [
-  {
-    id: 1,
-    title: "Home",
-    url: "/",
-  },
-  {
-    id: 2,
-    title: "Portfolio",
-    url: "/portfolio",
-  },
-  {
-    id: 3,
-    title: "Blog",
-    url: "/blog",
-  },
-  {
-    id: 4,
-    title: "About",
-    url: "/about",
-  },
-  {
-    id: 5,
-    title: "Contact",
-    url: "/contact",
-  }
-];
+async function getData() {
+  const res = await fetch("https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories", {
+    // cache: "no-store",
+  });
 
-const Navbar = () => {
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+const Navbar =  async () => {
+  const data = await getData();
 
   return (
     <div className={styles.container}>
@@ -39,9 +24,9 @@ const Navbar = () => {
         lamamia
       </Link>
       <div className={styles.links}>
-        {links.map((link) => (
-          <Link key={link.id} href={link.url} className={styles.link}>
-            {link.title}
+        {data.map((link) => (
+          <Link key={link.id} href={link.slug} className={styles.link}>
+            {link.name}
           </Link>
         ))}
       </div>
