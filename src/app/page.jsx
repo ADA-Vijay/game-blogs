@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import styles from "@/app/page.module.css";
 import ListingPage from "@/components/listing/listing";
 import Link from "next/link";
+import Image from 'next/image'
 
 async function getData() {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
@@ -18,11 +19,11 @@ async function getData() {
     );
     const trendingPosts = await trending.json();
 
-    if ( trendingPosts) {
-      return { 
-         newdata,
+    if (trendingPosts) {
+      return {
+        newdata,
         trendingPosts
-         };
+      };
     }
   } catch (error) {
     console.error("Error While Fetching the Data :", error);
@@ -30,14 +31,14 @@ async function getData() {
   }
 }
 
- const  Home= async()=> {
-  const { newdata,trendingPosts } = await getData();
+const Home = async () => {
+  const { newdata, trendingPosts } = await getData();
 
   return (
     <>
       <main className="">
-          <HeroBanner></HeroBanner>
-         <div className={styles.promoWrap}>
+        <HeroBanner></HeroBanner>
+        <div className={styles.promoWrap}>
           <Container>
             <div className={styles.promoBody}>
               <div className={styles.promoTitles}>
@@ -47,25 +48,28 @@ async function getData() {
               <div className={styles.promoBox}>
                 {trendingPosts && trendingPosts.length > 0
                   ? trendingPosts.map((card, index) => (
-                      <Link
-                        key={index}
-                        prefetch= {true}
-                        href={`/${card._embedded["wp:term"][0][0].slug}/`}
-                      >
-                        <div className={styles.promoBoxItem} key={index}>
-                          <img
-                            className={styles.promoImg}
-                            src={card.jetpack_featured_media_url}
-                            alt="img"
-                          />
-                          <div className={styles.promoInfo} key={index}>
-                            <h4 className={styles.promoName}>
-                              {card._embedded["wp:term"][0][0].name}
-                            </h4>
-                          </div>
+                    <Link
+                      key={index}
+                      prefetch={true}
+                      href={`/${card._embedded["wp:term"][0][0].slug}/`}
+                    >
+                      <div className={styles.promoBoxItem} key={index}>
+                        <Image
+                          className={styles.promoImg}
+                          src={card.jetpack_featured_media_url}
+                          alt={card._embedded["wp:term"][0][0].name}
+                          loading="lazy"
+                          width={500}
+                          height={300}
+                        />
+                        <div className={styles.promoInfo} key={index}>
+                          <h4 className={styles.promoName}>
+                            {card._embedded["wp:term"][0][0].name}
+                          </h4>
                         </div>
-                      </Link>
-                    ))
+                      </div>
+                    </Link>
+                  ))
                   : ""}
               </div>
             </div>
@@ -78,7 +82,7 @@ async function getData() {
             <div className={styles.headingLine}></div>
           </div>
         </Container>
-        <ListingPage newdata={newdata} /> 
+        <ListingPage newdata={newdata} />
         {/* <Footer></Footer> */}
       </main>
     </>
