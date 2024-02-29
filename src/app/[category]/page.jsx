@@ -7,6 +7,7 @@ import HeroBanner from "@/components/heroBanner/heroBanner";
 import { Container } from "react-bootstrap";
  import { NextSeo } from "next-seo";
 import ListingPage from "@/components/listing/listing"
+import { Elsie_Swash_Caps } from "next/font/google";
 async function getData(category) {
     const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
     const categoryResponse = await fetch(
@@ -31,18 +32,35 @@ async function getData(category) {
   export async function generateMetadata({ params }) {
 
   const data = await getData(params.category)
-  return {
-     title: data[0].yoast_head_json.title,
-      description: data[0].yoast_head_json.description,
-      images: [
-        {
-          url: data[0].yoast_head_json.og_image[0].url,
-          height: 1200,
-          width: 600,
-          alt: "Alt",
-        },
-      ],
-  };
+  if(data && data.length > 0){
+    return {
+      title: data[0].yoast_head_json.title,
+       description: data[0].yoast_head_json.description,
+       images: [
+         {
+           url: data[0].yoast_head_json.og_image[0].url,
+           height: 1200,
+           width: 600,
+           alt: "Alt",
+         },
+       ],
+   };
+  }
+  // else{
+  //   return {
+  //     title: "GameWitted",
+  //      description: "Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
+  //      images: [
+  //        {
+  //          url: "https://fama.b-cdn.net/gw/gwlogo.png",
+  //          height: 1200,
+  //          width: 600,
+  //          alt: "Alt",
+  //        },
+  //      ],
+  //  };
+  // }
+
 }
 
 const Page = async({ params }) => {

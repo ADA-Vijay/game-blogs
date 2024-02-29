@@ -38,6 +38,41 @@ async function getData(subcategory){
     };
   }
 }
+
+
+export async function generateMetadata({ params }) {
+
+  const data = await getData(params.subcategory)
+  if(data && data.length > 0){
+    return {
+      title: data[0].yoast_head_json.title,
+       description: data[0].yoast_head_json.description,
+       images: [
+         {
+           url: data[0].yoast_head_json.og_image[0].url,
+           height: 1200,
+           width: 600,
+           alt: "Alt",
+         },
+       ],
+   };
+  }
+  // else{
+  //   return {
+  //     title: "GameWitted",
+  //      description: "Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
+  //      images: [
+  //        {
+  //          url: "https://fama.b-cdn.net/gw/gwlogo.png",
+  //          height: 1200,
+  //          width: 600,
+  //          alt: "Alt",
+  //        },
+  //      ],
+  //  };
+  // }
+
+}
 const page = async({params}) => {
    const subcategory = params.subcategory
    const data = await getData(subcategory) 

@@ -33,18 +33,33 @@ async function getData() {
 export async function generateMetadata({ params }) {
 
   const {newdata, trendingPosts} = await getData(params.query)
+  if(newdata && newdata.length > 0){
+  //   return {
+  //     title: newdata[0].yoast_head_json.title,
+  //      description: newdata[0].yoast_head_json.description,
+  //      images: [
+  //        {
+  //          url: newdata[0].yoast_head_json.og_image[0].url,
+  //          height: 1200,
+  //          width: 600,
+  //          alt: "Alt",
+  //        },
+  //      ],
+  //  };
   return {
-     title: newdata[0].yoast_head_json.title,
-      description: newdata[0].yoast_head_json.description,
-      images: [
-        {
-          url: newdata[0].yoast_head_json.og_image[0].url,
-          height: 1200,
-          width: 600,
-          alt: "Alt",
-        },
-      ],
-  };
+    title: "GameWitted",
+     description: "Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
+     images: [
+       {
+         url: "https://fama.b-cdn.net/gw/gwlogo.png",
+         height: 1200,
+         width: 600,
+         alt: "Alt",
+       },
+     ],
+ };
+  }
+
 }
 
 const Home = async () => {
