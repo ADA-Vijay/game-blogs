@@ -65,10 +65,10 @@ const Navbar =  async () => {
             <Link key={link.id} href={`/${link.slug}`} className={styles.link} prefetch={true}>
             {link.name}
           </Link>    
-          {link.children.map((link)=> (
+          {link.children.map((child)=> (
           <div>
-            <Link key={link.id} href={`/${link.slug}`} className={styles.link} prefetch={true}>
-            {link.name}
+            <Link key={child.id} href={`/${child.slug}`} className={styles.link} prefetch={true}>
+            {child.name}
           </Link>    
           </div>
         ))}

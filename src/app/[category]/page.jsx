@@ -28,7 +28,7 @@ async function getData(category) {
       const catgoryData = await categoryResponse.json();
       console.log("categories",catgoryData)
       const categoryId = catgoryData[0].id;
-      console.log("category id",categoryId)
+      // console.log("category id",categoryId)
   
   
        let initialData = [];
@@ -37,10 +37,10 @@ async function getData(category) {
            `${ApiUrl}posts?categories=${categoryId}&per_page=10&_embed`
          );
          const responseData = response.json()
-         console.log()
+        //  console.log()
          initialData = responseData || [];
        }
-       console.log("initialData",initialData)
+      //  console.log("initialData",initialData)
        return initialData
   
   }
