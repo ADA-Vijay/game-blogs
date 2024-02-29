@@ -30,6 +30,23 @@ async function getData() {
   }
 }
 
+export async function generateMetadata({ params }) {
+
+  const {newdata, trendingPosts} = await getData(params.query)
+  return {
+     title: newdata[0].yoast_head_json.title,
+      description: newdata[0].yoast_head_json.description,
+      images: [
+        {
+          url: newdata[0].yoast_head_json.og_image[0].url,
+          height: 1200,
+          width: 600,
+          alt: "Alt",
+        },
+      ],
+  };
+}
+
 const Home = async () => {
   const { newdata, trendingPosts } = await getData();
 
