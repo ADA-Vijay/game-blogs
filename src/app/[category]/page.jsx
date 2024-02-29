@@ -16,7 +16,6 @@ async function getData(category) {
 
       const catgoryData = await categoryResponse.json();
       if (!catgoryData || catgoryData.length === 0) {
-        // Handle the case when category data is not found
         return null;
       }
       const categoryId = catgoryData[0].id;
@@ -76,33 +75,6 @@ const Page = async({ params }) => {
   }
   return (
     <div>
-    {/* {data && data.length > 0 ? (
-      <NextSeo
-        title={data[0]._embedded["wp:term"][0][0].name}
-        description={data[0].yoast_head_json.og_description}
-        openGraph={{
-          title: data[0]._embedded["wp:term"][0][0].name,
-          description: data[0].yoast_head_json.og_description,
-          images: data[0].yoast_head_json.og_image,
-        }}
-      />
-    ) : (
-      <NextSeo
-      title="AshGamewitted"
-      description="Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms."
-      openGraph= {{
-        title:"AshGamewitted",
-        description:"Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
-        images :[
-          {
-            url:"",
-            width: 1200,
-            height: 630,
-            alt: 'AshGamewitted',
-          }
-        ]
-      }}
-    />      )} */}
      <div className={styles.latestWrap}>
       <Container>
           <HeroBanner></HeroBanner>

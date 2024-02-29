@@ -1,8 +1,6 @@
 import React from "react";
 import styles from "@/app/page.module.css";
 import Container from "react-bootstrap/Container";
-// import NotFound from "@/components/notFound/notFound";
-// import Notfound from "@/app/not-found"
  import { notFound } from "next/navigation";
 const trendingTopData = [
   {
@@ -120,11 +118,6 @@ const page = async ({ params }) => {
                       </div>
                     </>
                   )
-                  //  : (
-                  //   <div className={styles.heroCardBoxItem}>
-                  //     <Notfound />
-                  //   </div>
-                  // )
                   }
                 </div>
               </div>

@@ -61,11 +61,7 @@ const searchquery = async ({ params }) => {
     {data && data.length && (
       <ListingPage newdata={data} />
     ) 
-    // : (
-    //   <h2>No data found</h2>
-    // )
     }
-    {/* <><p>search</p></> */}
   </>
   );
 };

@@ -1,13 +1,6 @@
 import React from "react";
 import styles from "@/app/404.module.css";
 const pagenotfound = () => {
-    // const router = useRouter();
-
-    // const backToPrevious = (e) => {
-    //     e.preventDefault();
-    //     router.back();
-    // }
-
     return (
         <>
             <div className={`${styles["edgt-content"]}`}>

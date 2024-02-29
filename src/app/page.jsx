@@ -114,7 +114,6 @@ const Home = async () => {
           </div>
         </Container>
         <ListingPage newdata={newdata} />
-        {/* <Footer></Footer> */}
       </main>
     </>
   );
