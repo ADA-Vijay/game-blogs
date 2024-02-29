@@ -34,7 +34,7 @@ const lisitng = ({ newdata }) => {
                         <h6>{card._embedded["wp:term"][0][0].name}</h6>
                       </Link>
                       <Link
-                        href={
+                        href={"/"+
                           card._embedded["wp:term"][0][0].slug + "/" + card.slug
                         }
                         key={index}
