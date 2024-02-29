@@ -1,36 +1,6 @@
-// import Image from "next/image";
-// import styles from "./page.module.css";
-// import Hero from "public/hero.png";
-// import Button from "@/components/Button/Button";
-
-// export default function Home() {
-//   return (
-//     <div className={styles.container}>
-//       <div className={styles.item}>
-//         <h1 className={styles.title}>
-//           Better design for your digital products.
-//         </h1>
-//         <p className={styles.desc}>
-//           Turning your Idea into Reality. We bring together the teams from the
-//           global tech industry.
-//         </p>
-//         <Button url="/portfolio" text="See Our Works"/>
-//       </div>
-//       <div className={styles.item}>
-//         <Image src={Hero} alt="" className={styles.img} />
-//       </div>
-//     </div>
-//   );
-// }
-
-
-import { Inter } from "next/font/google";
-import Footer from "@/components/footer/Footer";
 import HeroBanner from "@/components/heroBanner/heroBanner";
 import Container from "react-bootstrap/Container";
 import styles from "@/app/page.module.css";
-// import axios from "axios";
-// import { NextSeo } from "next-seo";
 import ListingPage from "@/components/listing/listing";
 import Link from "next/link";
 
@@ -65,41 +35,6 @@ async function getData() {
 
   return (
     <>
-      {/* {newdata && newdata.length > 0 ? (
-        <NextSeo
-          title="Home | AshGamewitted"
-          description={newdata[0].yoast_head_json.og_description}
-          openGraph={{
-            title: "Home | AshGamewitted",
-            description: newdata[0].yoast_head_json.og_description,
-            images: [
-              {
-                url: newdata[0].yoast_head_json.og_image[0].url,
-                height: 1200,
-                width: 600,
-              },
-            ],
-          }}
-        />
-      ) : (
-        <NextSeo
-          title="AshGamewitted"
-          description="Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms."
-          openGraph= {{
-            title:"AshGamewitted",
-            description:"Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
-            images :[
-              {
-                url:"",
-                width: 1200,
-                height: 630,
-                alt: 'AshGamewitted',
-              }
-            ]
-          }}
-        />
-      )} */}
-
       <main className="">
           <HeroBanner></HeroBanner>
          <div className={styles.promoWrap}>
@@ -114,6 +49,7 @@ async function getData() {
                   ? trendingPosts.map((card, index) => (
                       <Link
                         key={index}
+                        prefetch= {true}
                         href={`/${card._embedded["wp:term"][0][0].slug}/`}
                       >
                         <div className={styles.promoBoxItem} key={index}>

@@ -1,10 +1,5 @@
 import styles from "@/app/page.module.css";
 import Link from "next/link";
-// import axios from "axios";
-
-
-
-
 
 async function getData() {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
@@ -22,7 +17,7 @@ async function getData() {
   return bannerData;
 }
 
-const  HeroBanner = async()=> {
+const HeroBanner = async () => {
   const bannerData = await getData()
   return (
     <div className={styles.heroCardWrap}>
@@ -32,20 +27,15 @@ const  HeroBanner = async()=> {
             bannerData.map((card, index) => (
               <Link
                 key={index}
+                prefetch={true}
                 href={`/${card._embedded["wp:term"][0][0].slug}/${card.slug}`}
               >
-                {/* style={`background: url(${card.jetpack_featured_media_url})`} */}
                 <div className={styles.heroCardBoxItem} style={{ background: `url(${card.jetpack_featured_media_url})` }}>
-                  {/* <img
-                    src={card.jetpack_featured_media_url}
-                    alt="hero images"
-                    className={styles.heroCardBoxItemImg}
-                  /> */}
                   <div className={styles.heroCardBoxItemInfo}>
                     <h6 className={styles.heroCardBoxItemBags}>
                       {card._embedded["wp:term"][0][0].name}
                     </h6>
-                    <h4 className={styles.heroCardBoxItemName} dangerouslySetInnerHTML={{__html:card.title.rendered}}>
+                    <h4 className={styles.heroCardBoxItemName} dangerouslySetInnerHTML={{ __html: card.title.rendered }}>
                     </h4>
                   </div>
                 </div>
