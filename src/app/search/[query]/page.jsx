@@ -9,9 +9,10 @@ const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
 try {
     if (query) {
       const response = await fetch(`${ApiUrl}posts?search=${query}&per_page=10&_embed`);
+
       const initialData = response.json();
       if (initialData.length > 0) {
-        console.log("initial data" ,initialData)
+        console.log(initialData)
         return initialData;
       }
     }
@@ -23,17 +24,15 @@ try {
 
 export async function generateMetadata({ params }) {
 
-  const post = await getData(params.id)
+  const post = await getData(params.query)
   return {
-    title: post[0].title.rendered,
+    // title: post[0].title.rendered,
     // description: post.desc,
   };
 }
 
 const searchquery = async ({ params }) => {
-    console.log("query",params.searchquery)
-  const data = await getData(params.searchquery);
-  console.log("data  " ,data)
+  const data = await getData(params.query);
   return (
     <>
     {/* {data && data.length ? (

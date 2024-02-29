@@ -57,7 +57,7 @@ const Home = async () => {
                         <Image
                           className={styles.promoImg}
                           src={card.jetpack_featured_media_url}
-                          alt={card._embedded["wp:term"][0][0].name}
+                          alt="Image"
                           loading="lazy"
                           width={500}
                           height={300}
