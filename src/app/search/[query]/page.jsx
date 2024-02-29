@@ -10,9 +10,7 @@ async function getData(query) {
     if (query) {
       const response = await fetch(`${ApiUrl}posts?search=${query}&per_page=10&_embed`);
       const initialData = await response.json();
-      
-
-      return initialData;
+      return initialData && initialData.length > 0 ? initialData : null;
     }
   } catch (err) {
   }
@@ -55,13 +53,18 @@ export async function generateMetadata({ params }) {
 
 const searchquery = async ({ params }) => {
   const data = await getData(params.query);
+  if(!data){
+    return notFound()
+  }
   return (
     <>
-    {data && data.length ? (
+    {data && data.length && (
       <ListingPage newdata={data} />
-    ) : (
-      <h2>No data found</h2>
-    )}
+    ) 
+    // : (
+    //   <h2>No data found</h2>
+    // )
+    }
     {/* <><p>search</p></> */}
   </>
   );

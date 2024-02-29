@@ -28,18 +28,11 @@ const pagenotfound = () => {
                                 />
                             </div>
                             <h5 className={styles["edgt-error-page-subtitle"]}>
-                                The page you are looking for no longer exists. Perhaps you can
+                                The page or content you are looking for no longer exists. Perhaps you can
                                 return back to the site's homepage and see if you can find what
                                 you are looking for.{" "}
                             </h5>
-                            <button
-                                // onClick={backToPrevious}
-                                className={`${styles["edgt-btn"]} ${styles["edgt-btn-white-outline"]} ${styles["edgt-btn-medium"]} ${styles["edgt-btn-custom-border-hover"]} ${styles["edgt-404-button"]} ${styles["edgt-btn-glow"]} ${styles["edgt-btn-with-animation"]} ${styles["edgt-btn-hover-black"]}`}
-                                data-hover-border-color="#fff"
-                            >
-                                {/* <span className="edgt-btn-text">Go Back</span> */}
-                                <span className="edgt-btn-helper"></span>
-                            </button>
+                           
                         </div>
                     </div>
                 </div>

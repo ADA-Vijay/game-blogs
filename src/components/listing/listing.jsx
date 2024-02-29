@@ -2,7 +2,7 @@ import React from "react";
 import styles from "@/app/page.module.css";
 import Container from "react-bootstrap/Container";
 import Link from "next/link";
-
+import NotFound from "@/components/notFound/notFound";
 const lisitng = ({ newdata }) => {
 
   const formatDate = (isoDate) => {
@@ -60,7 +60,7 @@ const lisitng = ({ newdata }) => {
                 ))
               ) : (
                 <>
-                  <p>No data found</p>
+                  <NotFound />
                 </>
               )}
             </div>

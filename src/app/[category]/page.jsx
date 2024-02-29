@@ -15,16 +15,20 @@ async function getData(category) {
       );
 
       const catgoryData = await categoryResponse.json();
+      if (!catgoryData || catgoryData.length === 0) {
+        // Handle the case when category data is not found
+        return null;
+      }
       const categoryId = catgoryData[0].id;
        let initialData = [];
        if (categoryId) {
          const response = await fetch(
            `${ApiUrl}posts?categories=${categoryId}&per_page=10&_embed`
          );
-         const responseData = response.json()
-         initialData = responseData || [];
+         const initialData = await response.json()
+         return initialData && initialData.length > 0 ? initialData : null;
+
        }
-       return initialData
   
   }
 
@@ -67,7 +71,9 @@ const Page = async({ params }) => {
 
     const category = params.category
     const data = await  getData(category)
-
+ if(!data){
+    return notFound()
+  }
   return (
     <div>
     {/* {data && data.length > 0 ? (
