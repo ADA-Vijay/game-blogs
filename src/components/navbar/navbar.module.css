@@ -29,6 +29,7 @@
 }
 .navItems{
   display: flex;
+  align-items: center;
 }
 .navItem {
   margin-right: 1.5rem;
@@ -149,8 +150,57 @@
 }
 
 
+.mobSearchLink{
+  display: none;
+}
 @media screen and (max-width: 768px) {
   .logo img{
+    width: 155px;
+    height: 85px;
+  }
+  .mobSearchWrap{
+    display: block;
+  }
+  .mobSearchContent{
+    display: none;
+  }
+  .mobSearchLink{
+    display: block;
+  }
+  .mobSearchLink{
+    background-color: var(--headerSearchBg);
+    color: var(--headerSearchColor);
+    border-color: var(--headerSearchColor);
+    box-shadow: unset;
+    line-height: 1.5;
+  }
+  .mobSearchWrap:hover .mobSearchContent{
+    display: block;
+    position: absolute;
+    top: 100%;
+    z-index: 2;
+    left: 0;
+    right: 0;
     width: 100%;
+    padding: 10px;
+    background-color: #fff;
+  }
+  .headerWrap{
+    position: relative;
+  }
+  .searchHeaderWrap{
+    width: 100%;
+    margin: 0 !important;
+  }
+  .searchInput{
+    width: 100%;
+  }
+  .searchInput input{
+    height: 45px;
+    padding-left: 3.7rem;
+  }
+  .searchIcon{
+    top: 15px;
+    left: 15px;
   }
 }
