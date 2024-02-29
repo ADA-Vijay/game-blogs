@@ -47,12 +47,12 @@ const lisitng = ({ newdata }) => {
                         ></p>
                       </Link>
 
+                      
+                      <h5 className="description">
                       <span>
                         {formatDate(card.date)}
                         {/* {formatTime(card.date)} */}
-                      </span>
-                      <h5 className="description">
-                        Author : {card._embedded.author[0].name}
+                      </span> | {card._embedded.author[0].name}
                       </h5>
                    
                     </div>

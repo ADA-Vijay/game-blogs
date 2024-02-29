@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 :root, [data-bs-theme=light] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -165,7 +166,8 @@ hr {
   margin-bottom: .5rem;
   font-weight: 500;
   line-height: 1.2;
-  color: var(--bs-heading-color)
+  color: var(--bs-heading-color);
+  font-family: var(--font-family);
 }
 
 .h1,h1 {
@@ -215,10 +217,13 @@ hr {
 .h6,h6 {
   font-size: 1rem
 }
-
+a{
+  font-family: var(--font-family);
+}
 p {
   margin-top: 0;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
+  font-family: var(--font-family);
 }
 
 abbr[title] {

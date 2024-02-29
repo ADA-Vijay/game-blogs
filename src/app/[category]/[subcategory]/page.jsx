@@ -95,10 +95,7 @@ const page = async ({ params }) => {
                       }}
                     ></div>
                     <div className={styles["author-section"]}>
-                      <h2 className="description">
-                        Author : {data[0]._embedded.author[0].name}
-                      </h2>
-                      <h2>Published On : {formatDate(data[0].date)}</h2>
+                      <span className="description">{data[0]._embedded.author[0].name}&nbsp;|&nbsp;</span><span> Published: {formatDate(data[0].date)}</span>
                     </div>
                     <div className={styles.listingDetailMainImg}>
                       <img
@@ -127,7 +124,7 @@ const page = async ({ params }) => {
               </div>
             </div>
           </div>
-          <div className={styles.trendingTopWrap}>
+          {/* <div className={styles.trendingTopWrap}>
             <div>
               <img
                 src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR4El1B5cOf9EjkuWgq4J_2RBIjo4jmzznJ8_3aMgezV3h3DJpE"
@@ -151,7 +148,7 @@ const page = async ({ params }) => {
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

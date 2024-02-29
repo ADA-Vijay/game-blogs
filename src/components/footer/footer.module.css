@@ -23,6 +23,7 @@
 }
 .footerContent p{
   color: #b6b5b5;
+  display: none;
 }
 .footerLinkTitle{
   font-size: 2rem;
