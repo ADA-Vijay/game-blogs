@@ -18,7 +18,10 @@ async function getData(category) {
        let initialData = [];
        if (categoryId) {
          const response = await fetch(
-           `${ApiUrl}posts?categories=${categoryId}&per_page=10&_embed`
+           `${ApiUrl}posts?categories=${categoryId}&per_page=10&_embed`,
+           {
+             cache: "no-store",
+           }
          );
          const initialData = await response.json()
          return initialData && initialData.length > 0 ? initialData : null;

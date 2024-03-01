@@ -4,7 +4,10 @@ import styles from "./navbar.module.css";
 import stylePage from "../../app/page.module.css";
 import SearchComponent from "@/components/search/search"
 async function getData() {
-  const res = await fetch("https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories");
+  const res = await fetch("https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories",
+  {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
