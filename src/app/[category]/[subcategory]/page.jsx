@@ -24,9 +24,10 @@ async function getData(subcategory) {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
   try {
     const response = await fetch(ApiUrl + `posts?slug=${subcategory}&_embed`,
-    {
-      cache: "no-store",
-    });
+    // {
+    //   cache: "no-store",
+    // }
+    );
     const data = await response.json();
     return data && data.length > 0 ? data : null;
   } catch (error) {
