@@ -2,14 +2,17 @@ import HeroBanner from "@/components/heroBanner/heroBanner";
 import styles from "@/app/page.module.css";
 import ListingPage from "@/components/listing/listing";
 import Link from "next/link";
-import Image from 'next/image'
+import Image from "next/image";
 
 async function getData() {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
   const trendingId = 606508208;
   try {
     const response = await fetch(
-      ApiUrl + "posts?per_page=10&order=desc&orderby=date&_embed=1"
+      ApiUrl + "posts?per_page=10&order=desc&orderby=date&_embed=1",
+      {
+        cache: "no-store",
+      }
     );
     const newdata = await response.json();
 
@@ -21,7 +24,7 @@ async function getData() {
     if (trendingPosts) {
       return {
         newdata,
-        trendingPosts
+        trendingPosts,
       };
     }
   } catch (error) {
@@ -30,35 +33,34 @@ async function getData() {
 }
 
 export async function generateMetadata({ params }) {
-
-  const {newdata, trendingPosts} = await getData(params.query)
-  if(newdata && newdata.length > 0){
-  //   return {
-  //     title: newdata[0].yoast_head_json.title,
-  //      description: newdata[0].yoast_head_json.description,
-  //      images: [
-  //        {
-  //          url: newdata[0].yoast_head_json.og_image[0].url,
-  //          height: 1200,
-  //          width: 600,
-  //          alt: "Alt",
-  //        },
-  //      ],
-  //  };
-  return {
-    title: "GameWitted",
-     description: "Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
-     images: [
-       {
-         url: "https://fama.b-cdn.net/gw/gwlogo.png",
-         height: 1200,
-         width: 600,
-         alt: "Alt",
-       },
-     ],
- };
+  const { newdata, trendingPosts } = await getData(params.query);
+  if (newdata && newdata.length > 0) {
+    //   return {
+    //     title: newdata[0].yoast_head_json.title,
+    //      description: newdata[0].yoast_head_json.description,
+    //      images: [
+    //        {
+    //          url: newdata[0].yoast_head_json.og_image[0].url,
+    //          height: 1200,
+    //          width: 600,
+    //          alt: "Alt",
+    //        },
+    //      ],
+    //  };
+    return {
+      title: "GameWitted",
+      description:
+        "Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
+      images: [
+        {
+          url: "https://fama.b-cdn.net/gw/gwlogo.png",
+          height: 1200,
+          width: 600,
+          alt: "Alt",
+        },
+      ],
+    };
   }
-
 }
 
 const Home = async () => {
@@ -78,28 +80,28 @@ const Home = async () => {
               <div className={styles.promoBox}>
                 {trendingPosts && trendingPosts.length > 0
                   ? trendingPosts.map((card, index) => (
-                    <Link
-                      key={index}
-                      prefetch={true}
-                      href={`/${card._embedded["wp:term"][0][0].slug}/`}
-                    >
-                      <div className={styles.promoBoxItem} key={index}>
-                        <Image
-                          className={styles.promoImg}
-                          src={card.jetpack_featured_media_url}
-                          alt="Image"
-                          loading="lazy"
-                          width={500}
-                          height={300}
-                        />
-                        <div className={styles.promoInfo} key={index}>
-                          <h4 className={styles.promoName}>
-                            {card._embedded["wp:term"][0][0].name}
-                          </h4>
+                      <Link
+                        key={index}
+                        prefetch={true}
+                        href={`/${card._embedded["wp:term"][0][0].slug}/`}
+                      >
+                        <div className={styles.promoBoxItem} key={index}>
+                          <Image
+                            className={styles.promoImg}
+                            src={card.jetpack_featured_media_url}
+                            alt="Image"
+                            loading="lazy"
+                            width={500}
+                            height={300}
+                          />
+                          <div className={styles.promoInfo} key={index}>
+                            <h4 className={styles.promoName}>
+                              {card._embedded["wp:term"][0][0].name}
+                            </h4>
+                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  ))
+                      </Link>
+                    ))
                   : ""}
               </div>
             </div>
@@ -116,6 +118,6 @@ const Home = async () => {
       </main>
     </>
   );
-}
+};
 
-export default Home
+export default Home;
