@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/app/page.module.css";
 import Container from "react-bootstrap/Container";
- import { notFound } from "next/navigation";
+import { notFound } from "next/navigation";
 const trendingTopData = [
   {
     name: "Palworld Guide: How to Fain Your Base",
@@ -26,7 +26,6 @@ async function getData(subcategory) {
     const response = await fetch(ApiUrl + `posts?slug=${subcategory}&_embed`);
     const data = await response.json();
     return data && data.length > 0 ? data : null;
-
   } catch (error) {
     return {
       props: {
@@ -75,56 +74,77 @@ const page = async ({ params }) => {
     const date = new Date(isoDate);
     return date.toLocaleDateString("en-US", options);
   };
-  if(!data){
-    return notFound()
+  if (!data) {
+    return notFound();
+  }
+  const hash = params.hash;
+  let hashOffset = 0;
+
+  const scrollToSection = (sectionName) => {
+    const sectionElement = document.getElementById(sectionName);
+    if (sectionElement) {
+      const rect = sectionElement.getBoundingClientRect();
+      hashOffset = rect.top;
+      window.scrollTo({
+        top: window.scrollY + hashOffset,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Wait for layout to update and then scroll to the section
+  if (hash) {
+    setTimeout(() => {
+      scrollToSection(hash);
+    }, 0);
   }
   return (
     <div className={styles.latestWrap}>
-    <div className={styles.container}>
-      <div className={styles.listingDetailsWrap}>
-        <div className={styles.latestBody}>
-          <div className={styles.latestContent}>
-            <div className={styles.listingDetailsBody}>
-              <div className={styles.latestBox}>
-                {data && data.length > 0 ? (
-                  <>
-                    <div
-                      className={`${styles.listingDetailMainTitle} mb-4`}
-                      dangerouslySetInnerHTML={{
-                        __html: data[0].title.rendered,
-                      }}
-                    ></div>
-                    <div className={styles["author-section"]}>
-                      <span className="description">{data[0]._embedded.author[0].name}&nbsp;|&nbsp;</span><span> Published: {formatDate(data[0].date)}</span>
-                    </div>
-                    <div className={styles.listingDetailMainImg}>
-                      <img
-                        src={data[0].jetpack_featured_media_url}
-                        alt="img"
-                      />
-                    </div>
-                    <div
-                      id="overview%20of%20the%20hu-taos%20kit"
-                      className={styles.subListingDetailsItem}
-                    >
+      <div className={styles.container}>
+        <div className={styles.listingDetailsWrap}>
+          <div className={styles.latestBody}>
+            <div className={styles.latestContent}>
+              <div className={styles.listingDetailsBody}>
+                <div className={styles.latestBox}>
+                  {data && data.length > 0 ? (
+                    <>
                       <div
+                        className={`${styles.listingDetailMainTitle} mb-4`}
                         dangerouslySetInnerHTML={{
-                          __html: data[0].content.rendered,
+                          __html: data[0].title.rendered,
                         }}
                       ></div>
+                      <div className={styles["author-section"]}>
+                        <span className="description">
+                          {data[0]._embedded.author[0].name}&nbsp;|&nbsp;
+                        </span>
+                        <span> Published: {formatDate(data[0].date)}</span>
+                      </div>
+                      <div className={styles.listingDetailMainImg}>
+                        <img
+                          src={data[0].jetpack_featured_media_url}
+                          alt="img"
+                        />
+                      </div>
+                      <div id={hash} className={styles.subListingDetailsItem}>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: data[0].content.rendered,
+                          }}
+                        ></div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className={styles.heroCardBoxItem}>
+                      <h2 className="text-center">
+                        No Content found on {subcategory}
+                      </h2>
                     </div>
-                  </>
-                ) : (
-                  <div className={styles.heroCardBoxItem}>
-                    <h2 className="text-center">
-                      No Content found on {subcategory}
-                    </h2>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-          {/* <div className={styles.trendingTopWrap}>
+            {/* <div className={styles.trendingTopWrap}>
             <div>
               <img
                 src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR4El1B5cOf9EjkuWgq4J_2RBIjo4jmzznJ8_3aMgezV3h3DJpE"
@@ -149,11 +169,11 @@ const page = async ({ params }) => {
               </div>
             </div>
           </div> */}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
 export default page;
