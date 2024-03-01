@@ -9,6 +9,12 @@ async function getData(query) {
     if (query) {
       const response = await fetch(
         `${ApiUrl}posts?search=${query}&per_page=10&_embed`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
       );
       if (!response.ok) {
         throw new Error(`Failed to fetch data. Status: ${response.status}`);
