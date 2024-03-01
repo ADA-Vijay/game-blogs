@@ -9,12 +9,18 @@ async function getData(query) {
   try {
     if (query) {
       const response = await fetch(`${ApiUrl}posts?search=${query}&per_page=10&_embed`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data. Status: ${response.status}`);
+      }
       const initialData = await response.json();
       return initialData && initialData.length > 0 ? initialData : null;
     }
   } catch (err) {
+    console.error("Error fetching data:", err);
+    throw err; // rethrow the error to be caught elsewhere
   }
 }
+
 
  
 export async function generateMetadata({ params }) {
