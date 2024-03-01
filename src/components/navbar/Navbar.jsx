@@ -6,7 +6,7 @@ import SearchComponent from "@/components/search/search"
 async function getData() {
   const res = await fetch("https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories",
   // {
-  //   cache: "no-store",
+  //   next: {revalidate:30},
   // }
   );
 

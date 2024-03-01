@@ -11,7 +11,7 @@ async function getData() {
     const response = await fetch(
       ApiUrl + "posts?per_page=10&order=desc&orderby=date&_embed=1",
       {
-        cache: "no-store",
+        next: {revalidate:30},
       }
     );
     const newdata = await response.json();
