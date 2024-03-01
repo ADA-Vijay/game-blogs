@@ -9,7 +9,7 @@ function Footer() {
           <div className={styles.footerBody}>
             <div className={styles.footerLogo}>
               <div className={styles.footerLogoImg}>
-                <img src='https://fama.b-cdn.net/gw/gwlogo.png' />
+                <img src='https://fama.b-cdn.net/gw/gwlogo.png'  alt="logo"/>
               </div>
               <div className={styles.footerContent}>
                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
