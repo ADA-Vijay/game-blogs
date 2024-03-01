@@ -2,37 +2,49 @@ import React from "react";
 import { notFound } from "next/navigation";
 import ListingPage from "@/components/listing/listing";
 
-
 async function getData(query) {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
 
   try {
     if (query) {
-      const response = await fetch(`${ApiUrl}posts?search=${query}&per_page=10&_embed`);
+      const response = await fetch(
+        `${ApiUrl}posts?search=${query}&per_page=10&_embed`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data. Status: ${response.status}`);
+      }
       const initialData = await response.json();
       return initialData && initialData.length > 0 ? initialData : null;
     }
   } catch (err) {
+    console.error("Error fetching data:", err);
+    console.error("Server Components Error:", error);
+    console.log("Error Digest:", error.digest);
+    throw err; // rethrow the error to be caught elsewhere
   }
 }
 
- 
 export async function generateMetadata({ params }) {
-
-  const data = await getData(params.query)
-  if(data && data.length > 0){
+  const data = await getData(params.query);
+  if (data && data.length > 0) {
     return {
       title: data[0].yoast_head_json.title,
-       description: data[0].yoast_head_json.description,
-       images: [
-         {
-           url: data[0].yoast_head_json.og_image[0].url,
-           height: 1200,
-           width: 600,
-           alt: "Alt",
-         },
-       ],
-   };
+      description: data[0].yoast_head_json.description,
+      images: [
+        {
+          url: data[0].yoast_head_json.og_image[0].url,
+          height: 1200,
+          width: 600,
+          alt: "Alt",
+        },
+      ],
+    };
   }
   // else{
   //   return {
@@ -48,22 +60,14 @@ export async function generateMetadata({ params }) {
   //      ],
   //  };
   // }
-
 }
 
 const searchquery = async ({ params }) => {
   const data = await getData(params.query);
-  if(!data){
-    return notFound()
+  if (!data) {
+    return notFound();
   }
-  return (
-    <>
-    {data && data.length && (
-      <ListingPage newdata={data} />
-    ) 
-    }
-  </>
-  );
+  return <>{data && data.length && <ListingPage newdata={data} />}</>;
 };
 
 export default searchquery;
