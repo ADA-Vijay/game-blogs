@@ -14,6 +14,9 @@ async function getData(query) {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
+        },
+        {
+          next: {revalidate:30},
         }
       );
       if (!response.ok) {
