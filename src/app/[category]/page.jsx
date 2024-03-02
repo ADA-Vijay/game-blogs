@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import HeroBanner from "@/components/heroBanner/heroBanner";
 import { Container } from "react-bootstrap";
 import ListingPage from "@/components/listing/listing";
+import BreadCrumb from "@/components/breadCrumb/breadCrumb"
 async function getData(category) {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
   const categoryResponse = await fetch(`${ApiUrl}categories?slug=${category}`);
@@ -73,9 +74,14 @@ const Page = async ({ params }) => {
           <HeroBanner></HeroBanner>
         </Container>
       </div>
+      <BreadCrumb category={category} subcategory={""}></BreadCrumb>
       <ListingPage newdata={data} />
     </div>
   );
 };
 
 export default Page;
+
+
+
+

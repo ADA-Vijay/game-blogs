@@ -18,7 +18,6 @@ const HeroBanner = async () => {
   return (
     <div className={styles.heroCardWrap}>
       <div className={styles.container}>
-
       <div className={styles.heroCardBody}>
         <div className={styles.heroCardBox}>
           {bannerData && bannerData.length > 0 ? (

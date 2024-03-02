@@ -2,6 +2,7 @@ import React from "react";
 import styles from "@/app/page.module.css";
 import Container from "react-bootstrap/Container";
 import { notFound } from "next/navigation";
+import BreadCrumb from "@/components/breadCrumb/breadCrumb";
 const trendingTopData = [
   {
     name: "Palworld Guide: How to Fain Your Base",
@@ -73,6 +74,7 @@ export async function generateMetadata({ params }) {
   // }
 }
 const page = async ({ params }) => {
+  const category =params.category
   const subcategory = params.subcategory;
   const data = await getData(subcategory);
   const formatDate = (isoDate) => {
@@ -107,6 +109,7 @@ const page = async ({ params }) => {
   return (
     <div className={styles.latestWrap}>
       <div className={styles.container}>
+        <BreadCrumb category={category} subcategory={subcategory}/>
         <div className={styles.listingDetailsWrap}>
           <div className={styles.latestBody}>
             <div className={styles.latestContent}>
