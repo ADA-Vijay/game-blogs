@@ -45,14 +45,16 @@ export async function generateMetadata({ params }) {
     return {
       title: data[0].yoast_head_json.title,
       description: data[0].yoast_head_json.description,
-      images: [
-        {
-          url: data[0].yoast_head_json.og_image[0].url,
-          height: 1200,
-          width: 600,
-          alt: "Alt",
-        },
-      ],
+      openGraph: {
+        images: [
+          {
+            url: data[0].yoast_head_json.og_image[0].url,
+            height: 1200,
+            width: 600,
+            alt: "Alt",
+          },
+        ],      },
+  
     };
   }
   // else{
