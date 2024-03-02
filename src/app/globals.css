@@ -545,3 +545,12 @@ table img{
 .description p{
   font-size: 18px !important;
 }
+
+
+.breadcrumb {
+  display: flex;
+}
+
+.breadcrumb ul  li{
+  list-style: none;
+}

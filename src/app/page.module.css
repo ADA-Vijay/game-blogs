@@ -446,3 +446,24 @@
     width: 100%;
   }
 }
+
+.breadCrumb {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+.breadCrumb svg{
+  margin: 0px 0.75rem 0.2rem;
+    font-size: 1.3rem;
+}
+.breadCrumb a,
+.breadCrumb span{
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: 400;
+    font-family: sans-serif;
+}
+
+.breadCrumb span{
+  color: #7d581b;
+}
