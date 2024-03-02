@@ -388,10 +388,14 @@
   font-family: sans-serif;
   font-size: 1.8rem;
 }
+@media screen and (max-width: 768px) {
+  .subListingDetailsItem table img{
+    width: 100% !important;
+    height: 100%;
+  }
+}
 .subListingDetailsItem table img{
   margin: 0px !important;
-  width: 100%;
-  height: 100%;
 }
 .subListingDetailsItem h1.wp-block-heading,
 .subListingDetailsItem h1,
@@ -445,4 +449,34 @@
   .listingDetailsBody{
     width: 100%;
   }
+}
+
+.breadCrumb {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  padding: 1.6rem 0px;
+}
+.breadCrumb svg{
+  margin: 0px 0.75rem 0.2rem;
+    font-size: 1.3rem;
+}
+.breadCrumb a,
+.breadCrumb h4{
+  margin: 0;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: 400;
+    font-family: sans-serif;
+}
+.breadCrumb h4{
+  display: flex;
+    overflow: auto;
+}
+.breadCrumb span{
+  color: #7d581b;
+  white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
