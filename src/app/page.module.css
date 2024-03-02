@@ -455,19 +455,28 @@
   display: flex;
   align-items: center;
   font-size: 1.3rem;
+  padding: 1.6rem 0px;
 }
 .breadCrumb svg{
   margin: 0px 0.75rem 0.2rem;
     font-size: 1.3rem;
 }
 .breadCrumb a,
-.breadCrumb span{
+.breadCrumb h4{
+  margin: 0;
   font-size: 1.3rem;
   text-transform: uppercase;
   font-weight: 400;
     font-family: sans-serif;
 }
-
+.breadCrumb h4{
+  display: flex;
+    overflow: auto;
+}
 .breadCrumb span{
   color: #7d581b;
+  white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
