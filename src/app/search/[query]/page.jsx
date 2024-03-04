@@ -29,7 +29,7 @@ async function getData(query) {
     console.error("Error fetching data:", err);
     console.error("Server Components Error:", error);
     console.log("Error Digest:", error.digest);
-    throw err; // rethrow the error to be caught elsewhere
+    throw err;
   }
 }
 
