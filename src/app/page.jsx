@@ -3,7 +3,7 @@ import styles from "@/app/page.module.css";
 import ListingPage from "@/components/listing/listing";
 import Link from "next/link";
 import Image from "next/image";
-
+import Head from "next/head";
 async function getData() {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
   const trendingId = 606508208;
@@ -71,6 +71,9 @@ const Home = async () => {
 
   return (
     <>
+    <Head>
+    <meta />
+    </Head>
       <main className="">
         <HeroBanner></HeroBanner>
         <div className={styles.promoWrap}>
