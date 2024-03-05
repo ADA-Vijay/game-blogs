@@ -2,7 +2,7 @@ import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
-import Script from 'next/script';
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
         name="google-site-verification"
         content="RdxkhXckn9g6Sc2nHYDSF5_Y2fQ3VwWBpEq4ZS_Z2bg"
       />
-
+      <link href={"favicon.ico"} rel={"icon"} sizes="any" />
       <body className={inter.className}>
         <div className="container">
           <Navbar />
@@ -54,5 +54,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
-
