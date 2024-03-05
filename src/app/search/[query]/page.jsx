@@ -6,9 +6,10 @@ async function getData(query) {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
 
   try {
+    const url = `${ApiUrl}posts?search=${query}`
     if (query) {
       const response = await fetch(
-        `${ApiUrl}posts?search=${query}&per_page=10&_embed`,
+        `${url}&per_page=10&_embed`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -23,8 +24,10 @@ async function getData(query) {
         throw new Error(`Failed to fetch data. Status: ${response.status}`);
       }
       const initialData = await response.json();
-      return initialData && initialData.length > 0 ? initialData : null;
-    }
+      return {
+        data: initialData && initialData.length > 0 ? initialData : null,
+        url: url
+      };     }
   } catch (err) {
     console.error("Error fetching data:", err);
     console.error("Server Components Error:", error);
@@ -34,7 +37,7 @@ async function getData(query) {
 }
 
 export async function generateMetadata({ params }) {
-  const data = await getData(params.query);
+  const {data,url} = await getData(params.query);
   if (data && data.length > 0) {
     return {
       title: data[0].yoast_head_json.title,
@@ -66,11 +69,11 @@ export async function generateMetadata({ params }) {
 }
 
 const searchquery = async ({ params }) => {
-  const data = await getData(params.query);
+  const {data,url} = await getData(params.query);
   if (!data) {
     return notFound();
   }
-  return <>{data && data.length && <ListingPage newdata={data} />}</>;
+  return <>{data && data.length && <ListingPage newdata={data} apiUrl={url}/>}</>;
 };
 
 export default searchquery;
