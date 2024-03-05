@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
         name="google-site-verification"
         content="RdxkhXckn9g6Sc2nHYDSF5_Y2fQ3VwWBpEq4ZS_Z2bg"
       />
-      <link href={"favicon.ico"} rel={"icon"} sizes="any" />
+      <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
       <body className={inter.className}>
         <div className="container">
           <Navbar />
