@@ -74,7 +74,7 @@ const Page = async ({ params }) => {
     <div>
       <div className={styles.latestWrap}>
         <Container>
-          <HeroBanner></HeroBanner>
+          {/* <HeroBanner></HeroBanner> */}
         </Container>
       </div>
       <BreadCrumb category={category} subcategory={""}></BreadCrumb>
