@@ -73,6 +73,8 @@ const Home = async () => {
     <>
     <Head>
     <meta />
+    <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
+
     </Head>
       <main className="">
         <HeroBanner></HeroBanner>
