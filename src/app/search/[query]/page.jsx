@@ -30,8 +30,6 @@ async function getData(query) {
       };     }
   } catch (err) {
     console.error("Error fetching data:", err);
-    console.error("Server Components Error:", error);
-    console.log("Error Digest:", error.digest);
     throw err;
   }
 }

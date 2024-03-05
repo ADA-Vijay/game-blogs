@@ -46,7 +46,6 @@ const lisitng = ({ newdata, apiUrl }) => {
     try {
       if (hitApi && apiUrl) {
         const url = `${apiUrl}&per_page=10&page=${page + 1}&_embed`;
-        console.log("url ", url);
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -54,7 +53,6 @@ const lisitng = ({ newdata, apiUrl }) => {
         }
 
         const newData = await response.json(); // Convert response to JSON
-        console.log("new data", newData);
 
         if (newData.length > 0) {
           setData((prevData) => [...prevData, ...newData]);
