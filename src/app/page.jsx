@@ -120,7 +120,7 @@ const Home = async () => {
             <div className={styles.headingLine}></div>
           </div>
         </div>
-        <ListingPage newdata={newdata} />
+        <ListingPage newdata={newdata} apiUrl={""}/>
       </main>
     </>
   );

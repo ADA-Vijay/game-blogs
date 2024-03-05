@@ -44,7 +44,7 @@ const lisitng = ({ newdata, apiUrl }) => {
     setLoading(true);
 
     try {
-      if (hitApi) {
+      if (hitApi && apiUrl) {
         const url = `${apiUrl}&per_page=10&page=${page + 1}&_embed`;
         console.log("url ", url);
         const response = await fetch(url);
