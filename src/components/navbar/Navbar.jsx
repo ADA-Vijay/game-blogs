@@ -16,13 +16,11 @@ async function getData() {
   
   const rawData = await res.json();
   const organizedData = organizeCategories(rawData);
-  
   return organizedData;
 }
 function organizeCategories(data) {
   const organizedList = [];
   const parentMap = {};
-
   data.forEach(item => {
     if (item.parent === 0) {
       organizedList.push({

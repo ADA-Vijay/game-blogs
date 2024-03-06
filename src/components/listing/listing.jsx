@@ -47,13 +47,10 @@ const lisitng = ({ newdata, apiUrl }) => {
       if (hitApi && apiUrl) {
         const url = `${apiUrl}&per_page=10&page=${page + 1}&_embed`;
         const response = await fetch(url);
-
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-
-        const newData = await response.json(); // Convert response to JSON
-
+        const newData = await response.json();
         if (newData.length > 0) {
           setData((prevData) => [...prevData, ...newData]);
           setPage((prevPage) => prevPage + 1);

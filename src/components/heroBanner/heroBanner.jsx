@@ -6,7 +6,12 @@ async function getData() {
   const bannerId = 606508198;
 
   const bannerResponse = await fetch(
-    ApiUrl + `posts?tags=${bannerId}&_embed&per_page=4&orderby=date&order=desc`
+    ApiUrl + `posts?tags=${bannerId}&_embed&per_page=4&orderby=date&order=desc`,{
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    }
   );
   const bannerData = await bannerResponse.json();
 
