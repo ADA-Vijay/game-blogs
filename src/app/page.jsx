@@ -57,8 +57,8 @@ export async function generateMetadata({ params }) {
       images: [
         {
           url: "https://fama.b-cdn.net/gw/gwlogo.png",
-          height: 1200,
-          width: 600,
+          height: 341,
+          width: 1366,
           alt: "Alt",
         },
       ],
