@@ -3,7 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import Script from "next/script";
-
+import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -38,11 +38,31 @@ const GoogleAnalyticsScript = () => (
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <meta
-        name="google-site-verification"
-        content="RdxkhXckn9g6Sc2nHYDSF5_Y2fQ3VwWBpEq4ZS_Z2bg"
-      />
-      <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
+      <Head>
+        <meta
+          name="google-site-verification"
+          content="RdxkhXckn9g6Sc2nHYDSF5_Y2fQ3VwWBpEq4ZS_Z2bg"
+        />
+        <link href={"/favicon.ico"} rel="icon" sizes="any" />
+        <link
+          href={"/favImage/apple-touch-icon.png"}
+          rel="apple-touch-icon"
+          sizes="180x180"
+        />
+        <link
+          href={"/favImage/favicon/32x32.png"}
+          rel="icon"
+          sizes="32x32"
+          type="image/png"
+        />
+        <link
+          href={"/favImage/favicon-16x16.png"}
+          rel="icon"
+          sizes="16x16"
+          type="image/png"
+        />
+      </Head>
+
       <body className={inter.className}>
         <div className="container">
           <Navbar />
