@@ -38,7 +38,7 @@ const GoogleAnalyticsScript = () => (
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
+      <head>
         <meta
           name="google-site-verification"
           content="RdxkhXckn9g6Sc2nHYDSF5_Y2fQ3VwWBpEq4ZS_Z2bg"
@@ -53,7 +53,24 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-      </Head>
+        {/* <link
+          href={"/favImage/apple-touch-icon.png"}
+          rel="apple-touch-icon"
+          sizes="180x180"
+        />
+        <link
+          href={"/favImage/favicon/32x32.png"}
+          rel="icon"
+          sizes="32x32"
+          type="image/png"
+        />
+        <link
+          href={"/favImage/favicon-16x16.png"}
+          rel="icon"
+          sizes="16x16"
+          type="image/png"
+        /> */}
+      </head>
 
       <body className={inter.className}>
         <div className="container">
