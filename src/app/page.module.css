@@ -396,6 +396,7 @@
 }
 .subListingDetailsItem table img{
   margin: 0px !important;
+  height: auto;
 }
 .subListingDetailsItem h1.wp-block-heading,
 .subListingDetailsItem h1,
