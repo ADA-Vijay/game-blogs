@@ -48,6 +48,7 @@ const lisitng = ({ newdata, apiUrl }) => {
         const url = `${apiUrl}&per_page=10&page=${page + 1}&_embed`;
         const response = await fetch(url);
         if (!response.ok) {
+          setHitApi(false);
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const newData = await response.json();
@@ -62,7 +63,7 @@ const lisitng = ({ newdata, apiUrl }) => {
       }
     } catch (error) {
       setHitApi(false);
-      console.error("Error while fetching more data", error);
+       console.error("Error while fetching more data", error);
     } finally {
       // setHitApi(false);
       setLoading(false);
