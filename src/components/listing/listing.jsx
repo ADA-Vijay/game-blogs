@@ -64,7 +64,7 @@ const lisitng = ({ newdata, apiUrl }) => {
       setHitApi(false);
       console.error("Error while fetching more data", error);
     } finally {
-      setHitApi(false);
+      // setHitApi(false);
       setLoading(false);
     }
   };
