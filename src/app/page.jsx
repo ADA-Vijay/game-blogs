@@ -11,7 +11,7 @@ async function getData() {
     const response = await fetch(
       ApiUrl + "posts?per_page=10&order=desc&orderby=date&_embed=1",
       {
-        next: {revalidate:30},
+        // next: {revalidate:30},
       }
     );
     const newdata = await response.json();
@@ -19,7 +19,7 @@ async function getData() {
     const trending = await fetch(
       `${ApiUrl}posts?tags=${trendingId}&_embed&per_page=3&orderby=date&order=desc`,
       {
-        next: {revalidate:60},
+        // next: {revalidate:60},
       }
     );
     const trendingPosts = await trending.json();
