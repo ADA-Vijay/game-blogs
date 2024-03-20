@@ -17,7 +17,7 @@ async function getData(query) {
           },
         },
         {
-          next: {revalidate:30},
+          next: {revalidate:180},
         }
       );
       if (!response.ok) {

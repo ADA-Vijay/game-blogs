@@ -26,7 +26,7 @@ async function getData(subcategory) {
   try {
     const response = await fetch(ApiUrl + `posts?slug=${subcategory}&_embed`,
     {
-      next: {revalidate:30},
+      next: {revalidate:180},
     }
     );
     const data = await response.json();

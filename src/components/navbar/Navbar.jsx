@@ -5,9 +5,9 @@ import stylePage from "../../app/page.module.css";
 import SearchComponent from "@/components/search/search"
 async function getData() {
   const res = await fetch("https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories",
-  // {
-  //   next: {revalidate:30},
-  // }
+  {
+    next: {revalidate:180},
+  }
   );
 
   if (!res.ok) {

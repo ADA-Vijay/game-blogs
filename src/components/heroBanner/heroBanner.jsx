@@ -8,7 +8,7 @@ async function getData() {
   const bannerResponse = await fetch(
     ApiUrl + `posts?tags=${bannerId}&_embed&per_page=4&orderby=date&order=desc`,
     {
-      next: { revalidate: 30 },
+      next: { revalidate: 180 },
     }
   );
   const bannerData = await bannerResponse.json();

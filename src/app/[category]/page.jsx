@@ -20,7 +20,7 @@ async function getData(category) {
     const response = await fetch(
       `${ApiUrl}posts?categories=${categoryId}&per_page=10&_embed`,
       {
-        next: { revalidate: 30 },
+        next: { revalidate: 180 },
       }
     );
     const initialData = await response.json();
