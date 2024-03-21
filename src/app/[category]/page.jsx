@@ -15,20 +15,23 @@ async function getData(category) {
   }
   const categoryId = catgoryData[0].id;
   let initialData = [];
+  const url = `${ApiUrl}posts?categories=${categoryId}`
   if (categoryId) {
     const response = await fetch(
       `${ApiUrl}posts?categories=${categoryId}&per_page=10&_embed`,
       {
-        next: { revalidate: 30 },
+        next: { revalidate: 180 },
       }
     );
     const initialData = await response.json();
-    return initialData && initialData.length > 0 ? initialData : null;
-  }
+    return {
+      data: initialData && initialData.length > 0 ? initialData : null,
+      url: url
+    };  }
 }
 
 export async function generateMetadata({ params }) {
-  const data = await getData(params.category);
+  const { data,url } = await getData(params.category);
   if (data && data.length > 0) {
     return {
       title: data[0].yoast_head_json.title,
@@ -63,7 +66,7 @@ export async function generateMetadata({ params }) {
 
 const Page = async ({ params }) => {
   const category = params.category;
-  const data = await getData(category);
+  const { data,url } = await getData(params.category);
   if (!data) {
     return notFound();
   }
@@ -71,11 +74,11 @@ const Page = async ({ params }) => {
     <div>
       <div className={styles.latestWrap}>
         <Container>
-          <HeroBanner></HeroBanner>
+          {/* <HeroBanner></HeroBanner> */}
         </Container>
       </div>
       <BreadCrumb category={category} subcategory={""}></BreadCrumb>
-      <ListingPage newdata={data} />
+      <ListingPage newdata={data} apiUrl={url}/>
     </div>
   );
 };

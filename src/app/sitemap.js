@@ -13,7 +13,7 @@ export default async function sitemap() {
                     url: `https://www.gamewitted.com`,
                     lastModified: new Date(),
                     changeFrequency: 'daily',
-                    priority: 0.7,
+                    priority: 1,
                 }
             ];
         }
@@ -29,7 +29,7 @@ export default async function sitemap() {
                 url: `https://www.gamewitted.com${path}`,
                 lastModified: new Date(),
                 changeFrequency: 'daily',
-                priority: 0.7,
+                priority: 1,
             })),
         ];
     } catch (error) {
@@ -39,7 +39,7 @@ export default async function sitemap() {
                 url: `https://www.gamewitted.com`,
                 lastModified: new Date(),
                 changeFrequency: 'daily',
-                priority: 0.7,
+                priority: 1,
             }
         ];
     }

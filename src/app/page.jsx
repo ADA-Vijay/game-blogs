@@ -3,7 +3,7 @@ import styles from "@/app/page.module.css";
 import ListingPage from "@/components/listing/listing";
 import Link from "next/link";
 import Image from "next/image";
-
+import Head from "next/head";
 async function getData() {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
   const trendingId = 606508208;
@@ -11,7 +11,7 @@ async function getData() {
     const response = await fetch(
       ApiUrl + "posts?per_page=10&order=desc&orderby=date&_embed=1",
       {
-        next: {revalidate:30},
+        next: {revalidate:180},
       }
     );
     const newdata = await response.json();
@@ -19,7 +19,7 @@ async function getData() {
     const trending = await fetch(
       `${ApiUrl}posts?tags=${trendingId}&_embed&per_page=3&orderby=date&order=desc`,
       {
-        next: {revalidate:60},
+        next: {revalidate:180},
       }
     );
     const trendingPosts = await trending.json();
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }) {
     return {
       title: "GameWitted",
       description:
-        "Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
+        "Welcome to Gamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
       images: [
         {
           url: "https://fama.b-cdn.net/gw/gwlogo.png",
@@ -68,9 +68,14 @@ export async function generateMetadata({ params }) {
 
 const Home = async () => {
   const { newdata, trendingPosts } = await getData();
-
+  const apiUrl = "posts?per_page=10&order=desc&orderby=date&_embed=1"
   return (
     <>
+    <Head>
+    <meta />
+    <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
+
+    </Head>
       <main className="">
         <HeroBanner></HeroBanner>
         <div className={styles.promoWrap}>
@@ -117,7 +122,7 @@ const Home = async () => {
             <div className={styles.headingLine}></div>
           </div>
         </div>
-        <ListingPage newdata={newdata} />
+        <ListingPage newdata={newdata} apiUrl={""}/>
       </main>
     </>
   );
