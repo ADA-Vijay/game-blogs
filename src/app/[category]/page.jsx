@@ -34,17 +34,25 @@ export async function generateMetadata({ params }) {
   const { data,url } = await getData(params.category);
   if (data && data.length > 0) {
     return {
-      title: data[0].yoast_head_json.title,
-      description: data[0].yoast_head_json.description,
+      title: params.category,
+      description:"Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
       openGraph: {
         images: [
           {
-            url: data[0].yoast_head_json.og_image[0].url,
+            url: "https://fama.b-cdn.net/gw/gamewittedlogo.jpg",
             height: 1200,
             width: 600,
             alt: "Alt",
           },
         ],
+        icons:{
+          icon:[
+            "/favicon/favicon.ico"
+          ],
+          shortcut:[
+            "/favicon/favicon.ico"
+          ],
+        }
       },
     };
   }

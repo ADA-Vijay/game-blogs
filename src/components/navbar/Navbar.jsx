@@ -4,7 +4,7 @@ import styles from "./navbar.module.css";
 import stylePage from "../../app/page.module.css";
 import SearchComponent from "@/components/search/search"
 async function getData() {
-  const res = await fetch("https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories",
+  const res = await fetch("https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories?per_page=50",
   {
     next: {revalidate:180},
   }
