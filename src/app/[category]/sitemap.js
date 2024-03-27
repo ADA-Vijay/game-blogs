@@ -1,8 +1,7 @@
 export default async function sitemap() {
     try {
         const categories = await fetchAllCategories(
-            "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories",
-            
+            "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories",  
         );
 
         const paths = ['/'];
@@ -34,7 +33,11 @@ export default async function sitemap() {
 
 async function fetchAllCategories(url, categories = []) {
     try {
-        const response = await fetch(url);
+        const response = await fetch(url,
+            {
+                next: { revalidate: 180 },
+              }
+            );
         if (!response.ok) {
             throw new Error(`Failed to fetch data: ${response.statusText}`);
         }

@@ -1,11 +1,10 @@
 export default async function sitemap() {
     try {
-       
-
+    
         const paths = ['/'];
-
-       
-        const posts = await fetch("https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/posts?&_embed");
+        const posts = await fetch("https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/posts?&_embed", {
+            next: { revalidate: 180 },
+          });
         if (!posts.ok) {
             throw new Error(`Failed to fetch data: ${posts.statusText}`);
         }
