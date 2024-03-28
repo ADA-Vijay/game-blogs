@@ -35,7 +35,7 @@ async function fetchAllCategories(url, categories = []) {
     try {
         const response = await fetch(url,{
             headers: {
-                "Cache-Control": "public, s-maxage=600, stale-while-revalidate=120"
+                "Cache-Control": "public, s-maxage=120, stale-while-revalidate=120"
             }             
         }
   
