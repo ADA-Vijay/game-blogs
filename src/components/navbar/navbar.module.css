@@ -215,4 +215,8 @@
     top: 15px;
     left: 15px;
   }
+  .navItemList{
+    height: 400px;
+    overflow-y: auto;
+  }
 }

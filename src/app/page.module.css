@@ -71,7 +71,7 @@
   height: 100%;
   width: 100%;
   z-index: 1;
-  background-color: #00000073;
+  background-color: #0000004f;
 }
 .heroCardBoxItem:hover::after{
   background-color: #c0c0c040;
@@ -388,7 +388,17 @@
   font-family: sans-serif;
   font-size: 1.8rem;
 }
+.subListingDetailsItem .wp-block-table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
 @media screen and (max-width: 768px) {
+  .latestInfo p{
+    font-size: 1.6rem;
+  }
   .subListingDetailsItem table img{
     width: 100% !important;
     height: 100%;
