@@ -33,10 +33,12 @@ export default async function sitemap() {
 
 async function fetchAllCategories(url, categories = []) {
     try {
-        const response = await fetch(url,
-            {
-                next: { revalidate: 180 },
-              }
+        const response = await fetch(url,{
+            headers: {
+                "Cache-Control": "public, s-maxage=600, stale-while-revalidate=120"
+            }             
+        }
+  
             );
         if (!response.ok) {
             throw new Error(`Failed to fetch data: ${response.statusText}`);
