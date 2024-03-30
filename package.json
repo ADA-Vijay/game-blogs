@@ -20,6 +20,7 @@
     "react-bootstrap": "^2.10.1",
     "react-dom": "18.2.0",
     "sharp": "^0.33.2",
-    "swr": "^2.1.5"
+    "swr": "^2.1.5",
+    "xmlbuilder": "^15.1.1"
   }
 }
