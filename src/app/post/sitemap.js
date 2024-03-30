@@ -32,11 +32,11 @@ export default async function sitemap() {
 }
 
 
-async function fetchAllPosts(url, posts = []) {
+export async function fetchAllPosts(url, posts = []) {
     try {
         const response = await fetch(url,
             {
-                next: { revalidate: 180 },
+                cache: 'no-store'
               }
             );
         if (!response.ok) {
