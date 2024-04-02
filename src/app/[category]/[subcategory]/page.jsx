@@ -117,12 +117,12 @@ const page = async ({ params }) => {
                 <div className={styles.latestBox}>
                   {data && data.length > 0 ? (
                     <>
-                      <div
+                      <h1
                         className={`${styles.listingDetailMainTitle} mb-4`}
                         dangerouslySetInnerHTML={{
                           __html: data[0].title.rendered,
                         }}
-                      ></div>
+                      ></h1>
                       <div className={styles["author-section"]}>
                         <span className="description">
                           {data[0]._embedded.author[0].name}&nbsp;|&nbsp;
