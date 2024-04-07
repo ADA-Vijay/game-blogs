@@ -1,4 +1,15 @@
-export default async function sitemap() {
+export const revalidate = 30
+ 
+export async function GET() {
+
+  const url =  await getURL();
+  return new Response(`<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+  ${url||""}
+  </urlset>`, { headers: { "Content-Type": "text/xml" } })
+}
+
+
+export default async function getURL() {
   try {
     const paths = ["/"];
     const posts = await fetchAllPosts(
@@ -9,32 +20,28 @@ export default async function sitemap() {
       paths.push(`/${post._embedded["wp:term"][0][0].slug}/${post.slug}`);
     });
 
-    return [
-      ...paths.map((path) => ({
-        url: `https://www.gamewitted.com${path}`,
-        lastModified: new Date(),
-        changeFrequency: "daily",
-        priority: 1,
-      })),
-    ];
+    return paths.map(item => {    
+      return `
+    <url>
+      <loc>https://www.gamewitted.com${item}</loc>
+      <lastmod>${new Date().toISOString()}</lastmod>
+    </url>
+    `;
+    }).join('');;
   } catch (error) {
     console.error("Error generating sitemap:", error.message);
-    return [
-      {
-        url: `https://www.gamewitted.com`,
-        lastModified: new Date(),
-        changeFrequency: "daily",
-        priority: 1,
-      },
-    ];
+    return `
+    <url>
+      <loc>https://www.gamewitted.com/</loc>
+      <lastmod>${new Date().toISOString()}</lastmod>
+    </url>
+    `;
   }
 }
 
 export async function fetchAllPosts(url, posts = []) {
   try {
-    const response = await fetch(url, {
-        cache: 'no-store'
-    });
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Failed to fetch data: ${response.statusText}`);
     }
