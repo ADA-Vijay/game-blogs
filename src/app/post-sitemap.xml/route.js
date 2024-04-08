@@ -1,5 +1,3 @@
-export const revalidate = 30
- 
 export async function GET() {
 
   const url =  await getURL();
@@ -41,7 +39,9 @@ export default async function getURL() {
 
 export async function fetchAllPosts(url, posts = []) {
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      next: { revalidate: 10 }}
+    );
     if (!response.ok) {
       throw new Error(`Failed to fetch data: ${response.statusText}`);
     }
