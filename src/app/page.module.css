@@ -491,3 +491,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
 }
+
+.wp-block-table {
+  overflow-x: auto !important;
+}
