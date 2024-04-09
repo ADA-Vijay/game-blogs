@@ -12,7 +12,7 @@ function Footer() {
                 <img src='https://fama.b-cdn.net/gw/gwlogo.png'  alt="logo"/>
               </div>
               <div className={styles.footerContent}>
-                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                {/* <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p> */}
                 <div className={styles.footerSearchInput}>
                   <Form.Control type="text" placeholder="Search" />
                   <span className={styles.footerSearchIcon}>
@@ -54,7 +54,7 @@ function Footer() {
               <div className={styles.footerNewsletter}>
                 <div className={styles.footerLinkTitle}>Newsletter</div>
                 <div className={styles.footerContent}>
-                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                  {/* <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p> */}
                   <div className={styles.footerSearchInput}>
                     <Form.Control type="text" placeholder="Subscribe" />
                     <span className={styles.footerSearchIcon}>
