@@ -151,6 +151,7 @@ body{
 }
 figure {
   margin: 0 0 1rem;
+  overflow-x: auto !important;
 }
 
 hr {
@@ -553,4 +554,17 @@ table img{
 
 .breadcrumb ul  li{
   list-style: none;
+}
+
+.wp-block-table .has-fixed-layout {
+  table-layout: fixed !important;
+  width: 100% !important;
+}
+
+.wp-block-table {
+  overflow-x: auto !important;
+}
+
+.wp-block-table .has-fixed-layout td, .wp-block-table .has-fixed-layout th {
+  word-break: break-word !important;
 }
