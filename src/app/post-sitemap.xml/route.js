@@ -23,10 +23,9 @@ export async function getSitemap() {
     const pageNumbers = Array.from({ length: pageCount }, (_, index) => index + 1);
     return pageNumbers.map((item, index) => {
       return `
-    <url>
+    <sitemap>
       <loc>https://www.gamewitted.com/post-sitemap.xml?page=${index + 1}</loc>
-      <lastmod>${new Date().toISOString()}</lastmod>
-    </url>
+    </sitemap>
     `;
     }).join('');
   } catch (error) {
