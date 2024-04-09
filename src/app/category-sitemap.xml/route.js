@@ -11,7 +11,7 @@ export async function GET() {
 
 export default async function getURL() {
   try {
-    const paths = ["/"];
+    const paths = [];
     const posts = await fetchAllPosts(
       "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories"
     );
@@ -30,12 +30,7 @@ export default async function getURL() {
     }).join('');;
   } catch (error) {
     console.error("Error generating sitemap:", error.message);
-    return `
-    <url>
-      <loc>https://www.gamewitted.com/</loc>
-      <lastmod>${new Date().toISOString()}</lastmod>
-    </url>
-    `;
+    return ``;
   }
 }
 
