@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic'
+// export const cache = 'no-store'
+
 export async function GET() {
 
   const url =  await getURL();
@@ -39,9 +42,7 @@ export default async function getURL() {
 
 export async function fetchAllPosts(url, posts = []) {
   try {
-    const response = await fetch(url, {
-      next: { revalidate: 10 }}
-    );
+    const response = await fetch(url)
     if (!response.ok) {
       throw new Error(`Failed to fetch data: ${response.statusText}`);
     }
@@ -52,13 +53,13 @@ export async function fetchAllPosts(url, posts = []) {
 
     posts = posts.concat(newposts);
 
-    // const nextPageUrl = getNextPageUrl(response.headers.get("link"));
+    const nextPageUrl = getNextPageUrl(response.headers.get("link"));
 
-    // if (nextPageUrl) {
-    //   return fetchAllPosts(nextPageUrl, posts);
-    // } else {
+    if (nextPageUrl) {
+      return fetchAllPosts(nextPageUrl, posts);
+    } else {
       return posts;
-    // }
+    }
   } catch (error) {
     console.error("Error fetching posts:", error);
     return [];
