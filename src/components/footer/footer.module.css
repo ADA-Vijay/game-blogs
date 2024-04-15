@@ -116,3 +116,13 @@
     margin-top: 2rem;
   }
 }
+
+.contactUs{
+  margin-top: 20px 
+}
+
+
+.contactUs a{
+  text-decoration: none !important;
+  color: white;
+}

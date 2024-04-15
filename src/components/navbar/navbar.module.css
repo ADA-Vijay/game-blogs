@@ -170,6 +170,8 @@
     width: 155px;
     height: 85px;
   }
+  
+  
   .mobSearchWrap{
     display: block;
   }
@@ -222,3 +224,5 @@
   height: 400px;
   overflow-y: auto;
 }
+
+
