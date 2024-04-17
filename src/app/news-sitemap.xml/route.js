@@ -25,14 +25,28 @@ export default async function getURL() {
       }
     );
     const posts = await response.json();
+    // posts.forEach((post) => {
+    //   paths.push({
+    //     title: post.yoast_head_json.title,
+    //     slug: `/${post._embedded["wp:term"][0][0].slug}/${post.slug}`,
+    //     image: post.yoast_head_json.og_image[0].url,
+    //     description: post.yoast_head_json.description,
+    //     date: post.yoast_head_json.article_published_time,
+    //   });
+    // });
     posts.forEach((post) => {
-      // paths.push(`/${post.slug}`);
+            // paths.push(`/${post.slug}`);
+
+      // Get the date from post.yoast_head_json.article_published_time
+      const articlePublishedTime = new Date(post.yoast_head_json.article_published_time);
+      // Format the date in the desired format
+      const formattedDate = articlePublishedTime.toISOString().slice(0, -5) + ".000Z";
       paths.push({
         title: post.yoast_head_json.title,
         slug: `/${post._embedded["wp:term"][0][0].slug}/${post.slug}`,
         image: post.yoast_head_json.og_image[0].url,
         description: post.yoast_head_json.description,
-        date: post.yoast_head_json.article_published_time,
+        date: formattedDate, // Use the formatted date
       });
     });
 
