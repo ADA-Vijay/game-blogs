@@ -32,7 +32,7 @@ export default async function getURL() {
         slug: `/${post._embedded["wp:term"][0][0].slug}/${post.slug}`,
         image: post.yoast_head_json.og_image[0].url,
         description: post.yoast_head_json.description,
-        date: post.date,
+        date: post.yoast_head_json.article_published_time,
       });
     });
 
