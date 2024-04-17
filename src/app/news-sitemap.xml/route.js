@@ -39,8 +39,8 @@ export default async function getURL() {
 
       // Get the date from post.yoast_head_json.article_published_time
       const articlePublishedTime = new Date(post.yoast_head_json.article_published_time);
-      // Format the date in the desired format
-      const formattedDate = articlePublishedTime.toISOString().slice(0, -5) + ".000Z";
+      // Format the date in ISO string format
+      const formattedDate = articlePublishedTime.toISOString();
       paths.push({
         title: post.yoast_head_json.title,
         slug: `/${post._embedded["wp:term"][0][0].slug}/${post.slug}`,
