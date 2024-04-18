@@ -8,7 +8,7 @@ export async function GET(req) {
   </urlset>`, { headers: { "Content-Type": "text/xml" } })
 }
 
-export async function getPost() {
+export async function getPost(page) {
   try {
     const response = await fetch(`https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/posts?&_embed&per_page=${itemsPerPage}&page=${page}`, {
       next: { revalidate: 10 }
