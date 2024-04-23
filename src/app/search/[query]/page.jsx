@@ -39,7 +39,7 @@ export async function generateMetadata({ params }) {
   if (data && data.length > 0) {
     return {
       title: "GameWitted",
-      description: "Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
+      description: "Welcome to Gamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
       images: [
         {
           url: "https://fama.b-cdn.net/gw/gamewittedlogo.jpg",
