@@ -91,7 +91,7 @@ const Listing = ({ newdata, apiUrl }) => {
                     <img
                       className={styles.latestImg}
                       src={card.jetpack_featured_media_url}
-                      alt="img"
+                      alt={card.jetpack_featured_media_url}
                       onError={(e) => handleImageError(e, index, card)}
                     />
                     <div className={styles.latestInfo}>

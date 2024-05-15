@@ -37,7 +37,7 @@ const HeroBanner = async () => {
                   <div
                     className={styles.heroCardBoxItem}
                     style={{
-                      background: `url(${card.jetpack_featured_media_url})`,
+                      background: `url(${card._embedded["wp:featuredmedia"][0].source_url})`,
                     }}
                   >
                     <div className={styles.heroCardBoxItemInfo}>
