@@ -90,7 +90,7 @@ export default function RootLayout({ children }) {
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1110630702008129"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
         {/* <link
           href={"/favImage/apple-touch-icon.png"}

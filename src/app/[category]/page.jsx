@@ -4,38 +4,77 @@ import { notFound } from "next/navigation";
 import HeroBanner from "@/components/heroBanner/heroBanner";
 import { Container } from "react-bootstrap";
 import ListingPage from "@/components/listing/listing";
-import BreadCrumb from "@/components/breadCrumb/breadCrumb"
-async function getData(category) {
-  const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
-  const categoryResponse = await fetch(`${ApiUrl}categories?slug=${category}`);
+import BreadCrumb from "@/components/breadCrumb/breadCrumb";
 
-  const catgoryData = await categoryResponse.json();
-  if (!catgoryData || catgoryData.length === 0) {
-    return null;
-  }
-  const categoryId = catgoryData[0].id;
-  let initialData = [];
-  const url = `${ApiUrl}posts?categories=${categoryId}`
-  if (categoryId) {
+async function getData(category) {
+  try {
+    const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
+    console.log("Fetching data for category:", category); // Debugging
+
+    const categoryResponse = await fetch(
+      `${ApiUrl}categories?slug=${category}`
+    );
+
+    if (!categoryResponse.ok) {
+      console.error("Failed to fetch category data:", categoryResponse.status);
+      return {
+        data:  null,
+        url: "",
+      };
+    }
+
+    const catgoryData = await categoryResponse.json();
+    console.log("Category data received:", catgoryData); // Debugging
+
+    if (!catgoryData || catgoryData.length === 0) {
+      console.warn("No category data found for slug:", category);
+      return {
+        data:  null,
+        url: "",
+      };
+    }
+
+    const categoryId = catgoryData[0].id;
+    const url = `${ApiUrl}posts?categories=${categoryId}`;
+
     const response = await fetch(
       `${ApiUrl}posts?categories=${categoryId}&per_page=10&_embed`,
       {
         next: { revalidate: 180 },
       }
     );
+
+    if (!response.ok) {
+      console.error("Failed to fetch posts data:", response.status);
+      return {
+        data:  null,
+        url: "",
+      };
+    }
+
     const initialData = await response.json();
+    console.log("Initial posts data received:", initialData); // Debugging
+
     return {
-      data: initialData && initialData.length > 0 ? initialData : null,
-      url: url
-    };  }
+      data: initialData.length > 0 ? initialData : null,
+      url: url,
+    };
+  } catch (error) {
+    console.error("Error while fetching the data:", error);
+    return {
+      data:  null,
+      url: "",
+    };
+  }
 }
 
 export async function generateMetadata({ params }) {
-  const { data,url } = await getData(params.category);
-  if (data && data.length > 0) {
+  const category = params.category;
+  if (category) {
     return {
-      title: params.category,
-      description:"Welcome to Gamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
+      title: category,
+      description:
+        "Welcome to Gamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
       openGraph: {
         images: [
           {
@@ -45,54 +84,41 @@ export async function generateMetadata({ params }) {
             alt: "Alt",
           },
         ],
-        icons:{
-          icon:[
-            "/favicon/favicon.ico"
-          ],
-          shortcut:[
-            "/favicon/favicon.ico"
-          ],
-        }
+        icons: {
+          icon: ["/favicon/favicon.ico"],
+          shortcut: ["/favicon/favicon.ico"],
+        },
       },
     };
   }
-  // else{
-  //   return {
-  //     title: "GameWitted",
-  //      description: "Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
-  //      images: [
-  //        {
-  //          url: "https://fama.b-cdn.net/gw/gwlogo.png",
-  //          height: 1200,
-  //          width: 600,
-  //          alt: "Alt",
-  //        },
-  //      ],
-  //  };
-  // }
 }
 
 const Page = async ({ params }) => {
   const category = params.category;
-  const { data,url } = await getData(params.category);
-  if (!data) {
+  console.log("Page params:", params); // Debugging
+
+  const response = await getData(category);
+  if (!response) {
+    console.error("No response received from getData");
     return notFound();
   }
+
+  const { data, url } = response;
+
+  if (!data) {
+    console.warn("No data found for category:", category);
+    return notFound();
+  }
+
   return (
     <div>
       <div className={styles.latestWrap}>
-        <Container>
-          {/* <HeroBanner></HeroBanner> */}
-        </Container>
+        <Container>{/* <HeroBanner></HeroBanner> */}</Container>
       </div>
       <BreadCrumb category={category} subcategory={""}></BreadCrumb>
-      <ListingPage newdata={data} apiUrl={url}/>
+      <ListingPage newdata={data} apiUrl={url} />
     </div>
   );
 };
 
 export default Page;
-
-
-
-

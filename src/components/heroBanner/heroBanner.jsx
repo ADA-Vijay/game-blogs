@@ -1,19 +1,23 @@
+import React from "react";
 import styles from "@/app/page.module.css";
 import Link from "next/link";
 
 async function getData() {
-  const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
-  const bannerId = 606508198;
-
-  const bannerResponse = await fetch(
-    ApiUrl + `posts?tags=${bannerId}&_embed&per_page=4&orderby=date&order=desc`,
-    {
-      next: { revalidate: 180 },
-    }
-  );
-  const bannerData = await bannerResponse.json();
-
-  return bannerData;
+  try {
+    const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
+    const bannerId = 606508198;
+    const bannerResponse = await fetch(
+      ApiUrl +
+        `posts?tags=${bannerId}&_embed&per_page=4&orderby=date&order=desc`,
+      {
+        next: { revalidate: 180 },
+      }
+    );
+    const bannerData = await bannerResponse.json();
+    return bannerData;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 const HeroBanner = async () => {
