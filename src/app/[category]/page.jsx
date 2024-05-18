@@ -53,7 +53,7 @@ async function getData(category) {
     }
 
     const initialData = await response.json();
-    console.log("Initial posts data received:", initialData); // Debugging
+    console.log("Initial posts data received:", initialData); 
 
     return {
       data: initialData.length > 0 ? initialData : null,

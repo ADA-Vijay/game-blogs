@@ -90,7 +90,7 @@ const Listing = ({ newdata, apiUrl }) => {
                   <div className={styles.latestBoxItem} key={index}>
                     <img
                       className={styles.latestImg}
-                      src={card.jetpack_featured_media_url}
+                      src={card._embedded["wp:featuredmedia"][0].source_url}
                       alt={card.jetpack_featured_media_url}
                       onError={(e) => handleImageError(e, index, card)}
                     />

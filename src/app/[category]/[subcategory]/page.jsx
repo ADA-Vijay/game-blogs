@@ -1,26 +1,8 @@
 import React from "react";
 import styles from "@/app/page.module.css";
-import Container from "react-bootstrap/Container";
 import { notFound } from "next/navigation";
 import BreadCrumb from "@/components/breadCrumb/breadCrumb";
-const trendingTopData = [
-  {
-    name: "Palworld Guide: How to Fain Your Base",
-    activeDate: "arzan khan 2 months ago",
-  },
-  {
-    name: "Genshin Impact 4.4: All Things You Need to Know",
-    activeDate: "arzan khan 2 months ago",
-  },
-  {
-    name: "Destiny 2 Players Are Shocked with the New Character",
-    activeDate: "arzan khan 2 months ago",
-  },
-  {
-    name: "Keanu Reeves Cameo in the Newest Cyberpunk Update",
-    activeDate: "arzan khan 2 months ago",
-  },
-];
+
 async function getData(subcategory) {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
   try {
