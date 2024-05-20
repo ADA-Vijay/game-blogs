@@ -74,7 +74,7 @@ const Listing = ({ newdata, apiUrl }) => {
     if (!imageErrors[index]) {
       setImageErrors((prevErrors) => ({ ...prevErrors, [index]: true }));
       console.error(`Error loading image for card with title "${card.title.rendered}" at URL: ${e.target.src}`);
-      e.target.src = "/path/to/placeholder/image.jpg"; // Replace with your placeholder image URL
+      e.target.src = e.target.src;
     }
   };
 
