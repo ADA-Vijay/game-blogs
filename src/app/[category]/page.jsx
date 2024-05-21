@@ -9,7 +9,6 @@ import BreadCrumb from "@/components/breadCrumb/breadCrumb";
 async function getData(category) {
   try {
     const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
-    console.log("Fetching data for category:", category); // Debugging
 
     const categoryResponse = await fetch(
       `${ApiUrl}categories?slug=${category}`
@@ -24,8 +23,6 @@ async function getData(category) {
     }
 
     const catgoryData = await categoryResponse.json();
-    console.log("Category data received:", catgoryData); // Debugging
-
     if (!catgoryData || catgoryData.length === 0) {
       console.warn("No category data found for slug:", category);
       return {
@@ -53,8 +50,6 @@ async function getData(category) {
     }
 
     const initialData = await response.json();
-    console.log("Initial posts data received:", initialData); 
-
     return {
       data: initialData.length > 0 ? initialData : null,
       url: url,
@@ -95,8 +90,6 @@ export async function generateMetadata({ params }) {
 
 const Page = async ({ params }) => {
   const category = params.category;
-  console.log("Page params:", params); // Debugging
-
   const response = await getData(category);
   if (!response) {
     console.error("No response received from getData");
