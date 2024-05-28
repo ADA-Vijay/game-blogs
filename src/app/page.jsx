@@ -68,6 +68,7 @@ export async function generateMetadata({ params }) {
 
 const Home = async () => {
   const { newdata, trendingPosts } = await getData();
+  console.log("new data",newdata)
   const apiUrl = "posts?per_page=10&order=desc&orderby=date&_embed=1"
   return (
     <>

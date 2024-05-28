@@ -90,16 +90,16 @@ const Listing = ({ newdata, apiUrl }) => {
                   <div className={styles.latestBoxItem} key={index}>
                     <img
                       className={styles.latestImg}
-                      src={card._embedded["wp:featuredmedia"][0].source_url}
+                      src={card._embedded["wp:featuredmedia"]?.[0]?.source_url}
                       alt={card.jetpack_featured_media_url}
                       onError={(e) => handleImageError(e, index, card)}
                     />
                     <div className={styles.latestInfo}>
-                      <Link href={`/${card._embedded["wp:term"][0][0].slug}`}>
-                        <h6>{card._embedded["wp:term"][0][0].name}</h6>
+                      <Link href={`/${card._embedded["wp:term"]?.[0]?.[0]?.slug}`}>
+                        <h6>{card._embedded["wp:term"]?.[0]?.[0]?.name}</h6>
                       </Link>
                       <Link
-                        href={`/${card._embedded["wp:term"][0][0].slug}/${card.slug}`}
+                        href={`/${card._embedded["wp:term"]?.[0]?.[0]?.slug}/${card.slug}`}
                       >
                         <p
                           dangerouslySetInnerHTML={{
