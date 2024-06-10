@@ -71,17 +71,6 @@ const Navbar = async () => {
           </Link>
           <div className={styles.navItems}>
             <div className={styles.navLinks}>
-              <div className={styles.navItem}>
-                <Link
-                  href={`/privacy-policy`}
-                  className={styles.link}
-                  prefetch={true}
-                >
-                 Privacy
-                </Link>
-              </div>
-            </div>
-            <div className={styles.navLinks}>
               {data.map((link) => (
                 <div className={styles.navItem}>
                   <Link
