@@ -36,18 +36,7 @@ const page = () => {
             to your interests, and improve the overall user experience.
           </span>
         </div>
-        <div className={styles.rules}>
-          <h3>2.How We Use Your Information </h3>
-          <span className={styles.rulesList}>
-            a.We may use your usage data to analyze trends, administer the site,
-            and gather demographic information for aggregate use.
-          </span>
-
-          <span className={styles.rulesList}>
-            b. We may use cookies to remember your preferences, tailor content
-            to your interests, and improve the overall user experience.
-          </span>
-        </div>
+      
         <div className={styles.rules}>
           <h3>3. Third-Party Services </h3>
           <span className={styles.rulesList}>
