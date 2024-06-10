@@ -87,11 +87,11 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-        <script
+        {/* <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1110630702008129"
           crossOrigin="anonymous"
-        ></script>
+        ></script> */}
         {/* <link
           href={"/favImage/apple-touch-icon.png"}
           rel="apple-touch-icon"

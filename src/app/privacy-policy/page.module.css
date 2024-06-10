@@ -1,0 +1,28 @@
+.container {
+  
+}
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1140px;
+    }
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+
+.rules{
+    margin-top: 20px;
+}
+
+.rulesList{
+ display: flex;
+ width: 100%;
+ margin-top: 5px;
+}
