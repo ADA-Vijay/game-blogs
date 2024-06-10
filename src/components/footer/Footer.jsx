@@ -82,13 +82,16 @@ function Footer() {
             </div>
 
             <div></div>
-            <div></div>
+            <div></div>            
             <div className={`${styles.footerNewsletter} ${styles.contactUs}`}>
               <div className={`${styles.footerLinkTitle}`}>Contact Us</div>
-                <Link href="mailto:officialgamewitted@gmail.com">
-                  officialgamewitted@gmail.com
-                </Link>
+              <Link href="mailto:officialgamewitted@gmail.com">
+                officialgamewitted@gmail.com
+              </Link>
             </div>
+          </div>
+          <div className={`${styles.footerNewsletter} ${styles.contactUs}`}>
+            <Link href="/privacy-policy"> <div className={`${styles.footerLinkTitle}`}>Privacy and Policy</div></Link>
           </div>
         </div>
       </div>
