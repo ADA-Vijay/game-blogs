@@ -49,6 +49,10 @@ export default function RootLayout({ children }) {
           name="google-site-verification"
           content="RdxkhXckn9g6Sc2nHYDSF5_Y2fQ3VwWBpEq4ZS_Z2bg"
         />
+        <meta
+          name="og:site_name"
+          content="GameWitted"
+        />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
