@@ -64,12 +64,12 @@ export default function RootLayout({ children }) {
           sizes="32x32"
           href="/favicon/favicon-32x32.png"
         />
-        <link
+        {/* <link
           rel="icon"
           type="image/png"
           sizes="194x194"
           href="/favicon/favicon-194x194.png"
-        />
+        /> */}
         <link
           rel="icon"
           type="image/png"
