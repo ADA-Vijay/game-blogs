@@ -115,6 +115,7 @@ export default function RootLayout({ children }) {
         <link rel="shortcut icon" href="/favicon/favicon.ico?v=3" />
         <meta name="apple-mobile-web-app-title" content="GameWitted" />
         <meta name="application-name" content="GameWitted" />
+        <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
         <meta name="msapplication-TileColor" content="#00aba9" />
         <meta name="theme-color" content="#000000" />
         {/* <script
