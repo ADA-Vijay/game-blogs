@@ -84,6 +84,12 @@ export async function generateMetadata({ params }) {
           shortcut: ["/favicon/favicon.ico"],
         },
       },
+      twitter: {
+        card: "summary_large_image",
+        title:  category,
+        description: "Welcome to Gamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms",
+        images: ["https://fama.b-cdn.net/gw/gamewittedlogo.jpg"],
+      },
     };
   }
 }
