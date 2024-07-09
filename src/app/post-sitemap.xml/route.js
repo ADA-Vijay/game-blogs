@@ -20,17 +20,18 @@ export async function getPost(page) {
     const posts = await response.json();
     const paths = [];
     posts.forEach((post) => {
-      paths.push(`/${post._embedded["wp:term"][0][0].slug}/${post.slug}`);
+      paths.push({"slug":`/${post._embedded["wp:term"][0][0].slug}/${post.slug}`,"date":post.yoast_head_json.article_published_time});
     });
     return paths.map(item => {
       return `
     <url>
-      <loc>https://www.gamewitted.com${item}</loc>
-      <lastmod>${new Date().toISOString()}</lastmod>
+      <loc>https://www.gamewitted.com${item.slug}</loc>
+      <lastmod>${item.date}</lastmod>
     </url>
     `;
     }).join('');
   } catch (error) {
+    console.log
     return [];
   }
 }
