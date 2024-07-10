@@ -55,6 +55,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <title>GameWitted</title>
+        <script type="application/ld+json">
+          {{
+            "@context": "https://www.gamewitted.com",
+            "@type": "WebSite",
+            name: "GameWitted",
+            url: "https://www.gamewitted.com/",
+          }}
+        </script>
         <meta property="og:title" content="GameWitted" />
         <meta
           property="og:description"
