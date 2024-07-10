@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "@/app/page.module.css";
-import Container from "react-bootstrap/Container";
 import { notFound } from "next/navigation";
 import BreadCrumb from "@/components/breadCrumb/breadCrumb";
+import Head from "next/head";
 const trendingTopData = [
   {
     name: "Palworld Guide: How to Fain Your Base",
@@ -41,6 +41,7 @@ async function getData(subcategory) {
 export async function generateMetadata({ params }) {
   const data = await getData(params.subcategory);
   if (data && data.length > 0) {
+    console.log(data[0].yoast_head_json.og_image[0].url);
     return {
       title: data[0].yoast_head_json.title,
       description: data[0].yoast_head_json.description,
@@ -56,9 +57,9 @@ export async function generateMetadata({ params }) {
       },
       twitter: {
         card: "summary_large_image",
-        title:  data[0].yoast_head_json.title,
+        title: data[0].yoast_head_json.title,
         description: data[0].yoast_head_json.description,
-        creator: data[0]._embedded.author[0].name ,
+        creator: data[0]._embedded.author[0].name,
         images: [data[0].yoast_head_json.og_image[0].url],
       },
     };
@@ -112,53 +113,63 @@ const page = async ({ params }) => {
     }, 0);
   }
   return (
-    <div className={styles.latestWrap}>
-      <div className={styles.container}>
-        <BreadCrumb category={category} subcategory={subcategory} />
-        <div className={styles.listingDetailsWrap}>
-          <div className={styles.latestBody}>
-            <div className={styles.latestContent}>
-              <div className={styles.listingDetailsBody}>
-                <div className={styles.latestBox}>
-                  {data && data.length > 0 ? (
-                    <>
-                      <div
-                        className={`${styles.listingDetailMainTitle} mb-4`}
-                        dangerouslySetInnerHTML={{
-                          __html: data[0].title.rendered,
-                        }}
-                      ></div>
-                      <div className={styles["author-section"]}>
-                        <span className="description">
-                          {data[0]._embedded.author[0].name}&nbsp;|&nbsp;
-                        </span>
-                        <span> Published: {formatDate(data[0].date)}</span>
-                      </div>
-                      <div className={styles.listingDetailMainImg}>
-                        <img
-                          src={data[0].jetpack_featured_media_url}
-                          alt="img"
-                        />
-                      </div>
-                      <div id={hash} className={styles.subListingDetailsItem}>
+    <>
+      <Head>
+        <meta
+          name="twitter:image"
+          content={data[0].yoast_head_json.og_image[0].url}
+        />
+        <meta name="twitter:image:type" content="" />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="600" />
+      </Head>
+      <div className={styles.latestWrap}>
+        <div className={styles.container}>
+          <BreadCrumb category={category} subcategory={subcategory} />
+          <div className={styles.listingDetailsWrap}>
+            <div className={styles.latestBody}>
+              <div className={styles.latestContent}>
+                <div className={styles.listingDetailsBody}>
+                  <div className={styles.latestBox}>
+                    {data && data.length > 0 ? (
+                      <>
                         <div
+                          className={`${styles.listingDetailMainTitle} mb-4`}
                           dangerouslySetInnerHTML={{
-                            __html: data[0].content.rendered,
+                            __html: data[0].title.rendered,
                           }}
                         ></div>
+                        <div className={styles["author-section"]}>
+                          <span className="description">
+                            {data[0]._embedded.author[0].name}&nbsp;|&nbsp;
+                          </span>
+                          <span> Published: {formatDate(data[0].date)}</span>
+                        </div>
+                        <div className={styles.listingDetailMainImg}>
+                          <img
+                            src={data[0].jetpack_featured_media_url}
+                            alt="img"
+                          />
+                        </div>
+                        <div id={hash} className={styles.subListingDetailsItem}>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: data[0].content.rendered,
+                            }}
+                          ></div>
+                        </div>
+                      </>
+                    ) : (
+                      <div className={styles.heroCardBoxItem}>
+                        <h2 className="text-center">
+                          No Content found on {subcategory}
+                        </h2>
                       </div>
-                    </>
-                  ) : (
-                    <div className={styles.heroCardBoxItem}>
-                      <h2 className="text-center">
-                        No Content found on {subcategory}
-                      </h2>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* <div className={styles.trendingTopWrap}>
+              {/* <div className={styles.trendingTopWrap}>
             <div>
               <img
                 src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR4El1B5cOf9EjkuWgq4J_2RBIjo4jmzznJ8_3aMgezV3h3DJpE"
@@ -183,10 +194,11 @@ const page = async ({ params }) => {
               </div>
             </div>
           </div> */}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

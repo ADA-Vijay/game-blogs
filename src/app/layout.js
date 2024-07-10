@@ -94,6 +94,7 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
+        
         {/* <link
           href={"/favImage/apple-touch-icon.png"}
           rel="apple-touch-icon"
