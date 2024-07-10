@@ -64,6 +64,7 @@ export async function generateMetadata({ params }) {
           url: data[0].yoast_head_json.og_image[0].url,
           width: "1200",
           height: "600",
+          alt:data[0].yoast_head_json.title
         },
       },
     };
