@@ -60,13 +60,11 @@ export async function generateMetadata({ params }) {
         title: data[0].yoast_head_json.title,
         description: data[0].yoast_head_json.description,
         creator: data[0]._embedded.author[0].name,
-        images: [
-          {
-            url: data[0].yoast_head_json.og_image[0].url,
-            width: "1200",
-            height: "600",
-          },
-        ],
+        images: {
+          url: data[0].yoast_head_json.og_image[0].url,
+          width: "1200",
+          height: "600",
+        },
       },
     };
   }
