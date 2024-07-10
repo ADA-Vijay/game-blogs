@@ -29,7 +29,10 @@ export const metadata = {
     title: "GameWitted",
     description:
       "Welcome to Gamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms",
-    images: ["https://fama.b-cdn.net/gw/gamewittedlogo.jpg"],
+    images: {
+      url: "https://fama.b-cdn.net/gw/gamewittedlogo.jpg",
+      alt: "GameWitted ",
+    },
   },
 };
 const GoogleAnalyticsScript = () => (
@@ -94,7 +97,7 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-        
+
         {/* <link
           href={"/favImage/apple-touch-icon.png"}
           rel="apple-touch-icon"
