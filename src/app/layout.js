@@ -60,8 +60,7 @@ export default function RootLayout({ children }) {
           property="og:description"
           content="Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!"
         />
-        <link rel="canonical" href="https://gamewitted.com" />
-
+        <link rel="canonical" href="https://www.gamewitted.com" />
         <meta
           name="google-site-verification"
           content="RdxkhXckn9g6Sc2nHYDSF5_Y2fQ3VwWBpEq4ZS_Z2bg"
