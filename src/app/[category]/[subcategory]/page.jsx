@@ -60,7 +60,13 @@ export async function generateMetadata({ params }) {
         title: data[0].yoast_head_json.title,
         description: data[0].yoast_head_json.description,
         creator: data[0]._embedded.author[0].name,
-        images: [data[0].yoast_head_json.og_image[0].url],
+        images: [
+          {
+            url: data[0].yoast_head_json.og_image[0].url,
+            width: "1200",
+            height: "600",
+          },
+        ],
       },
     };
   }
@@ -116,20 +122,6 @@ const page = async ({ params }) => {
     <>
       {data && data.length > 0 && (
         <>
-          <Head>
-            <meta
-              property="og:image"
-              content={data[0].yoast_head_json.og_image[0].url}
-            />
-            <meta
-              name="twitter:image"
-              content={data[0].yoast_head_json.og_image[0].url}
-            />
-            <meta
-              property="twitter:image:alt"
-              content={data[0].yoast_head_json.title}
-            />
-          </Head>
           <div className={styles.latestWrap}>
             <div className={styles.container}>
               <BreadCrumb category={category} subcategory={subcategory} />
