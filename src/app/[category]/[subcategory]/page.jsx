@@ -65,7 +65,7 @@ export async function generateMetadata({ params }) {
           width: "1200",
           height: "600",
           alt:data[0].yoast_head_json.title,
-          
+          site:"GameWitted"
         },
       },
     };
