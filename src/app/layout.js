@@ -94,7 +94,10 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-        
+        <meta name="twitter:image" content="/favicon/android-chrome-192x192.png" />
+        <meta name="twitter:image:type" content="image/icon" />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="600" />
         {/* <link
           href={"/favImage/apple-touch-icon.png"}
           rel="apple-touch-icon"
