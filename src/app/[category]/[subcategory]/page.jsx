@@ -116,12 +116,13 @@ const page = async ({ params }) => {
     <>
       <Head>
         <meta
+          property="og:image"
+          content={data[0].yoast_head_json.og_image[0].url}
+        />
+        <meta
           name="twitter:image"
           content={data[0].yoast_head_json.og_image[0].url}
         />
-        <meta name="twitter:image:type" content="" />
-        <meta name="twitter:image:width" content="1200" />
-        <meta name="twitter:image:height" content="600" />
       </Head>
       <div className={styles.latestWrap}>
         <div className={styles.container}>
