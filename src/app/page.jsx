@@ -53,7 +53,7 @@ export async function generateMetadata({ params }) {
     return {
       title: "GameWitted",
       description:
-        "Welcome to Gamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
+        "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
       images: [
         {
           url: "https://fama.b-cdn.net/gw/gwlogo.png",
@@ -72,7 +72,7 @@ const Home = async () => {
   return (
     <>
     <Head>
-    <meta />
+    <meta property="og:site_name" content="GameWitted" />
     <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
 
     </Head>
