@@ -96,6 +96,8 @@ export default function RootLayout({ children }) {
           href="/favicon/favicon-16x16.png"
         />
         <link rel="manifest" href="/favicon/manifest.webmanifest" />
+        <link rel="manifest" href="/favicon/browserconfig.xml" />
+
         <link
           rel="mask-icon"
           href="/favicon/safari-pinned-tab.svg"
