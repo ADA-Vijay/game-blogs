@@ -72,7 +72,7 @@ const Home = async () => {
   return (
     <>
     <Head>
-    <meta property="og:site_name" content="GameWitted" />
+    <meta  />
     <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
 
     </Head>
