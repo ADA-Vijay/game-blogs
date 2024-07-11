@@ -122,12 +122,12 @@ const page = async ({ params }) => {
     <>
       {data && data.length > 0 && (
         <>
-          <Head>
+          {/* <Head>
             <meta
               property="twitter:image:src"
               content={data[0].yoast_head_json.og_image[0].url}
             />
-          </Head>
+          </Head> */}
           <div className={styles.latestWrap}>
             <div className={styles.container}>
               <BreadCrumb category={category} subcategory={subcategory} />
