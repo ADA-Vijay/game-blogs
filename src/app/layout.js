@@ -55,13 +55,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <title>GameWitted</title>
+        {/* <title>GameWitted</title>
 
         <meta property="og:site_name" content="GameWitted" />
         <meta
           property="og:description"
           content="Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!"
-        />
+        /> */}
         <meta
           name="google-site-verification"
           content="RdxkhXckn9g6Sc2nHYDSF5_Y2fQ3VwWBpEq4ZS_Z2bg"
