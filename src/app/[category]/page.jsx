@@ -5,7 +5,7 @@ import HeroBanner from "@/components/heroBanner/heroBanner";
 import { Container } from "react-bootstrap";
 import ListingPage from "@/components/listing/listing";
 import BreadCrumb from "@/components/breadCrumb/breadCrumb";
-
+import Head from "next/head";
 async function getData(category) {
   try {
     const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
@@ -110,13 +110,13 @@ const Page = async ({ params }) => {
   }
 
   return (
-    <div>
+    <>
       <div className={styles.latestWrap}>
         <Container>{/* <HeroBanner></HeroBanner> */}</Container>
       </div>
       <BreadCrumb category={category} subcategory={""}></BreadCrumb>
       <ListingPage newdata={data} apiUrl={url} />
-    </div>
+    </>
   );
 };
 

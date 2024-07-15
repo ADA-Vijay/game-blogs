@@ -42,6 +42,7 @@ export async function generateMetadata({ params }) {
   const data = await getData(params.subcategory);
   if (data && data.length > 0) {
     console.log(data[0].yoast_head_json.og_image[0].url);
+    console.log("canonical link", data[0].yoast_head_json.canonical);
     return {
       title: data[0].yoast_head_json.title,
       description: data[0].yoast_head_json.description,
@@ -64,9 +65,12 @@ export async function generateMetadata({ params }) {
           url: data[0].yoast_head_json.og_image[0].url,
           width: "1200",
           height: "600",
-          alt:data[0].yoast_head_json.title,
-          site:"GameWitted"
+          alt: data[0].yoast_head_json.title,
+          site: "GameWitted",
         },
+      },
+      alternates: {
+        canonical: `https://www.gamewitted.com/${params.category}/${params.subcategory}`,
       },
     };
   }
@@ -122,12 +126,6 @@ const page = async ({ params }) => {
     <>
       {data && data.length > 0 && (
         <>
-          {/* <Head>
-            <meta
-              property="twitter:image:src"
-              content={data[0].yoast_head_json.og_image[0].url}
-            />
-          </Head> */}
           <div className={styles.latestWrap}>
             <div className={styles.container}>
               <BreadCrumb category={category} subcategory={subcategory} />
