@@ -124,6 +124,7 @@ export default function RootLayout({ children }) {
           <Footer />
           <GoogleAnalyticsScript />
         </div>
+        
       </body>
     </html>
   );
