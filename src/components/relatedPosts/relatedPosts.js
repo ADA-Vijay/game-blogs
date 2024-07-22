@@ -9,7 +9,7 @@ const relatedPosts = ({ data }) => {
         const date = new Date(isoDate);
         return date.toLocaleDateString("en-US", options);
     };
-    console.log(data)
+    console.log("data",data)
     return (
         <>
 
@@ -20,7 +20,7 @@ const relatedPosts = ({ data }) => {
                         {data && data.length > 0 && data.slice(0, 4).map((e) => (
                             <div className={style["post-card-item"]}>
                                 <div className={style["post-img-div"]}>
-                                    <img src='https://www.dexerto.com/cdn-image/wp-content/uploads/2024/07/18/jake-paul-ufc-mma-fighters-mcgregor.jpg?width=828&quality=60&format=auto'></img>
+                                    <img src={e.jetpack_featured_media_url}></img>
                                 </div>
                                 <div>
                                     {/* <p className={style["green-p"]}>MMA</p> */}
