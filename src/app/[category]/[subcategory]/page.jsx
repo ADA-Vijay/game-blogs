@@ -3,6 +3,7 @@ import styles from "@/app/page.module.css";
 import { notFound } from "next/navigation";
 import BreadCrumb from "@/components/breadCrumb/breadCrumb";
 import Head from "next/head";
+import RelatedPosts from "@/components/relatedPosts/relatedPosts";
 const trendingTopData = [
   {
     name: "Palworld Guide: How to Fain Your Base",
@@ -38,11 +39,28 @@ async function getData(subcategory) {
   }
 }
 
+const getPostByCategory = async (params) => {
+  if (params) {
+    try {
+      const postData = await fetch('https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/posts?category=' + params.category + '&_embeded')
+      if (postData) {
+        const posts = await postData.json()
+        return posts
+      }
+      console.log(postData)
+
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
+
+}
+
+
 export async function generateMetadata({ params }) {
   const data = await getData(params.subcategory);
   if (data && data.length > 0) {
-    console.log(data[0].yoast_head_json.og_image[0].url);
-    console.log("canonical link", data[0].yoast_head_json.canonical);
     return {
       title: data[0].yoast_head_json.title,
       description: data[0].yoast_head_json.description,
@@ -66,7 +84,7 @@ export async function generateMetadata({ params }) {
           width: "1200",
           height: "600",
           alt: data[0].yoast_head_json.title,
-          site: "GameWitted",
+          site: "GameWitted"
         },
       },
       alternates: {
@@ -103,6 +121,9 @@ const page = async ({ params }) => {
   }
   const hash = params.hash;
   let hashOffset = 0;
+
+  const categoryPosts = await getPostByCategory(params);
+
 
   const scrollToSection = (sectionName) => {
     const sectionElement = document.getElementById(sectionName);
@@ -207,6 +228,12 @@ const page = async ({ params }) => {
               </div>
             </div>
           </div>
+          {
+            data && data.length > 0 && (
+              <RelatedPosts data={categoryPosts}></RelatedPosts>
+
+            )
+          }
         </>
       )}
     </>
