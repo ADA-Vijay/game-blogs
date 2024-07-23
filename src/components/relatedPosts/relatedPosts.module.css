@@ -32,7 +32,7 @@
 }
 .desc-p {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -58,4 +58,8 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+}
+.post-card-wrap a {
+    text-decoration: none;
+    color: rgb(22, 22, 22);
 }
