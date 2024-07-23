@@ -16,7 +16,7 @@
   width: 40rem;
 }
 .footerLogoImg {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 .footerLogoImg img{
   width: 285px;
@@ -116,6 +116,30 @@
   .footerNewsletter{
     margin-top: 2rem;
   }
+  .footerWrap .container {
+    padding: 5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center !important;
+    row-gap: 2rem;
+  }
+  .footer-ul1 ul {
+    display: block !important;
+    text-align: center;
+  }
+  .li-line {
+    border: none !important;
+  }
+  .smallDesc {
+    text-align: center;
+  }
+  .footer-ul2 {
+    justify-content: center !important;
+  }
+  .footer-ul1 li {
+    padding-top: 1rem;
+    font-size: 1.3rem !important;
+  }
 }
 
 .contactUs{
@@ -152,5 +176,25 @@
   padding-right: 0.8rem;
 }
 .smallDesc {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  font-family: sans-serif;
+}
+.footerItem1 {
+}
+.footerItem2 {
+  display: flex;
+  align-items: end;
+}
+.footerWrap .container {
+  padding: 5rem 0;
+  display: flex;
+  justify-content: space-around;
+}
+.item-ul-wrap {
+  list-style: none;
+  padding-left: 0;
+}
+.item-ul-li-last {
+  padding-top: 2.5rem;
 }

@@ -356,6 +356,7 @@
   margin-right: 2.6rem;
 }
 .subListingDetailsItem p{
+  line-height: 29px;
 }
 .subListingDetailsItem table{
   border-collapse: collapse;
@@ -418,7 +419,7 @@
 }
 .subListingDetailsItem h3.wp-block-heading,
 .subListingDetailsItem h3{
-  font-size: 3.4rem;
+  font-size: 4rem;
   font-family: var(--font-family);
 }
 
@@ -459,6 +460,13 @@
   } */
   .listingDetailsBody{
     width: 100%;
+  }
+  .subListingDetailsItem {
+    margin-right: 0 !important;
+    padding: 0 2rem !important;
+  }
+  .latestWrap .container {
+    padding-left: 1rem !important;
   }
 }
 
