@@ -1,18 +1,19 @@
 .footerWrap{
   color: var(--headerColor);
-  background-color: var(--headerBg);
+  /* background-color: var(--headerBg); */
+  background-color: #202020;
 }
 .footerBody{
   display: grid;
   grid-template-columns: 25.333% 74.6666%;
-  padding: 25px 0px;
+  padding: 35px 0px;
 }
 .footerContentItem{
   display: grid;
-  grid-template-columns: 35% 36% 29%;
+  grid-template-columns: 33% 30% 31%;
 }
 .footerLogo{
-
+  width: 40rem;
 }
 .footerLogoImg {
   margin-bottom: 2.5rem;
@@ -125,4 +126,31 @@
 .contactUs a{
   text-decoration: none !important;
   color: white;
+}
+.footer-ul1 ul {
+  list-style: none;
+  display: flex;
+  padding-left: 0%;
+  gap: 7px;
+}
+.footer-ul1 ul li {
+  font-size: 1.1rem;
+}
+.li-line {
+  border-left: 2px solid grey;
+  border-right: 2px solid grey;
+  padding: 0 4px;
+}
+.footer-ul2 {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  padding-left: 0
+}
+.bold-li {
+  font-weight: 600;
+  padding-right: 0.8rem;
+}
+.smallDesc {
+  font-size: 1.1rem;
 }

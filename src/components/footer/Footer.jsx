@@ -11,8 +11,8 @@ function Footer() {
             <div className={styles.footerLogoImg}>
               <img src="https://fama.b-cdn.net/gw/gwlogo.png" alt="logo" />
             </div>
-            <div className={styles.footerContent}>
-              {/* <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p> */}
+            {/* <div className={styles.footerContent}>
+              <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
               <div className={styles.footerSearchInput}>
                 <Form.Control type="text" placeholder="Search" />
                 <span className={styles.footerSearchIcon}>
@@ -28,6 +28,15 @@ function Footer() {
                   </svg>
                 </span>
               </div>
+            </div> */}
+            <div className={styles["footer-ul1"]}>
+              <ul>
+                <li>Join Our Team</li>
+                <li className={styles["li-line"]}>Our Audience</li>
+                <li>About Us</li>
+                <li className={styles["li-line"]}>Press & Events</li>
+                <li>Contact Us</li>
+              </ul>
             </div>
           </div>
 
@@ -63,7 +72,7 @@ function Footer() {
               <div className={styles.footerLinkTitle}>Newsletter</div>
               <div className={styles.footerContent}>
                 {/* <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p> */}
-                <div className={styles.footerSearchInput}>
+                {/* <div className={styles.footerSearchInput}>
                   <Form.Control type="text" placeholder="Subscribe" />
                   <span className={styles.footerSearchIcon}>
                     <svg
@@ -77,21 +86,52 @@ function Footer() {
                       <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
                     </svg>
                   </span>
+                </div> */}
+                <div className={styles["footer-ul1"]}>
+                  <ul>
+                    <li>Advertising</li>
+                    <li className={styles["li-line"]}>Careers</li>
+                    <li>Terms</li>
+                    <li className={styles["li-line"]}>Privacy</li>
+                    <li>Policies</li>
+                  </ul>
                 </div>
               </div>
             </div>
 
             <div></div>
-            <div></div>            
+            <div></div>
             <div className={`${styles.footerNewsletter} ${styles.contactUs}`}>
-              <div className={`${styles.footerLinkTitle}`}>Contact Us</div>
-              <Link href="mailto:officialgamewitted@gmail.com">
+              {/* <div className={`${styles.footerLinkTitle}`}>Contact Us</div> */}
+              {/* <Link href="mailto:officialgamewitted@gmail.com">
                 officialgamewitted@gmail.com
-              </Link>
+              </Link> */}
+              <p className={styles.smallDesc}>Game Rant is part of the Valnet Publishing Group</p>
             </div>
           </div>
           <div className={`${styles.footerNewsletter} ${styles.contactUs}`}>
-            <Link href="/privacy-policy"> <div className={`${styles.footerLinkTitle}`}>Privacy and Policy</div></Link>
+            {/* <Link href="/privacy-policy"> <div className={`${styles.footerLinkTitle}`}>Privacy and Policy</div></Link> */}
+            <ul className={styles["footer-ul2"]}>
+              <li className={styles["bold-li"]}>Follow Us</li>
+              <li className={styles.liIcon}>
+                <i className="fa-brands fa-youtube"></i>
+              </li>
+              <li className={styles.liIcon}>
+                <i className="fa-brands fa-facebook-f"></i>
+              </li>
+              <li className={styles.liIcon}>
+                <i className="fa-brands fa-instagram"></i>
+              </li>
+              <li className={styles.liIcon}>
+                <i class="fa-brands fa-x-twitter"></i>
+              </li>
+              <li className={styles.liIcon}>
+                <i className="fa-brands fa-tiktok"></i>
+              </li>
+              <li className={styles.liIcon}>
+                <i className="fa-brands fa-linkedin"></i>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
