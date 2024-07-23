@@ -41,22 +41,31 @@ async function getData(subcategory) {
 
 const getPostByCategory = async (params) => {
   if (params) {
-    try {
-      const postData = await fetch('https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/posts?category=' + params.category + '&_embeded')
-      if (postData) {
-        const posts = await postData.json()
-        return posts
-      }
-      console.log(postData)
+    const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
 
-    }
-    catch (error) {
-      console.log(error)
+    const categoryResponse = await fetch(
+      `${ApiUrl}categories?slug=${params.category}`
+    );
+    if (categoryResponse) {
+      const catgoryData = await categoryResponse.json();
+      try {
+        const categoryId = catgoryData[0].id;
+        const postData = await fetch(
+          "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/posts?categories=" +
+            categoryId +
+            "&_embeded"
+        );
+        if (postData) {
+          const posts = await postData.json();
+          return posts;
+        }
+        console.log(postData);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
-
-}
-
+};
 
 export async function generateMetadata({ params }) {
   const data = await getData(params.subcategory);
@@ -84,7 +93,7 @@ export async function generateMetadata({ params }) {
           width: "1200",
           height: "600",
           alt: data[0].yoast_head_json.title,
-          site: "GameWitted"
+          site: "GameWitted",
         },
       },
       alternates: {
@@ -123,7 +132,6 @@ const page = async ({ params }) => {
   let hashOffset = 0;
 
   const categoryPosts = await getPostByCategory(params);
-
 
   const scrollToSection = (sectionName) => {
     const sectionElement = document.getElementById(sectionName);
@@ -228,12 +236,9 @@ const page = async ({ params }) => {
               </div>
             </div>
           </div>
-          {
-            data && data.length > 0 && (
-              <RelatedPosts data={categoryPosts}></RelatedPosts>
-
-            )
-          }
+          {data && data.length > 0 && (
+            <RelatedPosts category={params.category} data={categoryPosts}></RelatedPosts>
+          )}
         </>
       )}
     </>
