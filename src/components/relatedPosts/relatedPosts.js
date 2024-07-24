@@ -13,6 +13,7 @@ const relatedPosts = ({ category,data }) => {
     <>
       <div className={style["container"]}>
         <div className={style["container-wrap"]}>
+          <div className={style.contentWrap}>
           <h1 className={style["relatedpost-title"]}>Related Post</h1>
           <div className={style["post-card-wrap"]}>
             {data &&
@@ -35,6 +36,7 @@ const relatedPosts = ({ category,data }) => {
                   </div>
                 </Link>
               ))}
+          </div>
           </div>
         </div>
       </div>

@@ -150,10 +150,10 @@ function Footer() {
                 <div className={styles["footer-ul1"]}>
                   <ul>
                     <li>Join Our Team</li>
-                    <li className={styles["li-line"]}>Our Audience</li>
-                    <li>About Us</li>
-                    <li className={styles["li-line"]}>Press & Events</li>
+                    <li className={styles["li-line"]}>About Us</li>
                     <li>Contact Us</li>
+                    <li>Terms</li>
+                    <li className={styles["li-line"]}>Privacy</li>
                   </ul>
                 </div>
               </li>
@@ -163,48 +163,15 @@ function Footer() {
                   <li className={styles.liIcon}>
                     <i className="fa-brands fa-youtube"></i>
                   </li>
-                  <li className={styles.liIcon}>
-                    <i className="fa-brands fa-facebook-f"></i>
-                  </li>
-                  <li className={styles.liIcon}>
-                    <i className="fa-brands fa-instagram"></i>
-                  </li>
+
                   <li className={styles.liIcon}>
                     <i class="fa-brands fa-x-twitter"></i>
-                  </li>
-                  <li className={styles.liIcon}>
-                    <i className="fa-brands fa-tiktok"></i>
-                  </li>
-                  <li className={styles.liIcon}>
-                    <i className="fa-brands fa-linkedin"></i>
                   </li>
                 </ul>
               </li>
             </ul>
           </div>
-          <div className={styles.footerItem2}>
-            <ul className={styles["item-ul-wrap"]}>
-              <li>
-                <div className={styles.footerLogoImg}>
-                  <img src="https://fama.b-cdn.net/gw/gwlogo.png" alt="logo" />
-                </div>
-              </li>
-              <li>
-                <div className={styles["footer-ul1"]}>
-                  <ul>
-                    <li>Advertising</li>
-                    <li className={styles["li-line"]}>Careers</li>
-                    <li>Terms</li>
-                    <li className={styles["li-line"]}>Privacy</li>
-                    <li>Policies</li>
-                  </ul>
-                </div>
-              </li>
-              <li className={styles["item-ul-li-last"]}>
-                {/* <p className={styles.smallDesc}>Game Rant is part of the Valnet Publishing Group</p> */}
-              </li>
-            </ul>
-          </div>
+          
         </div>
       </div>
     </>

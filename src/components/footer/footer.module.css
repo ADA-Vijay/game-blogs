@@ -165,11 +165,15 @@
   border-right: 2px solid grey;
   padding: 0 4px;
 }
+.li-line:last-child {
+  border-right: none !important;
+}
 .footer-ul2 {
   list-style: none;
   display: flex;
   gap: 16px;
-  padding-left: 0
+  padding-left: 0;
+  justify-content: center;
 }
 .bold-li {
   font-weight: 600;
@@ -189,7 +193,7 @@
 .footerWrap .container {
   padding: 5rem 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 .item-ul-wrap {
   list-style: none;

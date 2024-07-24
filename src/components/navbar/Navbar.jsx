@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./navbar.module.css";
 import stylePage from "../../app/page.module.css";
 import SearchComponent from "@/components/search/search";
+import SideBar from '@/components/sideBar/sideBar'
 async function getData() {
   const res = await fetch(
     "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories?per_page=100",
@@ -57,6 +58,7 @@ const Navbar = async () => {
     <div className={styles.headerWrap}>
       <div className={stylePage.container}>
         <div className={styles.navBody}>
+          <SideBar></SideBar>
           <Link href="/" className={styles.logo}>
             <img
               className={styles.DesktopLogo}

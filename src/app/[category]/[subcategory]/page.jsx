@@ -52,8 +52,8 @@ const getPostByCategory = async (params) => {
         const categoryId = catgoryData[0].id;
         const postData = await fetch(
           "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/posts?categories=" +
-            categoryId +
-            "&_embeded"
+          categoryId +
+          "&_embeded"
         );
         if (postData) {
           const posts = await postData.json();
@@ -157,7 +157,7 @@ const page = async ({ params }) => {
         <>
           <div className={styles.latestWrap}>
             <div className={styles.container}>
-              <BreadCrumb category={category} subcategory={subcategory} />
+              {/* <BreadCrumb category={category} subcategory={subcategory} /> */}
               <div className={styles.listingDetailsWrap}>
                 <div className={styles.latestBody}>
                   <div className={styles.latestContent}>
@@ -195,6 +195,9 @@ const page = async ({ params }) => {
                                   __html: data[0].content.rendered,
                                 }}
                               ></div>
+                              {data && data.length > 0 && (
+                                <RelatedPosts category={params.category} data={categoryPosts}></RelatedPosts>
+                              )}
                             </div>
                           </>
                         ) : (
@@ -207,7 +210,13 @@ const page = async ({ params }) => {
                       </div>
                     </div>
                   </div>
-                  {/* <div className={styles.trendingTopWrap}>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* <div className={styles.trendingTopWrap}>
             <div>
               <img
                 src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR4El1B5cOf9EjkuWgq4J_2RBIjo4jmzznJ8_3aMgezV3h3DJpE"
@@ -232,13 +241,6 @@ const page = async ({ params }) => {
               </div>
             </div>
           </div> */}
-                </div>
-              </div>
-            </div>
-          </div>
-          {data && data.length > 0 && (
-            <RelatedPosts category={params.category} data={categoryPosts}></RelatedPosts>
-          )}
         </>
       )}
     </>
