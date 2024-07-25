@@ -165,7 +165,7 @@ function Footer() {
                   </li>
 
                   <li className={styles.liIcon}>
-                    <i class="fa-brands fa-x-twitter"></i>
+                    <i className="fa-brands fa-x-twitter"></i>
                   </li>
                 </ul>
               </li>

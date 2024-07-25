@@ -58,8 +58,8 @@ const Navbar = async () => {
     <div className={styles.headerWrap}>
       <div className={stylePage.container}>
         <div className={styles.navBody}>
-          <SideBar></SideBar>
-          <Link href="/" className={styles.logo}>
+          <SideBar data={data}></SideBar>
+          <Link href="/"  className={styles.logo}>
             <img
               className={styles.DesktopLogo}
               src="https://fama.b-cdn.net/gw/gwlogo.png"
