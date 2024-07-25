@@ -10,6 +10,10 @@
   opacity: 0;
   transition: all 0.5s ease !important;
   z-index: 3;
+  overflow-y: auto;
+}
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .sidebarOpen {
@@ -30,6 +34,57 @@
   font-size: 2.7rem;
 }
 .content-container {
-  border: 1px solid;
+  margin-top: 2rem;
+}
+.content-container ul {
+  list-style: none;
+  padding-left:  0 !important;
+  padding: 1rem 1rem !important;
+}
+.data-content-ul .data-content-li a{
+  font-size:2.5rem;
+  font-family: sans-serif !important;
+  letter-spacing: 1px;
+}
+
+.siderBarIcon {
+  font-size: 2.5rem;
+}
+
+.liData {
+  height: 0;
+  overflow: hidden;
+}
+.acordianDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.liData li {
+  color: #7d581b;
+  padding-top: 10px;
+  font-weight: 800;
+}
+.liData li:first-child {
+  padding-top: 0 !important;
+}
+.liData.open {
   height: 100%;
+  transition: all 0.5s ease;
+}
+.acordianIcon.rotate {
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+}
+.acordianIcon {
+  font-size: 2.1rem;
+  color: #7d581b;
+}
+.acordianIcon.rotateNormal {
+  transform: rotate(none);
+  transition: all 0.5s ease;
+}
+.liData ul {
+  padding-left: 0 !important;
 }
