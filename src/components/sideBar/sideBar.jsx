@@ -14,8 +14,7 @@ function sideBar({ data }) {
     const handleToggle = () => {
         setSidebarOpen(!sidebarOpen);
     };
-    console.log(data)
-
+    
     return (
         <div>
             <div className={styles.hamBurgerButton}>
