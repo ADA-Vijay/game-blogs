@@ -62,7 +62,6 @@
   cursor: pointer;
 }
 .liData li {
-  color: #7d581b;
   padding-top: 10px;
   font-weight: 800;
 }
@@ -87,4 +86,7 @@
 }
 .liData ul {
   padding-left: 0 !important;
+}
+.liData a {
+  font-size: 1.3rem !important;
 }

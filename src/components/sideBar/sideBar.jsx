@@ -48,8 +48,10 @@ function sideBar({ data }) {
                                                 <ul>
                                                     {
                                                         e.children && e.children.length > 0 && e.children.map((e) => (
-                                                            <li key={e.id}>
-                                                                {e.name}
+                                                            <li>
+                                                                <Link onClick={handleToggle} href={`/${e.slug}`} prefetch={true} key={e.id}>
+                                                                    {e.name}
+                                                                </Link>
                                                             </li>
                                                         ))
                                                     }

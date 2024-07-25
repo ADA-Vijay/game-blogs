@@ -3,9 +3,9 @@ import Link from "next/link";
 import React from "react";
 import styles from "@/components/navbar/navbar.module.css";
 import Form from "react-bootstrap/Form";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-const search =  () => {
+const search = () => {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -18,9 +18,9 @@ const search =  () => {
             placeholder=""
             value={searchQuery}
             onKeyDown={(e) => {
-              if(e.key == 'Enter' && e.target.value!=""){
-                  router.push("/search/" + searchQuery)
-                }
+              if (e.key == 'Enter' && e.target.value != "") {
+                router.push("/search/" + searchQuery)
+              }
             }}
             onChange={(e) => setSearchQuery(e.target.value)}
             aria-label="search"
@@ -49,6 +49,16 @@ const search =  () => {
               </svg>
             </span>
           </Link>
+        </div>
+        <div class="search-box">
+          <button class="btn-search"><i class="fas fa-search"></i></button>
+          <input value={searchQuery}
+            onKeyDown={(e) => {
+              if (e.key == 'Enter' && e.target.value != "") {
+                router.push("/search/" + searchQuery)
+              }
+            }}
+            onChange={(e) => setSearchQuery(e.target.value)} type="text" class="input-search" placeholder="Type to Search..." />
         </div>
       </div>
     </div>

@@ -59,7 +59,7 @@ const Navbar = async () => {
       <div className={stylePage.container}>
         <div className={styles.navBody}>
           <SideBar data={data}></SideBar>
-          <Link href="/"  className={styles.logo}>
+          <Link href="/" className={styles.logoNone}>
             <img
               className={styles.DesktopLogo}
               src="https://fama.b-cdn.net/gw/gwlogo.png"
@@ -72,7 +72,7 @@ const Navbar = async () => {
             />
           </Link>
           <div className={styles.navItems}>
-            <div className={styles.navLinks}>
+            {/* <div className={styles.navLinks}>
               {data.map((link) => (
                 <div className={styles.navItem}>
                   <Link
@@ -97,7 +97,19 @@ const Navbar = async () => {
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */}
+            <Link href="/" className={styles.logo}>
+              <img
+                className={styles.DesktopLogo}
+                src="https://fama.b-cdn.net/gw/gwlogo.png"
+                alt="logo"
+              />
+              <img
+                className={styles.mobLogo}
+                src="https://fama.b-cdn.net/gw/Gamewitted.png"
+                alt="logo"
+              />
+            </Link>
             <div className={styles.mobSearchWrap}>
               <div className={styles.mobSearchLink}>
                 <svg
