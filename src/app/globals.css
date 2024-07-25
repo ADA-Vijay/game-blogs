@@ -700,6 +700,14 @@ table img {
   border-bottom: 1px solid rgba(255, 255, 255, .5);
   transition: all 400ms cubic-bezier(0, 0.110, 0.35, 1);
 }
+@media screen and (max-width : 768px) {
+  .btn-search:focus~.input-search { 
+    width: 215px !important;
+  }
+  .input-search:focus {
+    width: 215px !important;
+   }
+}
 
 .input-search:focus {
   width: 290px;

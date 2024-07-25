@@ -61,10 +61,10 @@
   height: 100%;
   width: 100%;
   z-index: 1;
-  background-color: #00000040;
+  background-color: #00000000;
 }
 .promoBoxItem:hover::after{
-  background-color: #c0c0c040;
+  background-color: #0a0a0a91;
 }
 
 /* latest */

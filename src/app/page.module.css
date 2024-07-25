@@ -71,10 +71,10 @@
   height: 100%;
   width: 100%;
   z-index: 1;
-  background-color: #0000004f;
+  background-color: #00000000;
 }
 .heroCardBoxItem:hover::after{
-  background-color: #c0c0c014;
+  background-color: #0a0a0a65;
   transition: all 0.5s;
 }
 .heroCardBoxItemImg{
@@ -173,10 +173,11 @@
   height: 100%;
   width: 100%;
   z-index: 1;
-  background-color: #00000040;
+  background-color: #00000000;
 }
 .promoBoxItem:hover::after{
-  background-color: #c0c0c040;
+  background-color: #0a0a0a65;
+  transition: all 0.5s;
 }
 
 /* latest */
@@ -316,6 +317,9 @@
   color: #b6b5b5;
   margin: 0;
 }
+.subListingDetailsItem ol li{
+  line-height: 29px;
+}
 .subListingsItem{
   display: grid;
   grid-template-columns: 35% 65%;
@@ -402,7 +406,7 @@
     font-size: 1.6rem;
   }
   .subListingDetailsItem table img{
-    width: 100% !important;
+    width: 60% !important;
     height: 100%;
   }
 }
@@ -452,6 +456,9 @@
   .promoBox{
     grid-template-columns: 1fr;
     grid-row-gap: 1.6rem;
+  }
+  .promoWrap {
+    display: none;
   }
   .latestContent{
     margin: 0;
@@ -515,4 +522,12 @@
 
 .wp-block-table .has-fixed-layout td, .wp-block-table .has-fixed-layout th {
   word-break: break-word !important;
+}
+@media screen and (max-width: 768px) {
+  .heroCardMobile {
+    display: none;
+  }
+  .heroCardMobile:first-child {
+    display: block !important;
+  }
 }

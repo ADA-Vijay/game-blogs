@@ -8,6 +8,14 @@
 .logoNone {
   display: none;
 }
+@media screen and (max-width : 768px) {
+  .logoNone {
+    display: block !important;
+  }
+  .logo {
+    display: none !important;
+  }
+}
 
 .logo img {
   width: 285px;
@@ -214,11 +222,14 @@
   }
 
   .mobSearchContent {
-    display: none;
+    position: relative !important;
+    background:none !important;
   }
 
+  
+
   .mobSearchLink {
-    display: block;
+    display: none;
   }
 
   .mobSearchLink {

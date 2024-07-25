@@ -33,6 +33,7 @@ const HeroBanner = async () => {
                   key={index}
                   prefetch={true}
                   href={`/${card._embedded["wp:term"][0][0].slug}/${card.slug}`}
+                  className={styles.heroCardMobile}
                 >
                   <div
                     className={styles.heroCardBoxItem}
