@@ -23,6 +23,13 @@ function sideBar() {
                             <i class="fa-solid fa-xmark"></i>
                         </div>
                     </div>
+                    <div className={styles["content-container"]}>
+                        <ul>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </div>
                 </div>)}
             </div>
         </div>
