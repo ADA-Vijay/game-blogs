@@ -151,9 +151,19 @@ function Footer() {
                   <ul>
                     <li>Join Our Team</li>
                     <li className={styles["li-line"]}>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Terms</li>
-                    <li className={styles["li-line"]}>Privacy</li>
+                    <Link
+                      href="mailto:Officialgamewitted@gmail.com"
+                      className={styles.link}
+                    >
+                      <li >Contact Us</li>
+                    </Link>
+                    <li className={styles["li-line"]}>Terms</li>
+                    <Link
+                      href="/privacy-policy"
+                      className={styles.link}
+                    >
+                      <li >Privacy</li>
+                    </Link>
                   </ul>
                 </div>
               </li>
@@ -171,7 +181,6 @@ function Footer() {
               </li>
             </ul>
           </div>
-          
         </div>
       </div>
     </>

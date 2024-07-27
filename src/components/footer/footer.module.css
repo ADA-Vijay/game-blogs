@@ -77,6 +77,10 @@
   border-radius: 0;
   box-shadow: unset;
 }
+.link{
+  color: white;
+  text-decoration: none;
+}
 .footerSearchIcon{
   position: absolute;
   top: 10px;
