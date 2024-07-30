@@ -13,6 +13,7 @@ export const metadata = {
   openGraph: {
     images: [
       {
+        title:"GameWitted",
         url: "https://fama.b-cdn.net/gw/gwlogo.png",
         height: 1200,
         width: 600,
