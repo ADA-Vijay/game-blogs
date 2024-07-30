@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import Script from "next/script";
+import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -12,7 +13,6 @@ export const metadata = {
   openGraph: {
     images: [
       {
-        title:"GameWitted",
         url: "https://fama.b-cdn.net/gw/gwlogo.png",
         height: 1200,
         width: 600,
@@ -55,10 +55,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-      <meta property="og:site_name" content="GameWitted" key="ogsitename" />
-      <meta property="og:title" content="GameWitted" />
-
-      <meta
+        <meta property="og:site_name" content="GameWitted" />
+        <meta
           property="og:description"
           content="Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!"
         />
