@@ -56,6 +56,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
       <meta property="og:site_name" content="GameWitted" key="ogsitename" />
+      <meta property="og:title" content="GameWitted" />
+
       <meta
           property="og:description"
           content="Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!"
