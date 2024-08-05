@@ -50,15 +50,15 @@ const search = () => {
             </span>
           </Link>
         </div>
-        <div class="search-box">
-          <button class="btn-search"><i class="fas fa-search"></i></button>
+        <div className="search-box">
+          <button className="btn-search"><i className="fas fa-search"></i></button>
           <input value={searchQuery}
             onKeyDown={(e) => {
               if (e.key == 'Enter' && e.target.value != "") {
                 router.push("/search/" + searchQuery)
               }
             }}
-            onChange={(e) => setSearchQuery(e.target.value)} type="text" class="input-search" placeholder="Type to Search..." />
+            onChange={(e) => setSearchQuery(e.target.value)} type="text" className="input-search" placeholder="Type to Search..." />
         </div>
       </div>
     </div>
