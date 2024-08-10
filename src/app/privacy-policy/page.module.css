@@ -18,6 +18,11 @@
 .description{
     display: flex;
     justify-content: center;
+    padding: 10px;
+}
+
+.ourTeam{
+    margin-bottom:10px !important ;
 }
 .story{
     list-style: none;
