@@ -149,20 +149,24 @@ function Footer() {
               <li>
                 <div className={styles["footer-ul1"]}>
                   <ul>
-                    <li>Join Our Team</li>
-                    <li className={styles["li-line"]}>About Us</li>
+                    <Link href="/join-our-team" className={styles.link}>
+                      <li> Join Our Team</li>
+                    </Link>
+                    <li></li>
+                    <Link href="/about-us" className={styles.link}>
+                      <li className={styles["li-line"]}>About Us</li>
+                    </Link>
                     <Link
                       href="mailto:Officialgamewitted@gmail.com"
                       className={styles.link}
                     >
-                      <li >Contact Us</li>
+                      <li className={styles["li-line"]}>Contact Us</li>
                     </Link>
-                    <li className={styles["li-line"]}>Terms</li>
-                    <Link
-                      href="/privacy-policy"
-                      className={styles.link}
-                    >
-                      <li >Privacy</li>
+                    <Link href="/partnership" className={styles.link}>
+                      <li className={styles["li-line"]}>Partnership</li>
+                    </Link>
+                    <Link href="/privacy-policy" className={styles.link}>
+                      <li className={styles["li-line"]}>Privacy</li>
                     </Link>
                   </ul>
                 </div>
