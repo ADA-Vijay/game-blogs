@@ -75,3 +75,8 @@
     color: rgb(22, 22, 22);
 }
 
+.image {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+}

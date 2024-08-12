@@ -22,10 +22,13 @@ const relatedPosts = ({ category, data }) => {
                   <Link href={`/${category}/${e.slug}`} key={i}>
                     <div className={style["post-card-item"]}>
                       <div className={style["post-img-div"]}>
-                        <img
-                          src={e.jetpack_featured_media_url}x
+                        <Image
+                          src={e.jetpack_featured_media_url}
+                          
                           alt={e.jetpack_featured_media_url}
                           className={style.image}
+                          width={500}
+                          height={500}
                         />
                       </div>
                       <div>

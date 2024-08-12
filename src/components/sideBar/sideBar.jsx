@@ -36,7 +36,7 @@ function sideBar({ data }) {
                                 data.map((e) => (
                                     <li className={styles["data-content-li"]} key={e.id}>
                                         <div onClick={toggleAccordion} className={styles.acordianDiv}>
-                                            <Link href={e.slug}>{e.name}</Link>
+                                            <Link href={`/${e.slug}`}>{e.name}</Link>
                                             <div className={`${styles.acordianIcon} ${isOpen ? styles.rotate : styles.rotateNormal}`}>
                                                 <i className="fa-solid plus fa-plus"></i>
                                             </div>
