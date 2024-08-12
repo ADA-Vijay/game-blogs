@@ -1,8 +1,22 @@
 import React from "react";
 import styles from "@/app/privacy-policy/page.module.css";
+import Head from "next/head";
 const page = () => {
   return (
     <>
+      <Head>
+        <p>
+          All or partial advertising on this Website or App is managed by
+          Playwire LLC. If Playwire publisher advertising services are used,
+          Playwire LLC may collect and use certain aggregated and anonymized
+          data for advertising purposes. To learn more about the types of data
+          collected, how data is used and your choices as a user, please visit{" "}
+          <a href="https://www.playwire.com/privacypolicy">
+            https://www.playwire.com/privacy-policy
+          </a>
+          .
+        </p>
+      </Head>
       <div className={styles.container}>
         <h1>Privacy and Policy </h1>
         <span>
@@ -36,7 +50,7 @@ const page = () => {
             to your interests, and improve the overall user experience.
           </span>
         </div>
-      
+
         <div className={styles.rules}>
           <h3>3. Third-Party Services </h3>
           <span className={styles.rulesList}>
