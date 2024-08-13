@@ -69,7 +69,7 @@ const Navbar = async () => {
               className={styles.mobLogo}
               src="https://fama.b-cdn.net/gw/gwlogo.png"
               alt="logo"
-              style={{width:"90%",height:"60px"}}
+              style={{width:"100%",height:"60px"}}
             />
           </Link>
           <div className={styles.navItems}>
