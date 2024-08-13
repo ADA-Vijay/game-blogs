@@ -67,7 +67,7 @@ const Navbar = async () => {
             />
             <img
               className={styles.mobLogo}
-              src="https://fama.b-cdn.net/gw/Gamewitted.png"
+              src="https://fama.b-cdn.net/gw/gwlogo.png"
               alt="logo"
             />
           </Link>
