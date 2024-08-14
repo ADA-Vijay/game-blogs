@@ -152,7 +152,7 @@ function Footer() {
                     <Link href="/join-our-team" className={styles.link}>
                       <li> Join Our Team</li>
                     </Link>
-                    <li></li>
+                    
                     <Link href="/about-us" className={styles.link}>
                       <li className={styles["li-line"]}>About Us</li>
                     </Link>

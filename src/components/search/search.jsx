@@ -51,7 +51,7 @@ const search = () => {
           </Link>
         </div>
         <div className="search-box">
-          <button className="btn-search"><i className="fas fa-search"></i></button>
+          <button className="btn-search" aria-label="btnSearch"><i className="fas fa-search"></i></button>
           <input value={searchQuery}
             onKeyDown={(e) => {
               if (e.key == 'Enter' && e.target.value != "") {

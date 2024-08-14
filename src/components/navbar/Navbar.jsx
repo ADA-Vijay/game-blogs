@@ -67,9 +67,9 @@ const Navbar = async () => {
             />
             <img
               className={styles.mobLogo}
-              src="https://fama.b-cdn.net/gw/gwlogo.png"
+              src="/gwlogo (1).png"
               alt="logo"
-              style={{width:"100%",height:"60px"}}
+              style={{width:"100%",}}
             />
           </Link>
           <div className={styles.navItems}>
