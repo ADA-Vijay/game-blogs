@@ -96,9 +96,9 @@ export async function generateMetadata({ params }) {
           site: "GameWitted",
         },
       },
-      alternates: {
-        canonical: `https://www.gamewitted.com/${params.category}/${params.subcategory}`,
-      },
+      // alternates: {
+      //   canonical: `https://www.gamewitted.com/${params.category}/${params.subcategory}`,
+      // },
     };
   }
   // else{
