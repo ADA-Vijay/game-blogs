@@ -149,25 +149,40 @@ function Footer() {
               <li>
                 <div className={styles["footer-ul1"]}>
                   <ul>
-                    <Link href="/join-our-team" className={styles.link}>
-                      <li> Join Our Team</li>
-                    </Link>
-                    
-                    <Link href="/about-us" className={styles.link}>
-                      <li className={styles["li-line"]}>About Us</li>
-                    </Link>
-                    <Link
-                      href="mailto:Officialgamewitted@gmail.com"
-                      className={styles.link}
-                    >
-                      <li className={styles["li-line"]}>Contact Us</li>
-                    </Link>
-                    <Link href="/partnership" className={styles.link}>
-                      <li className={styles["li-line"]}>Partnership</li>
-                    </Link>
-                    <Link href="/privacy-policy" className={styles.link}>
-                      <li className={styles["li-line"]}>Privacy</li>
-                    </Link>
+                    <li>
+                      <Link href="/join-our-team" className={styles.link}>
+                        {" "}
+                        Join Our Team
+                      </Link>
+                    </li>
+
+                    <li className={styles["li-line"]}>
+                      <Link href="/about-us" className={styles.link}>
+                        About Us{" "}
+                      </Link>
+                    </li>
+
+                    <li>
+                      {" "}
+                      <Link
+                        href="mailto:Officialgamewitted@gmail.com"
+                        className={styles.link}
+                      >
+                        Contact Us
+                      </Link>
+                    </li>
+
+                    <li className={styles["li-line"]}>
+                      <Link href="/partnership" className={styles.link}>
+                        Partnership{" "}
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link href="/privacy-policy" className={styles.link}>
+                        Privacy
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </li>
