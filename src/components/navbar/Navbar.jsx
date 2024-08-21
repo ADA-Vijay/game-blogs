@@ -6,7 +6,7 @@ import SearchComponent from "@/components/search/search";
 import SideBar from '@/components/sideBar/sideBar'
 async function getData() {
   const res = await fetch(
-    "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories?per_page=100",
+    "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories?per_page=150",
     {
       next: { revalidate: 180 },
     }
