@@ -1,4 +1,3 @@
-
 .container,
 .container_fluid,
 .container-xxl,
@@ -12,56 +11,70 @@
   padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   margin-right: auto;
-  margin-left: auto
+  margin-left: auto;
 }
 @media (min-width: 576px) {
-  .container-sm, .container {
+  .container-sm,
+  .container {
     max-width: 540px;
   }
 }
 @media (min-width: 768px) {
-  .container-md, .container-sm, .container {
+  .container-md,
+  .container-sm,
+  .container {
     max-width: 720px;
   }
 }
 @media (min-width: 992px) {
-  .container-lg, .container-md, .container-sm, .container {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
     max-width: 960px;
   }
 }
 @media (min-width: 1200px) {
-  .container-xl, .container-lg, .container-md, .container-sm, .container {
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
     max-width: 1140px;
   }
 }
 @media (min-width: 1400px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
     max-width: 1320px;
   }
 }
 
- /* Hero banner */
-.heroCardWrap{
-
+/* Hero banner */
+.heroCardWrap {
 }
-.heroCardBody{
+.heroCardBody {
   margin-bottom: 2.5rem;
-} 
-.heroCardBox{
+}
+.heroCardBox {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-column-gap: 0.5rem;
 }
-.heroCardBoxItem{
+.heroCardBoxItem {
   position: relative;
-    height: 530px;
-    width: 100%;
-    /* background-position: center !important; */
-    background-position: center center !important;
-    /* background-size: contain !important; */
-    background-repeat: no-repeat !important;
+  height: 530px;
+  width: 100%;
+  /* background-position: center !important; */
+  background-position: center center !important;
+  /* background-size: contain !important; */
+  background-repeat: no-repeat !important;
 }
-.heroCardBoxItem::after{
+.heroCardBoxItem::after {
   content: "";
   position: absolute;
   top: 0;
@@ -73,16 +86,16 @@
   z-index: 1;
   background-color: #00000000;
 }
-.heroCardBoxItem:hover::after{
+.heroCardBoxItem:hover::after {
   background-color: #0a0a0a65;
   transition: all 0.5s;
 }
-.heroCardBoxItemImg{
+.heroCardBoxItemImg {
   width: 100%;
   height: 430px;
   display: none;
 }
-.heroCardBoxItemInfo{
+.heroCardBoxItemInfo {
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -90,7 +103,7 @@
   color: var(--bodyColor);
   z-index: 2;
 }
-.heroCardBoxItemBags{
+.heroCardBoxItemBags {
   text-transform: uppercase;
   background-color: var(--bodyBg);
   padding: 2px 5px;
@@ -100,7 +113,7 @@
   width: fit-content;
   border-radius: var(--border-radius);
 }
-.heroCardBoxItemName{
+.heroCardBoxItemName {
   margin-bottom: 0px;
   text-transform: capitalize;
   font-size: 1.6rem;
@@ -109,7 +122,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .heroCardBox{
+  .heroCardBox {
     grid-template-columns: 1fr;
     grid-column-gap: 0;
     grid-row-gap: 1.5rem;
@@ -117,19 +130,17 @@
 }
 
 /* promo */
-.promoWrap{
-
+.promoWrap {
 }
-.promoBody{
-
+.promoBody {
 }
-.promoBox{
+.promoBox {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 25px 0px;
   grid-column-gap: 1.6rem;
 }
-.promoBoxItem{
+.promoBoxItem {
   position: relative;
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -137,14 +148,14 @@
   color: #fff;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.promoBoxItem:not(:last-child){
+.promoBoxItem:not(:last-child) {
   margin-right: 25px;
 }
-.promoImg{
+.promoImg {
   width: 100%;
   height: 100%;
 }
-.promoInfo{
+.promoInfo {
   position: absolute;
   bottom: 0;
   top: 0;
@@ -157,13 +168,13 @@
   align-items: center;
   z-index: 2;
 }
-.promoName{
+.promoName {
   font-size: 1.6rem;
   margin: 0;
   text-transform: uppercase;
   font-weight: 600;
 }
-.promoBoxItem::after{
+.promoBoxItem::after {
   content: "";
   position: absolute;
   top: 0;
@@ -175,47 +186,46 @@
   z-index: 1;
   background-color: #00000000;
 }
-.promoBoxItem:hover::after{
+.promoBoxItem:hover::after {
   background-color: #0a0a0a65;
   transition: all 0.5s;
 }
 
 /* latest */
-.latestWrap{
-
+.latestWrap {
 }
-.latestBody{
+.latestBody {
   display: grid;
   grid-template-columns: 75% 25%;
   padding-top: 5.5rem;
 }
-.latestContent{
+.latestContent {
   margin-right: 2.6rem;
 }
-.titleName{
+.titleName {
   font-size: 2.5rem;
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 2.5rem;
 }
-.latestBox a{
+.latestBox a {
   color: #7d581b;
   text-decoration: unset;
 }
-.latestBoxItem{
+.latestBoxItem {
   display: grid;
   grid-template-columns: 35% 65%;
   margin-bottom: 2.5rem;
 }
-.latestImg{
+.latestImg {
   width: 100%;
 }
-.promoTitles{
+.promoTitles {
   display: flex;
   justify-content: center;
   align-items: end;
 }
-.promoTitles h4{
+.promoTitles h4 {
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--bodyColor);
@@ -223,42 +233,42 @@
   margin: 0;
   white-space: nowrap;
 }
-.headingLine{
+.headingLine {
   height: 0.5rem;
-    background-color: rgb(246, 246, 246);
-    width: 100%;
-    margin-bottom: 0.75rem;
-    margin-left: 0.5rem;
+  background-color: rgb(246, 246, 246);
+  width: 100%;
+  margin-bottom: 0.75rem;
+  margin-left: 0.5rem;
 }
-.LatestTitles{
+.LatestTitles {
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--bodyColor);
   text-transform: uppercase;
 }
-.latestInfo{
+.latestInfo {
   margin-left: 25px;
   width: 80%;
 }
-.latestInfo h6{
+.latestInfo h6 {
   font-size: 1.4rem;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    line-height: 16px;
-    margin: 0;
-    color: #7d581b;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  line-height: 16px;
+  margin: 0;
+  color: #7d581b;
 }
-.latestInfo p{
+.latestInfo p {
   font-size: 2.2rem;
-    text-transform: capitalize;
-    color: var(--bodyColor);
-    text-decoration: none;
-    font-weight: 600;
-    margin: 0;
-    margin-top: 6px;
-    font-family: var(--font-family);
+  text-transform: capitalize;
+  color: var(--bodyColor);
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0;
+  margin-top: 6px;
+  font-family: var(--font-family);
 }
-.latestInfo p:hover{
+.latestInfo p:hover {
   text-decoration: underline;
   color: #7d581b;
 }
@@ -266,92 +276,90 @@
   font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
 } */
-.latestInfo h5{
+.latestInfo h5 {
   margin-top: 0.5rem;
   font-size: 1.2rem;
   text-transform: capitalize;
   font-family: "Roboto", sans-serif;
 }
-.trendingTopWrap{
-
+.trendingTopWrap {
 }
-.listingDetailsWrap{
+.listingDetailsWrap {
   padding-bottom: 2.5rem;
 }
-.trendingTopWrap img{
+.trendingTopWrap img {
   width: 100%;
   height: auto;
   margin-bottom: 25px;
 }
-.trendingTopHead{
+.trendingTopHead {
   padding: 15px;
   background-color: #eeeeee;
   text-transform: capitalize;
   overflow: hidden;
   border-radius: var(--border-radius);
 }
-.trendingTopTitle{
+.trendingTopTitle {
   font-size: 2rem;
   margin-bottom: 2.5rem;
   font-weight: 600;
   text-transform: uppercase;
 }
-.trendingTopBody{
-
+.trendingTopBody {
 }
-.trendingTopBody ul{
+.trendingTopBody ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.trendingTopBody ul li:not(:last-child){
+.trendingTopBody ul li:not(:last-child) {
   padding-bottom: 1.5rem;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid #212526;
 }
-.trendingTopBody ul h4{
+.trendingTopBody ul h4 {
   font-size: 1.6rem;
 }
-.trendingTopBody ul p{
+.trendingTopBody ul p {
   font-size: 1.2rem;
   color: #b6b5b5;
   margin: 0;
 }
-.subListingDetailsItem ol li{
+.subListingDetailsItem ol li {
   line-height: 29px;
 }
-.subListingsItem{
+.subListingsItem {
   display: grid;
   grid-template-columns: 35% 65%;
   margin-bottom: 2.5rem;
   margin-right: 2.5rem;
 }
-.subListingsItem figure{
+.subListingsItem figure {
   margin: 0;
   margin-right: 1.6rem;
 }
-.subListingsItem p{
+.subListingsItem p {
   margin: 0;
   font-weight: 600;
   height: fit-content;
   cursor: pointer;
 }
-.subListingsItem p:hover{
+.subListingsItem p:hover {
   text-decoration: underline;
   color: #7d581b;
 }
-.listingDetailMainImg{
+.listingDetailMainImg {
   margin-bottom: 2.6rem;
 }
 .listingDetailMainImg img {
   width: 100%;
   overflow: hidden;
 }
-.listingDetailMainTitle{
+.listingDetailMainTitle {
   font-size: 4.5rem;
-    line-height: 50px;
-    margin-bottom: 1.5rem;
-    font-family: var(--font-family);
+  line-height: 50px;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-family);
 }
 .listingDetailsBody {
   width: 80%;
@@ -360,22 +368,22 @@
 .subListingDetailsItem {
   margin-right: 2.6rem;
 }
-.subListingDetailsItem p{
+.subListingDetailsItem p {
   line-height: 29px;
 }
-.subListingDetailsItem table{
+.subListingDetailsItem table {
   border-collapse: collapse;
-    width: 100%;
+  width: 100%;
 }
-.subListingDetailsItem table td{
+.subListingDetailsItem table td {
   border: 1px solid;
-    padding: 0.5em;
+  padding: 0.5em;
 }
 .subListingDetailsItem table .has-text-align-center,
-.subListingDetailsItem table [data-align="center"]{
+.subListingDetailsItem table [data-align="center"] {
   text-align: center;
 }
-.subListingDetailsItem ul li{
+.subListingDetailsItem ul li {
   margin-bottom: 1rem;
 }
 .subListingDetailsItem .wp-block-heading,
@@ -388,7 +396,7 @@
 .subListingDetailsItem h4,
 .subListingDetailsItem h5,
 .subListingDetailsItem h6,
-.subListingDetailsItem table{
+.subListingDetailsItem table {
   margin-top: 1.9rem;
   margin-bottom: 0px;
   font-family: sans-serif;
@@ -402,28 +410,27 @@
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 @media screen and (max-width: 768px) {
-  .latestInfo p{
+  .latestInfo p {
     font-size: 1.6rem;
   }
-  .subListingDetailsItem table img{
+  .subListingDetailsItem table img {
     width: 60% !important;
     height: 100%;
   }
 }
-.subListingDetailsItem table img{
+.subListingDetailsItem table img {
   margin: 0px !important;
   height: auto;
 }
 .subListingDetailsItem h1.wp-block-heading,
 .subListingDetailsItem h1,
-
 .subListingDetailsItem h2.wp-block-heading,
-.subListingDetailsItem h2{
+.subListingDetailsItem h2 {
   font-size: 4rem;
   font-family: var(--font-family);
 }
 .subListingDetailsItem h3.wp-block-heading,
-.subListingDetailsItem h3{
+.subListingDetailsItem h3 {
   font-size: 3rem;
   font-family: var(--font-family);
 }
@@ -434,39 +441,39 @@
   font-family: var(--font-family);
 } */
 .subListingDetailsItem h4.wp-block-heading,
-.subListingDetailsItem h4{
+.subListingDetailsItem h4 {
   font-size: 2.4rem;
   font-family: var(--font-family);
 }
 
-.author-section{
+.author-section {
   display: flex;
   align-items: center;
   margin-bottom: 1.6rem;
 }
-.author-section span{
+.author-section span {
   font-size: 1rem;
-    font-weight: 400;
-    font-family: sans-serif;
+  font-weight: 400;
+  font-family: sans-serif;
 }
 @media screen and (max-width: 768px) {
-  .latestBody{
+  .latestBody {
     grid-template-columns: 100%;
   }
-  .promoBox{
+  .promoBox {
     grid-template-columns: 1fr;
     grid-row-gap: 1.6rem;
   }
   .promoWrap {
     display: none;
   }
-  .latestContent{
+  .latestContent {
     margin: 0;
   }
   /* .latestInfo p{
     font-size: 1.7rem;
   } */
-  .listingDetailsBody{
+  .listingDetailsBody {
     width: 100%;
   }
   .subListingDetailsItem {
@@ -483,28 +490,28 @@
   font-size: 1.3rem;
   padding: 1.6rem 0px;
 }
-.breadCrumb svg{
+.breadCrumb svg {
   margin: 0px 0.75rem 0.2rem;
-    font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 .breadCrumb a,
-.breadCrumb h4{
+.breadCrumb h4 {
   margin: 0;
   font-size: 1.3rem;
   text-transform: uppercase;
   font-weight: 400;
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
-.breadCrumb h4{
+.breadCrumb h4 {
   display: flex;
-    overflow: auto;
+  overflow: auto;
 }
-.breadCrumb span{
+.breadCrumb span {
   color: #7d581b;
   white-space: nowrap;
-    width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 /* .wp-block-table {
@@ -520,7 +527,8 @@
   overflow-x: auto !important;
 }
 
-.wp-block-table .has-fixed-layout td, .wp-block-table .has-fixed-layout th {
+.wp-block-table .has-fixed-layout td,
+.wp-block-table .has-fixed-layout th {
   word-break: break-word !important;
 }
 @media screen and (max-width: 768px) {
@@ -530,4 +538,22 @@
   .heroCardMobile:first-child {
     display: block !important;
   }
+}
+
+.authorTitle{
+  margin-bottom: 2rem;
+}
+.authorName {
+  background-color: black;
+  padding: 1rem;
+  color: white;  
+  text-decoration: none;
+}
+.authorNameDiv{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.authorDescription{
+  margin-top: 2rem;
 }

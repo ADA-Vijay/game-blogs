@@ -1,0 +1,42 @@
+.authorDiv {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  padding-top: 4rem;
+}
+.authorDivWrap {
+  display: flex;
+  gap: 1.9rem;
+}
+.spanAuthor {
+  margin-bottom: 0 !important;
+  color: rgb(96, 96, 96) !important;
+  font-size: 1.2rem;
+}
+.authorImageDiv img {
+  width: 100%;
+  height: 100%;
+}
+.authorImageDiv {
+  width: 11rem;
+}
+.authorSocialDiv {
+  display: flex;
+  gap: 1rem;
+}
+.twitterIconDiv i {
+  font-size: 3.4rem;
+}
+.authorDesc {
+  margin-top: 4rem;
+  padding-right: 10rem;
+}
+
+@media screen and (max-width : 768px) {
+  .authorDiv {
+    padding: 4rem 2rem 1rem 1rem !important;
+    display: block !important;
+  }
+  .authorDesc {
+    padding-right: 0 !important;
+  }
+}

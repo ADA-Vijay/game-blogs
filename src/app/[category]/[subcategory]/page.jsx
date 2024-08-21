@@ -1,27 +1,8 @@
 import React from "react";
 import styles from "@/app/page.module.css";
 import { notFound } from "next/navigation";
-import BreadCrumb from "@/components/breadCrumb/breadCrumb";
-import Head from "next/head";
 import RelatedPosts from "@/components/relatedPosts/relatedPosts";
-const trendingTopData = [
-  {
-    name: "Palworld Guide: How to Fain Your Base",
-    activeDate: "arzan khan 2 months ago",
-  },
-  {
-    name: "Genshin Impact 4.4: All Things You Need to Know",
-    activeDate: "arzan khan 2 months ago",
-  },
-  {
-    name: "Destiny 2 Players Are Shocked with the New Character",
-    activeDate: "arzan khan 2 months ago",
-  },
-  {
-    name: "Keanu Reeves Cameo in the Newest Cyberpunk Update",
-    activeDate: "arzan khan 2 months ago",
-  },
-];
+import Link from "next/link";
 async function getData(subcategory) {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
   try {
@@ -52,8 +33,8 @@ const getPostByCategory = async (params) => {
         const categoryId = catgoryData[0].id;
         const postData = await fetch(
           "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/posts?categories=" +
-          categoryId +
-          "&_embeded"
+            categoryId +
+            "&_embeded"
         );
         if (postData) {
           const posts = await postData.json();
@@ -196,7 +177,10 @@ const page = async ({ params }) => {
                                 }}
                               ></div>
                               {data && data.length > 0 && (
-                                <RelatedPosts category={params.category} data={categoryPosts}></RelatedPosts>
+                                <RelatedPosts
+                                  category={params.category}
+                                  data={categoryPosts}
+                                ></RelatedPosts>
                               )}
                             </div>
                           </>
@@ -208,11 +192,23 @@ const page = async ({ params }) => {
                           </div>
                         )}
                       </div>
+                      <div>
+                        <h3 className={styles.authorTitle}>About Author</h3>
+                        <div className={styles.authorNameDiv}>
+                          <Link href={`/author/${data[0]._embedded.author[0].name.replace(" ","-")}`} className={styles.authorName}>
+                            {data[0]._embedded.author[0].name}
+                          </Link>
+                        </div>
+                        <div>
+                          <span className={styles.authorDescription}>
+                          {data[0]._embedded.author[0].description}
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
 
