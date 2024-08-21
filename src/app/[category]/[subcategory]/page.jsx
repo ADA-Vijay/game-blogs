@@ -153,9 +153,9 @@ const page = async ({ params }) => {
                               }}
                             ></h1>
                             <div className={styles["author-section"]}>
-                              <span className="description">
+                              <Link href={`/author/${data[0]._embedded.author[0].name.replace(" ","-")}`} className="description">
                                 {data[0]._embedded.author[0].name}&nbsp;|&nbsp;
-                              </span>
+                              </Link>
                               <span>
                                 {" "}
                                 Published: {formatDate(data[0].date)}

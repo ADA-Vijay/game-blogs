@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "@/app/404.module.css";
-const pagenotfound = () => {
+const pagenotfound = ({message}) => {
     return (
         <>
             <div className={`${styles["edgt-content"]}`}>
@@ -13,7 +13,7 @@ const pagenotfound = () => {
                                     alt="404"
                                 />
                             </div>
-                            <h1 className={`${styles["edgt-error-page-title"]}`}>Go Back To The Shadow! </h1>
+                            <h1 className={`${styles["edgt-error-page-title"]}`}>{message} </h1>
                             <div className={`${styles["edgt-404-separator"]}`}>
                                 <img
                                     src="https://eldritch.qodeinteractive.com/wp-content/themes/eldritch/assets/img/separator.png"

@@ -197,7 +197,7 @@
 .latestBody {
   display: grid;
   grid-template-columns: 75% 25%;
-  padding-top: 5.5rem;
+  padding-top: 3.5rem;
 }
 .latestContent {
   margin-right: 2.6rem;
