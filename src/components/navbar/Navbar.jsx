@@ -3,22 +3,21 @@ import React from "react";
 import styles from "./navbar.module.css";
 import stylePage from "../../app/page.module.css";
 import SearchComponent from "@/components/search/search";
-import SideBar from '@/components/sideBar/sideBar'
+import SideBar from "@/components/sideBar/sideBar";
 async function getData() {
-  const res = await fetch(
-    "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories?per_page=150",
-    {
-      next: { revalidate: 180 },
-    }
-  );
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+  try {
+    const res = await fetch(
+      "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories?per_page=100",
+      {
+        next: { revalidate: 180 },
+      }
+    );
+    const rawData = await res.json();
+    const organizedData = organizeCategories(rawData);
+    return organizedData;
+  } catch (error) {
+    console.log(error);
   }
-
-  const rawData = await res.json();
-  const organizedData = organizeCategories(rawData);
-  return organizedData;
 }
 function organizeCategories(data) {
   const organizedList = [];
@@ -58,7 +57,7 @@ const Navbar = async () => {
     <div className={styles.headerWrap}>
       <div className={stylePage.container}>
         <div className={styles.navBody}>
-          <SideBar data={data}></SideBar>
+          <SideBar newdata={data}></SideBar>
           <Link href="/" className={styles.logoNone}>
             <img
               className={styles.DesktopLogo}
@@ -69,7 +68,7 @@ const Navbar = async () => {
               className={styles.mobLogo}
               src="/gwlogo (1).png"
               alt="logo"
-              style={{width:"100%",}}
+              style={{ width: "100%" }}
             />
           </Link>
           <div className={styles.navItems}>
