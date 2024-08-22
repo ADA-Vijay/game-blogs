@@ -50,7 +50,33 @@ const getPostByCategory = async (params) => {
 
 export async function generateMetadata({ params }) {
   const data = await getData(params.subcategory);
+
   if (data && data.length > 0) {
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Article", 
+      headline: data[0].yoast_head_json.title,
+      image: data[0].yoast_head_json.og_image[0].url,
+      datePublished: data[0].date,
+      dateModified: data[0].modified,
+      author: {
+        "@type": "Person",
+        name: data[0]._embedded.author[0].name,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "GameWitted",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://fama.b-cdn.net/gw/gwlogo.png",
+        },
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `https://www.gamewitted.com/${params.category}/${params.subcategory}`,
+      },
+      description: data[0].yoast_head_json.description,
+    };
     return {
       title: data[0].yoast_head_json.title,
       description: data[0].yoast_head_json.description,
@@ -80,6 +106,7 @@ export async function generateMetadata({ params }) {
       // alternates: {
       //   canonical: `https://www.gamewitted.com/${params.category}/${params.subcategory}`,
       // },
+      structuredData: JSON.stringify(structuredData),
     };
   }
   // else{
@@ -153,7 +180,13 @@ const page = async ({ params }) => {
                               }}
                             ></h1>
                             <div className={styles["author-section"]}>
-                              <Link href={`/author/${data[0]._embedded.author[0].name.replace(" ","-")}`} className="description">
+                              <Link
+                                href={`/author/${data[0]._embedded.author[0].name.replace(
+                                  " ",
+                                  "-"
+                                )}`}
+                                className="description"
+                              >
                                 {data[0]._embedded.author[0].name}&nbsp;|&nbsp;
                               </Link>
                               <span>
@@ -195,13 +228,19 @@ const page = async ({ params }) => {
                       <div>
                         <h3 className={styles.authorTitle}>About Author</h3>
                         <div className={styles.authorNameDiv}>
-                          <Link href={`/author/${data[0]._embedded.author[0].name.replace(" ","-")}`} className={styles.authorName}>
+                          <Link
+                            href={`/author/${data[0]._embedded.author[0].name.replace(
+                              " ",
+                              "-"
+                            )}`}
+                            className={styles.authorName}
+                          >
                             {data[0]._embedded.author[0].name}
                           </Link>
                         </div>
                         <div>
                           <span className={styles.authorDescription}>
-                          {data[0]._embedded.author[0].description}
+                            {data[0]._embedded.author[0].description}
                           </span>
                         </div>
                       </div>
