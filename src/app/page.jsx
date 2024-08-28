@@ -11,7 +11,7 @@ async function getData() {
     const response = await fetch(
       ApiUrl + "posts?per_page=10&order=desc&orderby=date&_embed=1",
       {
-        next: {revalidate:180},
+        next: { revalidate: 180 },
       }
     );
     const newdata = await response.json();
@@ -19,7 +19,7 @@ async function getData() {
     const trending = await fetch(
       `${ApiUrl}posts?tags=${trendingId}&_embed&per_page=3&orderby=date&order=desc`,
       {
-        next: {revalidate:180},
+        next: { revalidate: 180 },
       }
     );
     const trendingPosts = await trending.json();
@@ -68,12 +68,63 @@ export async function generateMetadata({ params }) {
 
 const Home = async () => {
   const { newdata, trendingPosts } = await getData();
-  const apiUrl = "posts?per_page=10&order=desc&orderby=date&_embed=1"
+  const apiUrl = "posts?per_page=10&order=desc&orderby=date&_embed=1";
   return (
     <>
-    <Head>
-    <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
-    </Head>
+      <Head>
+        <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
+        <script type="text/javascript">
+          window.ramp = window.ramp || {}; window.ramp.que = window.ramp.que ||
+          []; window.ramp.passiveMode = true;
+        </script>
+        <script
+          type="text/javascript"
+          async="true"
+          src={`//cdn.intergient.com/1025324/1025324/ramp.js`}
+        ></script>
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.ramp = window.ramp || {};
+              window.ramp.que = window.ramp.que || [];
+              window.ramp.passiveMode = true;
+
+              var pwUnits = [
+                { selectorId: 'bottom_rail', type: 'bottom_rail' },
+                { selectorId: 'left_rail', type: 'left_rail' },
+                { selectorId: 'right_rail', type: 'right_rail' },
+                { type: 'bottom_rail' },
+                { type: 'corner_ad_video' }
+              ];
+
+              var init = function () {
+                ramp
+                  .addUnits(pwUnits)
+                  .then(() => {
+                    ramp.displayUnits();
+                  })
+                  .catch((e) => {
+                    ramp.displayUnits();
+                    console.log(e);
+                  });
+              };
+
+              init();
+            `,
+          }}
+        ></script>
+        <script
+          type="text/javascript"
+          async
+          src="//cdn.intergient.com/1025324/75084/ramp.js"
+        ></script>
+        <script
+          type="text/javascript"
+          async
+          src="https://cdn.wireplay.com/your-ad-script.js"
+        ></script>
+      </Head>
       <main className="">
         <HeroBanner></HeroBanner>
         <div className={styles.promoWrap}>
@@ -120,7 +171,10 @@ const Home = async () => {
             <div className={styles.headingLine}></div>
           </div>
         </div>
-        <ListingPage newdata={newdata} apiUrl={""}/>
+        <ListingPage newdata={newdata} apiUrl={""} />
+        <div id="bottom_rail"></div>
+        <div id="left_rail"></div>
+        <div id="right_rail"></div>
       </main>
     </>
   );
