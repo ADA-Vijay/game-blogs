@@ -73,58 +73,39 @@ const Home = async () => {
     <>
       <Head>
         <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
-        <script type="text/javascript">
-          window.ramp = window.ramp || {}; window.ramp.que = window.ramp.que ||
-          []; window.ramp.passiveMode = true;
-        </script>
         <script
           type="text/javascript"
-          async="true"
-          src={`//cdn.intergient.com/1025324/1025324/ramp.js`}
+          async
+          src="//cdn.intergient.com/1025324/1025324/ramp.js"
         ></script>
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `
-              window.ramp = window.ramp || {};
-              window.ramp.que = window.ramp.que || [];
-              window.ramp.passiveMode = true;
+        window.ramp = window.ramp || {};
+        window.ramp.que = window.ramp.que || [];
+        window.ramp.passiveMode = true;
 
-              var pwUnits = [
-                { selectorId: 'bottom_rail', type: 'bottom_rail' },
-                { selectorId: 'left_rail', type: 'left_rail' },
-                { selectorId: 'right_rail', type: 'right_rail' },
-                { type: 'bottom_rail' },
-                { type: 'corner_ad_video' }
-              ];
+        var pwUnits = [
+          { selectorId: 'bottom_rail', type: 'bottom_rail' },
+          { selectorId: 'left_rail', type: 'left_rail' },
+          { selectorId: 'right_rail', type: 'right_rail' },
+          { type: 'bottom_rail' },
+          { type: 'corner_ad_video' }
+        ];
 
-              var init = function () {
-                ramp
-                  .addUnits(pwUnits)
-                  .then(() => {
-                    ramp.displayUnits();
-                  })
-                  .catch((e) => {
-                    ramp.displayUnits();
-                    console.log(e);
-                  });
-              };
-
-              init();
-            `,
+        window.ramp.que.push(() => {
+          window.ramp.addUnits(pwUnits).then(() => {
+            window.ramp.displayUnits();
+          }).catch((e) => {
+            console.log(e);
+          });
+        });
+      `,
           }}
         ></script>
-        <script
-          type="text/javascript"
-          async
-          src="//cdn.intergient.com/1025324/75084/ramp.js"
-        ></script>
-        <script
-          type="text/javascript"
-          async
-          src="https://cdn.wireplay.com/your-ad-script.js"
-        ></script>
       </Head>
+
       <main className="">
         <HeroBanner></HeroBanner>
         <div className={styles.promoWrap}>
