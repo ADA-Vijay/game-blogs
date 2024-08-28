@@ -21,7 +21,7 @@ const pagenotfound = ({message}) => {
                                 />
                             </div>
                             <h5 className={styles["edgt-error-page-subtitle"]}>
-                                The page or content you are looking for no longer exists. Perhaps you can
+                                The Page or content you are looking for no longer exists. Perhaps you can
                                 return back to the site's homepage and see if you can find what
                                 you are looking for.{" "}
                             </h5>
