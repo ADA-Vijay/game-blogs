@@ -98,7 +98,7 @@ const Home = async () => {
           window.ramp.addUnits(pwUnits).then(() => {
             window.ramp.displayUnits();
           }).catch((e) => {
-            console.log(e);
+            console.log("error",e);
           });
         });
       `,
