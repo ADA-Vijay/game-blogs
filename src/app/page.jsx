@@ -87,9 +87,9 @@ const Home = async () => {
         window.ramp.passiveMode = true;
 
         var pwUnits = [
-          { selectorId: 'bottom_rail', type: 'bottom_rail' },
-          { selectorId: 'left_rail', type: 'left_rail' },
-          { selectorId: 'right_rail', type: 'right_rail' },
+          { selectorId: 'bottomAds', type: 'bottom_rail' },
+          { selectorId: 'leftAds', type: 'left_rail' },
+          { selectorId: 'rightAds', type: 'right_rail' },
           { type: 'bottom_rail' },
           { type: 'corner_ad_video' }
         ];
@@ -153,7 +153,7 @@ const Home = async () => {
           </div>
         </div>
         <ListingPage newdata={newdata} apiUrl={""} />
-        <div id="bottom_rail"></div>
+        <div id="bottomAds"></div>
         <div id="left_rail"></div>
         <div id="right_rail"></div>
       </main>
