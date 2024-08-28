@@ -76,7 +76,7 @@ const Home = async () => {
         <script
           type="text/javascript"
           async
-          src="//cdn.intergient.com/1025324/1025324/ramp.js"
+          src="//cdn.intergient.com/1025324/75084/ramp.js"
         ></script>
         <script
           type="text/javascript"
