@@ -78,32 +78,22 @@ const Home = async () => {
           async
           src="//cdn.intergient.com/1025324/75084/ramp.js"
         ></script>
+        
         <script
           type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-        window.ramp = window.ramp || {};
-        window.ramp.que = window.ramp.que || [];
-        window.ramp.passiveMode = true;
+          async
+          src="//cdn.intergient.com/1025324/75084/ramp.js"
+          onLoad={() => {
+            window.ramp = window.ramp || {};
+            window.ramp.que = window.ramp.que || [];
+            window.ramp.passiveMode = true;
 
-        var pwUnits = [
-          { selectorId: 'bottomAds', type: 'bottom_rail' },
-          { selectorId: 'leftAds', type: 'left_rail' },
-          { selectorId: 'rightAds', type: 'right_rail' },
-          { type: 'bottom_rail' },
-          { type: 'corner_ad_video' }
-        ];
-
-        window.ramp.que.push(() => {
-          window.ramp.addUnits(pwUnits).then(() => {
-            window.ramp.displayUnits();
-          }).catch((e) => {
-            console.log("error",e);
-          });
-        });
-      `,
+            window.ramp.que.push(() => {
+              window.ramp.spaNewPage();
+            });
           }}
         ></script>
+
       </Head>
 
       <main className="">
