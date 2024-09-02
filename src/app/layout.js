@@ -52,7 +52,6 @@ const GoogleAnalyticsScript = () => (
   </>
 );
 export default function RootLayout({ children }) {
-
   return (
     <html lang="en">
       <head>
@@ -112,7 +111,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-        
+
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
@@ -132,10 +131,10 @@ export default function RootLayout({ children }) {
         window.ramp.que.push(() => {
           window.ramp.addUnits(pwUnits).then(() => {
             window.ramp.displayUnits();
+            console.log("success")
           }).catch((e) => {
-                        console.log("error","error");
                         console.log("error","playwire");
-            console.log("error",e);
+                        console.log("error",e);
           });
         });
       `,
@@ -152,6 +151,9 @@ export default function RootLayout({ children }) {
         <div className="container">
           <Navbar />
           {children}
+          <div id="bottomAds"></div>
+          <div id="leftAds"></div>
+          <div id="rightAds"></div>
           <Footer />
           <GoogleAnalyticsScript />
         </div>
