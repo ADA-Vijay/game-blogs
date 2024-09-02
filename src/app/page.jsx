@@ -154,8 +154,8 @@ const Home = async () => {
         </div>
         <ListingPage newdata={newdata} apiUrl={""} />
         <div id="bottomAds"></div>
-        <div id="left_rail"></div>
-        <div id="right_rail"></div>
+        <div id="leftAds"></div>
+        <div id="rightAds"></div>
       </main>
     </>
   );
