@@ -112,11 +112,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-        <script
-          type="text/javascript"
-          async
-          src="https://cdn.intergient.com/1025324/75084/ramp.js"
-        ></script>
+        
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
@@ -137,11 +133,17 @@ export default function RootLayout({ children }) {
           window.ramp.addUnits(pwUnits).then(() => {
             window.ramp.displayUnits();
           }).catch((e) => {
+                        console.log("error","playwire");
             console.log("error",e);
           });
         });
       `,
           }}
+        ></script>
+        <script
+          type="text/javascript"
+          async
+          src="https://cdn.intergient.com/1025324/75084/ramp.js"
         ></script>
       </head>
 
