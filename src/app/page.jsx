@@ -73,27 +73,7 @@ const Home = async () => {
     <>
       <Head>
         <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
-        <script
-          type="text/javascript"
-          async
-          src="//cdn.intergient.com/1025324/75084/ramp.js"
-        ></script>
         
-        <script
-          type="text/javascript"
-          async
-          src="//cdn.intergient.com/1025324/75084/ramp.js"
-          onLoad={() => {
-            window.ramp = window.ramp || {};
-            window.ramp.que = window.ramp.que || [];
-            window.ramp.passiveMode = true;
-
-            window.ramp.que.push(() => {
-              window.ramp.spaNewPage();
-            });
-          }}
-        ></script>
-
       </Head>
 
       <main className="">
@@ -143,7 +123,7 @@ const Home = async () => {
           </div>
         </div>
         <ListingPage newdata={newdata} apiUrl={""} />
-        <div id="bottomAds"></div>
+       <div id="bottomAds"></div>
         <div id="leftAds"></div>
         <div id="rightAds"></div>
       </main>
