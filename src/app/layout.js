@@ -133,6 +133,7 @@ export default function RootLayout({ children }) {
           window.ramp.addUnits(pwUnits).then(() => {
             window.ramp.displayUnits();
           }).catch((e) => {
+                        console.log("error","error");
                         console.log("error","playwire");
             console.log("error",e);
           });
