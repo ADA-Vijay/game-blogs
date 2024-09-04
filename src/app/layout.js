@@ -51,38 +51,6 @@ const GoogleAnalyticsScript = () => (
     </Script>
   </>
 );
-const PlayWireAds = () => {
-  <>
-    <script
-      type="text/javascript"
-      dangerouslySetInnerHTML={{
-        __html: `
-              window.ramp = window.ramp || {};
-              window.ramp.que = window.ramp.que || [];
-              window.ramp.passiveMode = true;
-              var pwUnits = [
-                { selectorId: 'bottomAds', type: 'bottom_rail' },
-                { selectorId: 'leftAds', type: 'left_rail' },
-                { selectorId: 'rightAds', type: 'right_rail' },
-                { type: 'bottom_rail' },
-                { type: 'corner_ad_video' }
-              ];
-              window.ramp.que.push(() => {
-                window.ramp.addUnits(pwUnits).then(() => {
-                  window.ramp.displayUnits();
-                }).catch((e) => {
-                  console.error('Playwire error:', e);
-                });
-              });
-            `,
-      }}
-    ></script>
-    <Script
-      async
-      src="https://cdn.intergient.com/1025324/75084/ramp.js"
-    ></Script>
-  </>;
-};
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -143,18 +111,50 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-        <PlayWireAds />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+        window.ramp = window.ramp || {};
+        window.ramp.que = window.ramp.que || [];
+        window.ramp.passiveMode = true;
+
+        var pwUnits = [
+          { selectorId: 'bottomAds', type: 'bottom_rail' },
+          { selectorId: 'leftAds', type: 'left_rail' },
+          { selectorId: 'rightAds', type: 'right_rail' },
+          { type: 'bottom_rail' },
+          { type: 'corner_ad_video' }
+        ];
+
+        window.ramp.que.push(() => {
+          window.ramp.addUnits(pwUnits).then(() => {
+            window.ramp.displayUnits();
+            console.log("success")
+          }).catch((e) => {
+                        console.log("error","playwire");
+                        console.log("error",e);
+          });
+        });
+      `,
+          }}
+        ></script>
+        <script
+          type="text/javascript"
+          async
+          src="https://cdn.intergient.com/1025324/75084/ramp.js"
+        ></script>
       </head>
 
       <body className={inter.className}>
         <div className="container">
           <Navbar />
           {children}
+          <Footer />
+          <GoogleAnalyticsScript />
           <div id="bottomAds"></div>
           <div id="leftAds"></div>
           <div id="rightAds"></div>
-          <Footer />
-          <GoogleAnalyticsScript />
         </div>
       </body>
     </html>
