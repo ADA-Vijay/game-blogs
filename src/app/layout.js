@@ -150,11 +150,11 @@ export default function RootLayout({ children }) {
         <div className="container">
           <Navbar />
           {children}
-          <Footer />
-          <GoogleAnalyticsScript />
           <div id="bottomAds"></div>
           <div id="leftAds"></div>
           <div id="rightAds"></div>
+          <Footer />
+          <GoogleAnalyticsScript />
         </div>
       </body>
     </html>
