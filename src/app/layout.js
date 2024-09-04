@@ -117,7 +117,6 @@ export default function RootLayout({ children }) {
         <div className="container">
           <Navbar />
           {children}
-          
           <Footer />
           <GoogleAnalyticsScript />
         </div>
