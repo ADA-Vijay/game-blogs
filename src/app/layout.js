@@ -5,7 +5,7 @@ import Footer from "@/components/footer/Footer";
 import Script from "next/script";
 import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
-
+const Ramp = dynamic(() => import("@/components/ramp/ramp"), { ssr: true });
 export const metadata = {
   title: "GameWitted",
   description:
@@ -114,7 +114,7 @@ export default function RootLayout({ children }) {
           referrerPolicy="no-referrer"
         />
 
-        <script
+        {/* <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `
@@ -146,7 +146,7 @@ export default function RootLayout({ children }) {
           type="text/javascript"
           async
           src="https://cdn.intergient.com/1025324/75084/ramp.js"
-        ></script>
+        ></script> */}
       </head>
 
       <body className={inter.className}>
@@ -161,6 +161,7 @@ export default function RootLayout({ children }) {
           <GoogleAnalyticsScript />
           
         </div>
+        <Ramp />
       </body>
     </html>
   );
