@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import Script from "next/script";
 import Head from "next/head";
-import Ramp from '@/components/ramp/ramp';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -115,7 +114,7 @@ export default function RootLayout({ children }) {
           referrerPolicy="no-referrer"
         />
 
-        {/* <script
+        <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `
@@ -142,12 +141,12 @@ export default function RootLayout({ children }) {
         });
       `,
           }}
-        ></script> */}
-        {/* <script
+        ></script>
+        <script
           type="text/javascript"
           async
           src="https://cdn.intergient.com/1025324/75084/ramp.js"
-        ></script> */}
+        ></script>
       </head>
 
       <body className={inter.className}>
@@ -162,7 +161,6 @@ export default function RootLayout({ children }) {
           <GoogleAnalyticsScript />
           
         </div>
-        <Ramp/>
       </body>
     </html>
   );
