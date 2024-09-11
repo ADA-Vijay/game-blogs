@@ -155,9 +155,9 @@ export default function RootLayout({ children }) {
         <div className="container">
           <Navbar />
           {children}
-          <Ramp PUB_ID={PUB_ID} WEBSITE_ID={WEBSITE_ID} />
           <Footer />
           <GoogleAnalyticsScript />
+          <Ramp PUB_ID={PUB_ID} WEBSITE_ID={WEBSITE_ID} />
         </div>
       </body>
     </html>
