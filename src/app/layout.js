@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import Script from "next/script";
 import Head from "next/head";
+import Ramp from '@/components/ramp/ramp';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -51,6 +52,9 @@ const GoogleAnalyticsScript = () => (
     </Script>
   </>
 );
+
+const PUB_ID = 1025324;
+const WEBSITE_ID = 75084;
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -112,7 +116,7 @@ export default function RootLayout({ children }) {
           referrerPolicy="no-referrer"
         />
 
-        <script
+        {/* <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `
@@ -139,7 +143,7 @@ export default function RootLayout({ children }) {
         });
       `,
           }}
-        ></script>
+        ></script> */}
         <script
           type="text/javascript"
           async
@@ -151,6 +155,8 @@ export default function RootLayout({ children }) {
         <div className="container">
           <Navbar />
           {children}
+          <Ramp PUB_ID={PUB_ID} WEBSITE_ID={WEBSITE_ID} />
+
           <div id="bottomAds"></div>
           <div id="leftAds"></div>
           <div id="rightAds"></div>
