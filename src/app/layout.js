@@ -53,8 +53,7 @@ const GoogleAnalyticsScript = () => (
   </>
 );
 
-const PUB_ID = 1025324;
-const WEBSITE_ID = 75084;
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -161,7 +160,7 @@ export default function RootLayout({ children }) {
           <div id="rightAds"></div>
           <Footer />
           <GoogleAnalyticsScript />
-          <Ramp PUB_ID={PUB_ID} WEBSITE_ID={WEBSITE_ID} />
+          <Ramp/>
 
         </div>
       </body>

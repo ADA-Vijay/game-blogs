@@ -1,8 +1,9 @@
 "use client"
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-
-const Ramp = ({ PUB_ID, WEBSITE_ID }) => {
+const PUB_ID = 1025324;
+const WEBSITE_ID = 75084;
+const Ramp = () => {
    const [rampComponentLoaded, setRampComponentLoaded] = useState(false);
    const router = useRouter();
 
