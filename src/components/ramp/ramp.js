@@ -1,11 +1,11 @@
 "use client"
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation'; // Use this instead of useRouter
 const PUB_ID = 1025324;
 const WEBSITE_ID = 75084;
 const Ramp = () => {
    const [rampComponentLoaded, setRampComponentLoaded] = useState(false);
-   const router = useRouter();
+   const pathname = usePathname(); // This replaces useRouter()
 
    useEffect(() => {
        if (!PUB_ID || !WEBSITE_ID) {
@@ -28,9 +28,9 @@ const Ramp = () => {
 
        // cleanUp function to remove units on component unmount
        window.ramp.que.push(() => {
-           window.ramp.spaNewPage(router.asPath);
-       });
-   }, [rampComponentLoaded, router.asPath]);
+        window.ramp.spaNewPage(pathname); // Use pathname instead of router.asPath
+    });
+   }, [rampComponentLoaded, pathname]);
 
    return null;
 };
