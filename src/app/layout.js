@@ -144,11 +144,11 @@ export default function RootLayout({ children }) {
       `,
           }}
         ></script> */}
-        <script
+        {/* <script
           type="text/javascript"
           async
           src="https://cdn.intergient.com/1025324/75084/ramp.js"
-        ></script>
+        ></script> */}
       </head>
 
       <body className={inter.className}>
@@ -156,10 +156,6 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
           <Ramp PUB_ID={PUB_ID} WEBSITE_ID={WEBSITE_ID} />
-
-          <div id="bottomAds"></div>
-          <div id="leftAds"></div>
-          <div id="rightAds"></div>
           <Footer />
           <GoogleAnalyticsScript />
         </div>

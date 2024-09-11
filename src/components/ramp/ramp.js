@@ -18,7 +18,6 @@ const Ramp = ({ PUB_ID, WEBSITE_ID }) => {
            window.ramp.que = window.ramp.que || [];
            window.ramp.passiveMode = true;
 
-           // Load the Ramp configuration script
            const configScript = document.createElement("script");
            configScript.src = `https://cdn.intergient.com/${PUB_ID}/${WEBSITE_ID}/ramp.js`;
            document.body.appendChild(configScript); // Insert before closing </body> tag
