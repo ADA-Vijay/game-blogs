@@ -5,7 +5,8 @@ import Footer from "@/components/footer/Footer";
 import Script from "next/script";
 import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
-const Ramp = dynamic(() => import("@/components/ramp/ramp"), { ssr: false });
+import dynamic from "next/dynamic";
+const Ramp = dynamic(() => import("@/components/ramp/ramp"), { ssr: true });
 export const metadata = {
   title: "GameWitted",
   description:
