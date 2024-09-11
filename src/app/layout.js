@@ -143,11 +143,11 @@ export default function RootLayout({ children }) {
       `,
           }}
         ></script> */}
-        <script
+        {/* <script
           type="text/javascript"
           async
           src="https://cdn.intergient.com/1025324/75084/ramp.js"
-        ></script>
+        ></script> */}
       </head>
 
       <body className={inter.className}>
@@ -160,9 +160,9 @@ export default function RootLayout({ children }) {
           <div id="rightAds"></div>
           <Footer />
           <GoogleAnalyticsScript />
-          <Ramp/>
-
+          
         </div>
+        <Ramp/>
       </body>
     </html>
   );
