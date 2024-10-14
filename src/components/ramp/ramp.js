@@ -33,6 +33,6 @@ const Ramp = () => {
    }, [rampComponentLoaded]);
 
    return null;
-};
+}; 
 
 export default Ramp;
