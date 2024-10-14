@@ -30,7 +30,7 @@ const Ramp = () => {
        window.ramp.que.push(() => {
         window.ramp.spaNewPage(pathname); // Use pathname instead of router.asPath
     });
-   }, [rampComponentLoaded, pathname]);
+   }, [rampComponentLoaded]);
 
    return null;
 };
