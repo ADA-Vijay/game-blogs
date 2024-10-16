@@ -1,22 +1,20 @@
 "use client";
 import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation'; // Replacing useRouter
+import { usePathname } from 'next/navigation'; 
 
 const PUB_ID = 1025324;
 const WEBSITE_ID = 75084;
 
 const Ramp = () => {
    const [rampComponentLoaded, setRampComponentLoaded] = useState(false);
-   const pathname = usePathname(); // Get current path
+   const pathname = usePathname(); 
 
    useEffect(() => {
-       // Ensure Publisher ID and Website ID are present
        if (!PUB_ID || !WEBSITE_ID) {
            console.log('Missing Publisher Id and Website Id');
            return;
        }
 
-       // Load Ramp script only once
        if (!rampComponentLoaded) {
            setRampComponentLoaded(true);
            window.ramp = window.ramp || {};
@@ -25,25 +23,23 @@ const Ramp = () => {
 
            const configScript = document.createElement("script");
            configScript.src = `https://cdn.intergient.com/${PUB_ID}/${WEBSITE_ID}/ramp.js`;
-           document.body.appendChild(configScript); // Append before closing </body> tag
+           document.body.appendChild(configScript); 
 
-           // Ensure ramp.spaNewPage runs only once on script load
            configScript.onload = () => {
                if (window.ramp && window.ramp.spaNewPage) {
-                   window.ramp.spaNewPage(pathname); // Trigger on initial page load
+                   window.ramp.spaNewPage(pathname); 
                }
            };
        }
 
-       // Call spaNewPage on every navigation change
        window.ramp.que.push(() => {
            if (window.ramp && window.ramp.spaNewPage) {
-               window.ramp.spaNewPage(pathname); // Trigger on navigation
+               window.ramp.spaNewPage(pathname); 
                console.log(`spaNewPage triggered for path: ${pathname}`);
            }
        });
 
-   }, [pathname, rampComponentLoaded]); // Re-run on pathname change
+   }, []); 
 
    return null;
 };
