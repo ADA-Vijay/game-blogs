@@ -1,18 +1,22 @@
-"use client"
+"use client";
 import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation'; // Use this instead of useRouter
+import { usePathname } from 'next/navigation'; // Replacing useRouter
+
 const PUB_ID = 1025324;
 const WEBSITE_ID = 75084;
+
 const Ramp = () => {
    const [rampComponentLoaded, setRampComponentLoaded] = useState(false);
-   const pathname = usePathname(); // This replaces useRouter()
+   const pathname = usePathname(); // Get current path
 
    useEffect(() => {
+       // Ensure Publisher ID and Website ID are present
        if (!PUB_ID || !WEBSITE_ID) {
            console.log('Missing Publisher Id and Website Id');
            return;
        }
 
+       // Load Ramp script only once
        if (!rampComponentLoaded) {
            setRampComponentLoaded(true);
            window.ramp = window.ramp || {};
@@ -21,18 +25,27 @@ const Ramp = () => {
 
            const configScript = document.createElement("script");
            configScript.src = `https://cdn.intergient.com/${PUB_ID}/${WEBSITE_ID}/ramp.js`;
-           document.body.appendChild(configScript); // Insert before closing </body> tag
+           document.body.appendChild(configScript); // Append before closing </body> tag
 
-           configScript.onload = window.ramp.spaNewPage;
+           // Ensure ramp.spaNewPage runs only once on script load
+           configScript.onload = () => {
+               if (window.ramp && window.ramp.spaNewPage) {
+                   window.ramp.spaNewPage(pathname); // Trigger on initial page load
+               }
+           };
        }
 
-       // cleanUp function to remove units on component unmount
+       // Call spaNewPage on every navigation change
        window.ramp.que.push(() => {
-        window.ramp.spaNewPage(pathname); // Use pathname instead of router.asPath
-    });
-   }, [rampComponentLoaded]);
+           if (window.ramp && window.ramp.spaNewPage) {
+               window.ramp.spaNewPage(pathname); // Trigger on navigation
+               console.log(`spaNewPage triggered for path: ${pathname}`);
+           }
+       });
+
+   }, [pathname, rampComponentLoaded]); // Re-run on pathname change
 
    return null;
-}; 
+};
 
 export default Ramp;

@@ -3,7 +3,6 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import Script from "next/script";
-import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 import dynamic from "next/dynamic";
 const Ramp = dynamic(() => import("@/components/ramp/ramp"), { ssr: false });
@@ -114,40 +113,6 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-
-        {/* <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-        window.ramp = window.ramp || {};
-        window.ramp.que = window.ramp.que || [];
-        window.ramp.passiveMode = true;
-
-        var pwUnits = [
-          { selectorId: 'bottomAds', type: 'bottom_rail' },
-          { selectorId: 'leftAds', type: 'left_rail' },
-          { selectorId: 'rightAds', type: 'right_rail' },
-          { type: 'bottom_rail' },
-          { type: 'corner_ad_video' }
-        ];
-
-        window.ramp.que.push(() => {
-          window.ramp.addUnits(pwUnits).then(() => {
-            window.ramp.displayUnits();
-            console.log("success")
-          }).catch((e) => {
-                        console.log("error","playwire");
-                        console.log("error",e);
-          });
-        });
-      `,
-          }}
-        ></script>
-        <script
-          type="text/javascript"
-          async
-          src="https://cdn.intergient.com/1025324/75084/ramp.js"
-        ></script> */}
       </head>
 
       <body className={inter.className}>
