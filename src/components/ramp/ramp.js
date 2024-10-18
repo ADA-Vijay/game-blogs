@@ -39,7 +39,7 @@ const Ramp = () => {
            }
        });
 
-   }, [pathname]); 
+   }, []); 
 
    return null;
 };
