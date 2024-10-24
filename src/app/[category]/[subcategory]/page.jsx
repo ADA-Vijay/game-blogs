@@ -3,6 +3,7 @@ import styles from "@/app/page.module.css";
 import { notFound } from "next/navigation";
 import RelatedPosts from "@/components/relatedPosts/relatedPosts";
 import Link from "next/link";
+import SubStyles from "@/app/[category]/[subcategory]/subcategory.module.css"
 async function getData(subcategory) {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
   try {
@@ -164,7 +165,7 @@ const page = async ({ params }) => {
       {data && data.length > 0 && (
         <>
           <div className={styles.latestWrap}>
-            <div className={styles.container}>
+            <div className={SubStyles.container}>
               {/* <BreadCrumb category={category} subcategory={subcategory} /> */}
               <div className={styles.listingDetailsWrap}>
                 <div className={styles.latestBody}>
@@ -250,8 +251,8 @@ const page = async ({ params }) => {
               </div>
             </div>
           </div>
-          <div className="sidebar">
-            <div></div>
+          <div className={SubStyles.sidebar}>
+            
           </div>
           {/* <div className={styles.trendingTopWrap}>
             <div>
