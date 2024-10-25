@@ -54,7 +54,7 @@ export async function generateMetadata({ params }) {
   if (data && data.length > 0) {
     const structuredData = {
       "@context": "https://schema.org",
-      "@type": "Article", 
+      "@type": "Article",
       headline: data[0].yoast_head_json.title,
       image: data[0].yoast_head_json.og_image[0].url,
       datePublished: data[0].date,
@@ -250,7 +250,9 @@ const page = async ({ params }) => {
               </div>
             </div>
           </div>
-
+          <div className="sidebar">
+            <div></div>
+          </div>
           {/* <div className={styles.trendingTopWrap}>
             <div>
               <img
