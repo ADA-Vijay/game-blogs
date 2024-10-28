@@ -51,6 +51,35 @@ const GoogleAnalyticsScript = () => (
     </Script>
   </>
 );
+
+const RichResultsScript = () => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "GameWitted",
+        url: "https://gamewitted.com/",
+        description:
+          "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
+        publisher: {
+          "@type": "Organization",
+          name: "GameWitted",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://fama.b-cdn.net/gw/gwlogo.png",
+          },
+        },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: "https://gamewitted.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      }),
+    }}
+  />
+);
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -119,6 +148,8 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
           <GoogleAnalyticsScript />
+          <RichResultsScript />
+
         </div>
         <Ramp />
       </body>
