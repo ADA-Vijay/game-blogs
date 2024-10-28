@@ -142,7 +142,6 @@ const RichResultsScript = ({ structuredData, breadcrumb }) => (
   </>
 );
 
-
 const page = async ({ params }) => {
   const category = params.category;
   const subcategory = params.subcategory;
@@ -162,15 +161,21 @@ const page = async ({ params }) => {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "NewsArticle", // "type" is implicitly specified here as NewsArticle
+    "@id": `https://www.gamewitted.com/${params.category}/${params.subcategory}`, // unique ID for the article
     headline: data[0].yoast_head_json.title,
     image: data[0].yoast_head_json.og_image[0].url,
+    thumbnailUrl: data[0].yoast_head_json.og_image[0].url, // Setting the thumbnail URL to the main image URL (or another image if preferred)
     datePublished: `${data[0].date}Z`,
     dateModified: `${data[0].modified}Z`,
+    isAccessibleForFree: "True",
     author: {
       "@type": "Person",
       name: data[0]._embedded.author[0].name,
-      url: `https://www.gamewitted.com/author/${data[0]._embedded.author[0].name.replace(" ", "-")}`
+      url: `https://www.gamewitted.com/author/${data[0]._embedded.author[0].name.replace(
+        " ",
+        "-"
+      )}`,
     },
     publisher: {
       "@type": "Organization",
@@ -179,6 +184,12 @@ const page = async ({ params }) => {
         "@type": "ImageObject",
         url: "https://fama.b-cdn.net/gw/gwlogo.png",
       },
+    },
+    isPartOf: {
+      "@type": "WebPage",
+      "@id": `https://www.gamewitted.com/${params.category}`,
+      url: `https://www.gamewitted.com/${params.category}`,
+      name: params.category,
     },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -207,8 +218,6 @@ const page = async ({ params }) => {
     ],
   };
 
-  
-
   const scrollToSection = (sectionName) => {
     const sectionElement = document.getElementById(sectionName);
     if (sectionElement) {
@@ -229,8 +238,11 @@ const page = async ({ params }) => {
   }
   return (
     <>
-    <RichResultsScript structuredData={structuredData} breadcrumb={JSON.stringify(breadcrumbStructuredData)} />
-    {data && data.length > 0 && (
+      <RichResultsScript
+        structuredData={structuredData}
+        breadcrumb={JSON.stringify(breadcrumbStructuredData)}
+      />
+      {data && data.length > 0 && (
         <>
           <div className={styles.latestWrap}>
             <div className={styles.container}>
