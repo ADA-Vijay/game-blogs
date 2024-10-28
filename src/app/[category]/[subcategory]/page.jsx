@@ -161,21 +161,19 @@ const page = async ({ params }) => {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "NewsArticle", // "type" is implicitly specified here as NewsArticle
-    "@id": `https://www.gamewitted.com/${params.category}/${params.subcategory}`, // unique ID for the article
+    "@type": "NewsArticle",
+    "@id": `https://www.gamewitted.com/${params.category}/${params.subcategory}`,  // unique ID for the article
     headline: data[0].yoast_head_json.title,
     image: data[0].yoast_head_json.og_image[0].url,
     thumbnailUrl: data[0].yoast_head_json.og_image[0].url, // Setting the thumbnail URL to the main image URL (or another image if preferred)
     datePublished: `${data[0].date}Z`,
     dateModified: `${data[0].modified}Z`,
     isAccessibleForFree: "True",
+    articleBody: data[0].content.rendered.replace(/<[^>]*>?/gm, ''), // Stripping HTML tags
     author: {
       "@type": "Person",
       name: data[0]._embedded.author[0].name,
-      url: `https://www.gamewitted.com/author/${data[0]._embedded.author[0].name.replace(
-        " ",
-        "-"
-      )}`,
+      url: `https://www.gamewitted.com/author/${data[0]._embedded.author[0].name.replace(" ", "-")}`
     },
     publisher: {
       "@type": "Organization",
@@ -198,6 +196,7 @@ const page = async ({ params }) => {
     description: data[0].yoast_head_json.description,
     inLanguage: "en-US",
   };
+  
 
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
