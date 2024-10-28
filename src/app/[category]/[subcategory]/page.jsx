@@ -150,16 +150,18 @@ const page = async ({ params }) => {
   let hashOffset = 0;
 
   const categoryPosts = await getPostByCategory(params);
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: data[0].yoast_head_json.title,
     image: data[0].yoast_head_json.og_image[0].url,
-    datePublished: data[0].date,
-    dateModified: data[0].modified,
+    datePublished: `${data[0].date}Z`,
+    dateModified: `${data[0].modified}Z`,
     author: {
       "@type": "Person",
       name: data[0]._embedded.author[0].name,
+      url: `https://www.gamewitted.com/author/${data[0]._embedded.author[0].name.replace(" ", "-")}`
     },
     publisher: {
       "@type": "Organization",
@@ -176,6 +178,8 @@ const page = async ({ params }) => {
     description: data[0].yoast_head_json.description,
     inLanguage: "en-US",
   };
+  
+
   const scrollToSection = (sectionName) => {
     const sectionElement = document.getElementById(sectionName);
     if (sectionElement) {
