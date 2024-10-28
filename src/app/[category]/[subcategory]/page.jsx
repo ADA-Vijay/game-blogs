@@ -124,6 +124,15 @@ export async function generateMetadata({ params }) {
   //  };
   // }
 }
+
+const RichResultsScript = ({ structuredData }) => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify(structuredData),
+    }}
+  />
+);
 const page = async ({ params }) => {
   const category = params.category;
   const subcategory = params.subcategory;
@@ -140,7 +149,32 @@ const page = async ({ params }) => {
   let hashOffset = 0;
 
   const categoryPosts = await getPostByCategory(params);
-
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "GameWitted",
+    url: "https://gamewitted.com/",
+    description:
+      "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
+    publisher: {
+      "@type": "Organization",
+      name: "GameWitted",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://fama.b-cdn.net/gw/gwlogo.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.gamewitted.com/${category}/${subcategory}`,
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://gamewitted.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+    inLanguage: "en-US",
+  };
   const scrollToSection = (sectionName) => {
     const sectionElement = document.getElementById(sectionName);
     if (sectionElement) {
@@ -161,6 +195,7 @@ const page = async ({ params }) => {
   }
   return (
     <>
+      <RichResultsScript structuredData={structuredData} />
       {data && data.length > 0 && (
         <>
           <div className={styles.latestWrap}>

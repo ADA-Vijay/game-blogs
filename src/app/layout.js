@@ -76,6 +76,7 @@ const RichResultsScript = () => (
           target: "https://gamewitted.com/search?q={search_term_string}",
           "query-input": "required name=search_term_string",
         },
+        inLanguage: "en-US",
       }),
     }}
   />
@@ -149,7 +150,6 @@ export default function RootLayout({ children }) {
           <Footer />
           <GoogleAnalyticsScript />
           <RichResultsScript />
-
         </div>
         <Ramp />
       </body>
