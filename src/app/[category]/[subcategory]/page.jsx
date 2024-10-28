@@ -125,14 +125,23 @@ export async function generateMetadata({ params }) {
   // }
 }
 
-const RichResultsScript = ({ structuredData }) => (
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify(structuredData),
-    }}
-  />
+const RichResultsScript = ({ structuredData, breadcrumb }) => (
+  <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(structuredData),
+      }}
+    />
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: breadcrumb,
+      }}
+    />
+  </>
 );
+
 
 const page = async ({ params }) => {
   const category = params.category;
@@ -178,6 +187,26 @@ const page = async ({ params }) => {
     description: data[0].yoast_head_json.description,
     inLanguage: "en-US",
   };
+
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: params.category,
+        item: `https://www.gamewitted.com/${params.category}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: params.subcategory,
+        item: `https://www.gamewitted.com/${params.category}/${params.subcategory}`,
+      },
+    ],
+  };
+
   
 
   const scrollToSection = (sectionName) => {
@@ -200,8 +229,8 @@ const page = async ({ params }) => {
   }
   return (
     <>
-      <RichResultsScript structuredData={structuredData} />
-      {data && data.length > 0 && (
+    <RichResultsScript structuredData={structuredData} breadcrumb={JSON.stringify(breadcrumbStructuredData)} />
+    {data && data.length > 0 && (
         <>
           <div className={styles.latestWrap}>
             <div className={styles.container}>
