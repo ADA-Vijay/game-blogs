@@ -133,6 +133,7 @@ const RichResultsScript = ({ structuredData }) => (
     }}
   />
 );
+
 const page = async ({ params }) => {
   const category = params.category;
   const subcategory = params.subcategory;
@@ -151,11 +152,15 @@ const page = async ({ params }) => {
   const categoryPosts = await getPostByCategory(params);
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "GameWitted",
-    url: "https://gamewitted.com/",
-    description:
-      "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
+    "@type": "Article",
+    headline: data[0].yoast_head_json.title,
+    image: data[0].yoast_head_json.og_image[0].url,
+    datePublished: data[0].date,
+    dateModified: data[0].modified,
+    author: {
+      "@type": "Person",
+      name: data[0]._embedded.author[0].name,
+    },
     publisher: {
       "@type": "Organization",
       name: "GameWitted",
@@ -166,13 +171,9 @@ const page = async ({ params }) => {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.gamewitted.com/${category}/${subcategory}`,
+      "@id": `https://www.gamewitted.com/${params.category}/${params.subcategory}`,
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://gamewitted.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
+    description: data[0].yoast_head_json.description,
     inLanguage: "en-US",
   };
   const scrollToSection = (sectionName) => {
